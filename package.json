@@ -1,6 +1,6 @@
 {
   "name": "@zippendo/sdk",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "OpenAPI client for @zippendo/sdk",
   "author": "OpenAPI-Generator",
   "repository": {

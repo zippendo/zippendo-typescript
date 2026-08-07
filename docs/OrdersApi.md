@@ -244,7 +244,7 @@ example().catch(console.error);
 
 ## listOrders
 
-> ListOrders200Response listOrders(orgId, page, limit, status, orderChannelId, search)
+> ListOrders200Response listOrders(orgId, page, limit, brandId, status, orderChannelId, search)
 
 List orders
 
@@ -274,6 +274,8 @@ async function example() {
     page: 1,
     // number | Items per page (max 100) (optional)
     limit: 20,
+    // string | Filter by brand. Pass a brand ID, or \"none\" for records not assigned to any brand. (optional)
+    brandId: brnd_8f3kd92ld0,
     // 'pending' | 'processing' | 'partially_fulfilled' | 'fulfilled' | 'error' | 'cancelled' | Order fulfilment status derived from its shipments. (optional)
     status: processing,
     // string | Filter by order channel ID. (optional)
@@ -302,6 +304,7 @@ example().catch(console.error);
 | **orgId** | `string` | Organization ID | [Defaults to `undefined`] |
 | **page** | `number` | Page number (1-based) | [Optional] [Defaults to `1`] |
 | **limit** | `number` | Items per page (max 100) | [Optional] [Defaults to `20`] |
+| **brandId** | `string` | Filter by brand. Pass a brand ID, or \&quot;none\&quot; for records not assigned to any brand. | [Optional] [Defaults to `undefined`] |
 | **status** | `pending`, `processing`, `partially_fulfilled`, `fulfilled`, `error`, `cancelled` | Order fulfilment status derived from its shipments. | [Optional] [Defaults to `undefined`] [Enum: pending, processing, partially_fulfilled, fulfilled, error, cancelled] |
 | **orderChannelId** | `string` | Filter by order channel ID. | [Optional] [Defaults to `undefined`] |
 | **search** | `string` | Search by order number or customer name/email. | [Optional] [Defaults to `undefined`] |

@@ -11,6 +11,7 @@ Name | Type
 `customerName` | string
 `customerEmail` | string
 `status` | string
+`brandId` | string
 `subtotalAmount` | number
 `totalAmount` | number
 `currency` | string
@@ -31,6 +32,7 @@ const example = {
   "customerName": Anna Jensen,
   "customerEmail": anna@example.dk,
   "status": processing,
+  "brandId": brnd_8f3kd92ld0,
   "subtotalAmount": 998,
   "totalAmount": 1047,
   "currency": DKK,

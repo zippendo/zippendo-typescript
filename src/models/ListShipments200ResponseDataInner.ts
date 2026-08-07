@@ -2,7 +2,7 @@
 /* eslint-disable */
 /**
  * Zippendo Public API
- * Public API documentation for Zippendo. Authenticate using your API token (Bearer token prefixed with zipp_).
+ * Public API documentation for Zippendo. Authenticate using your API token (Bearer token prefixed with zipp_).  **Brands (sub-accounts).** An organization can be split into brands, each keeping its own orders, shipments and configuration separate. There are two ways to scope requests to one brand, and NEITHER changes any request body:  1. **Bind the token.** Create an API token with a `brandId` and every request it makes is confined    to that brand — reads filtered, writes stamped. This is the recommended way to give a single    brand\'s team its own credential. 2. **Send the `X-Zippendo-Brand` header.** An organization-wide token can scope an individual    request by sending the brand\'s id or slug in this header. Most SDKs let you set it once on the    client so every call inherits it.  A brand-bound token that receives an `X-Zippendo-Brand` header naming a different brand is rejected with `403 BRAND_ACCESS_DENIED` — the binding is never widened. Omit both and requests cover the whole organization, which is the behaviour of every existing token.  Records that belong to no brand carry `brandId: null`. Configuration (carriers, shipping rules, addresses) with a null brand is organization-wide and remains visible inside every brand; orders and shipments with a null brand are only visible organization-wide.
  *
  * The version of the OpenAPI document: 1.0.0
  * Contact: support@zippendo.com
@@ -65,6 +65,12 @@ export interface ListShipments200ResponseDataInner {
      */
     status: ListShipments200ResponseDataInnerStatusEnum;
     /**
+     * Brand this record belongs to, or null when it is organization-wide
+     * @type {string}
+     * @memberof ListShipments200ResponseDataInner
+     */
+    brandId: string | null;
+    /**
      * 
      * @type {ListShipments200ResponseDataInnerAddress}
      * @memberof ListShipments200ResponseDataInner
@@ -119,6 +125,7 @@ export function instanceOfListShipments200ResponseDataInner(value: object): valu
     if (!('type' in value) || value['type'] === undefined) return false;
     if (!('carrierSettings' in value) || value['carrierSettings'] === undefined) return false;
     if (!('status' in value) || value['status'] === undefined) return false;
+    if (!('brandId' in value) || value['brandId'] === undefined) return false;
     if (!('createdAt' in value) || value['createdAt'] === undefined) return false;
     if (!('updatedAt' in value) || value['updatedAt'] === undefined) return false;
     return true;
@@ -139,6 +146,7 @@ export function ListShipments200ResponseDataInnerFromJSONTyped(json: any, ignore
         'type': json['type'],
         'carrierSettings': ListShipments200ResponseDataInnerCarrierSettingsFromJSON(json['carrierSettings']),
         'status': json['status'],
+        'brandId': json['brandId'],
         'address': json['address'] === undefined ? undefined : json['address'] === null ? null : ListShipments200ResponseDataInnerAddressFromJSON(json['address']),
         'createdAt': json['createdAt'],
         'updatedAt': json['updatedAt'],
@@ -161,6 +169,7 @@ export function ListShipments200ResponseDataInnerToJSONTyped(value?: ListShipmen
         'type': value['type'],
         'carrierSettings': ListShipments200ResponseDataInnerCarrierSettingsToJSON(value['carrierSettings']),
         'status': value['status'],
+        'brandId': value['brandId'],
         'address': ListShipments200ResponseDataInnerAddressToJSON(value['address']),
         'createdAt': value['createdAt'],
         'updatedAt': value['updatedAt'],

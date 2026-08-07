@@ -568,7 +568,7 @@ example().catch(console.error);
 
 ## listShipments
 
-> ListShipments200Response listShipments(orgId, page, limit)
+> ListShipments200Response listShipments(orgId, page, limit, brandId)
 
 List shipments
 
@@ -598,6 +598,8 @@ async function example() {
     page: 1,
     // number | Items per page (max 100) (optional)
     limit: 20,
+    // string | Filter by brand. Pass a brand ID, or \"none\" for records not assigned to any brand. (optional)
+    brandId: brnd_8f3kd92ld0,
   } satisfies ListShipmentsRequest;
 
   try {
@@ -620,6 +622,7 @@ example().catch(console.error);
 | **orgId** | `string` | Organization ID | [Defaults to `undefined`] |
 | **page** | `number` | Page number (1-based) | [Optional] [Defaults to `1`] |
 | **limit** | `number` | Items per page (max 100) | [Optional] [Defaults to `20`] |
+| **brandId** | `string` | Filter by brand. Pass a brand ID, or \&quot;none\&quot; for records not assigned to any brand. | [Optional] [Defaults to `undefined`] |
 
 ### Return type
 

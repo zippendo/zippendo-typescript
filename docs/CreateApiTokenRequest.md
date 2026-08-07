@@ -9,6 +9,7 @@ Name | Type
 `name` | string
 `scopes` | Array&lt;string&gt;
 `expiresInDays` | number
+`brandId` | string
 
 ## Example
 
@@ -20,6 +21,7 @@ const example = {
   "name": Warehouse integration,
   "scopes": ["read:shipments","write:shipments"],
   "expiresInDays": 90,
+  "brandId": brnd_8f3kd92ld0,
 } satisfies CreateApiTokenRequest
 
 console.log(example)

@@ -42,6 +42,38 @@ Every call takes an `orgId` (your organization ID, found in the dashboard). It i
 call by design: one API token can be granted access to multiple organizations, and `orgId` selects
 which one the request acts on.
 
+## Brands
+
+A brand is a sub-account inside an organization: one company running several consumer-facing labels
+(say Pitaya and Kiwi) keeps each label's orders and shipments separate, with its own company name,
+address and logo on the documents its shipments produce. Scope a request to one brand with the
+`X-Zippendo-Brand` header, whose value is the brand's ID or slug.
+
+The header is not a method parameter — it applies uniformly to every operation, so set it once on the
+`Configuration` and every call made with it inherits it:
+
+```ts
+const pitaya = new Configuration({
+  accessToken: process.env.ZIPPENDO_API_TOKEN,
+  headers: { "X-Zippendo-Brand": "pitaya" }, // brand ID or slug
+})
+
+const shipments = new ShipmentsApi(pitaya)
+await shipments.listShipments({ orgId: "org_8f3kd92ld0", limit: 50 }) // Pitaya's shipments only
+```
+
+To address two brands from one process, build a `Configuration` per brand and pass each to its own
+resource clients. Omit the header and the request covers the whole organization — the behaviour of
+every existing token. A header naming a brand that does not exist in the organization is rejected
+with `404 BRAND_NOT_FOUND`.
+
+An API token created with a `brandId` is permanently confined to that brand and needs no header.
+Sending `X-Zippendo-Brand` naming a *different* brand on such a token is refused with
+`403 BRAND_ACCESS_DENIED` — the binding is never widened.
+
+Creating, updating and deleting brands is done in the Zippendo dashboard; brand management is not
+part of this SDK.
+
 ## Listing & pagination
 
 List endpoints accept `page` (1-based) and `limit`, and return a page with `data` plus

@@ -2,7 +2,7 @@
 /* eslint-disable */
 /**
  * Zippendo Public API
- * Public API documentation for Zippendo. Authenticate using your API token (Bearer token prefixed with zipp_).
+ * Public API documentation for Zippendo. Authenticate using your API token (Bearer token prefixed with zipp_).  **Brands (sub-accounts).** An organization can be split into brands, each keeping its own orders, shipments and configuration separate. There are two ways to scope requests to one brand, and NEITHER changes any request body:  1. **Bind the token.** Create an API token with a `brandId` and every request it makes is confined    to that brand — reads filtered, writes stamped. This is the recommended way to give a single    brand\'s team its own credential. 2. **Send the `X-Zippendo-Brand` header.** An organization-wide token can scope an individual    request by sending the brand\'s id or slug in this header. Most SDKs let you set it once on the    client so every call inherits it.  A brand-bound token that receives an `X-Zippendo-Brand` header naming a different brand is rejected with `403 BRAND_ACCESS_DENIED` — the binding is never widened. Omit both and requests cover the whole organization, which is the behaviour of every existing token.  Records that belong to no brand carry `brandId: null`. Configuration (carriers, shipping rules, addresses) with a null brand is organization-wide and remains visible inside every brand; orders and shipments with a null brand are only visible organization-wide.
  *
  * The version of the OpenAPI document: 1.0.0
  * Contact: support@zippendo.com
@@ -57,6 +57,12 @@ export interface ListOrders200ResponseDataInner {
      * @memberof ListOrders200ResponseDataInner
      */
     status: ListOrders200ResponseDataInnerStatusEnum;
+    /**
+     * Brand this record belongs to, or null when it is organization-wide
+     * @type {string}
+     * @memberof ListOrders200ResponseDataInner
+     */
+    brandId: string | null;
     /**
      * Order subtotal before shipping and tax.
      * @type {number}
@@ -123,6 +129,7 @@ export function instanceOfListOrders200ResponseDataInner(value: object): value i
     if (!('id' in value) || value['id'] === undefined) return false;
     if (!('orderNumber' in value) || value['orderNumber'] === undefined) return false;
     if (!('status' in value) || value['status'] === undefined) return false;
+    if (!('brandId' in value) || value['brandId'] === undefined) return false;
     if (!('shipmentCount' in value) || value['shipmentCount'] === undefined) return false;
     if (!('orderChannel' in value) || value['orderChannel'] === undefined) return false;
     if (!('createdAt' in value) || value['createdAt'] === undefined) return false;
@@ -145,6 +152,7 @@ export function ListOrders200ResponseDataInnerFromJSONTyped(json: any, ignoreDis
         'customerName': json['customerName'] === undefined ? undefined : json['customerName'] === null ? null : json['customerName'],
         'customerEmail': json['customerEmail'] === undefined ? undefined : json['customerEmail'] === null ? null : json['customerEmail'],
         'status': json['status'],
+        'brandId': json['brandId'],
         'subtotalAmount': json['subtotalAmount'] === undefined ? undefined : json['subtotalAmount'] === null ? null : json['subtotalAmount'],
         'totalAmount': json['totalAmount'] === undefined ? undefined : json['totalAmount'] === null ? null : json['totalAmount'],
         'currency': json['currency'] === undefined ? undefined : json['currency'] === null ? null : json['currency'],
@@ -171,6 +179,7 @@ export function ListOrders200ResponseDataInnerToJSONTyped(value?: ListOrders200R
         'customerName': value['customerName'],
         'customerEmail': value['customerEmail'],
         'status': value['status'],
+        'brandId': value['brandId'],
         'subtotalAmount': value['subtotalAmount'],
         'totalAmount': value['totalAmount'],
         'currency': value['currency'],

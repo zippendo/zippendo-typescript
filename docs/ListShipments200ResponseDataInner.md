@@ -11,6 +11,7 @@ Name | Type
 `type` | string
 `carrierSettings` | [ListShipments200ResponseDataInnerCarrierSettings](ListShipments200ResponseDataInnerCarrierSettings.md)
 `status` | string
+`brandId` | string
 `address` | [ListShipments200ResponseDataInnerAddress](ListShipments200ResponseDataInnerAddress.md)
 `createdAt` | string
 `updatedAt` | string
@@ -27,6 +28,7 @@ const example = {
   "type": outbound,
   "carrierSettings": null,
   "status": pending,
+  "brandId": brnd_8f3kd92ld0,
   "address": null,
   "createdAt": 2026-06-22T14:30:00.000Z,
   "updatedAt": 2026-06-22T14:30:00.000Z,

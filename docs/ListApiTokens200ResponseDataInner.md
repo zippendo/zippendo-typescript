@@ -10,6 +10,7 @@ Name | Type
 `name` | string
 `tokenPrefix` | string
 `scopes` | Array&lt;string&gt;
+`brandId` | string
 `lastUsedAt` | string
 `expiresAt` | string
 `createdAt` | string
@@ -26,6 +27,7 @@ const example = {
   "name": Warehouse integration,
   "tokenPrefix": zipp_live_8f,
   "scopes": ["read:shipments","write:shipments"],
+  "brandId": brnd_8f3kd92ld0,
   "lastUsedAt": 2026-06-22T14:30:00.000Z,
   "expiresAt": 2026-09-20T14:30:00.000Z,
   "createdAt": 2026-06-22T14:30:00.000Z,

@@ -45,7 +45,7 @@ which one the request acts on.
 ## Brands
 
 A brand is a sub-account inside an organization: one company running several consumer-facing labels
-(say Pitaya and Kiwi) keeps each label's orders and shipments separate, with its own company name,
+(say Acme and Globex) keeps each label's orders and shipments separate, with its own company name,
 address and logo on the documents its shipments produce. Scope a request to one brand with the
 `X-Zippendo-Brand` header, whose value is the brand's ID or slug.
 
@@ -53,13 +53,13 @@ The header is not a method parameter — it applies uniformly to every operation
 `Configuration` and every call made with it inherits it:
 
 ```ts
-const pitaya = new Configuration({
+const acme = new Configuration({
   accessToken: process.env.ZIPPENDO_API_TOKEN,
-  headers: { "X-Zippendo-Brand": "pitaya" }, // brand ID or slug
+  headers: { "X-Zippendo-Brand": "acme" }, // brand ID or slug
 })
 
-const shipments = new ShipmentsApi(pitaya)
-await shipments.listShipments({ orgId: "org_8f3kd92ld0", limit: 50 }) // Pitaya's shipments only
+const shipments = new ShipmentsApi(acme)
+await shipments.listShipments({ orgId: "org_8f3kd92ld0", limit: 50 }) // Acme's shipments only
 ```
 
 To address two brands from one process, build a `Configuration` per brand and pass each to its own
@@ -71,8 +71,32 @@ An API token created with a `brandId` is permanently confined to that brand and 
 Sending `X-Zippendo-Brand` naming a *different* brand on such a token is refused with
 `403 BRAND_ACCESS_DENIED` — the binding is never widened.
 
-Creating, updating and deleting brands is done in the Zippendo dashboard; brand management is not
-part of this SDK.
+### Managing brands
+
+Brands are managed with `BrandsApi`. Note this client is built from your organization-wide
+configuration, not a brand-scoped one — you are administering brands, not acting inside one:
+
+```ts
+const brands = new BrandsApi(config)
+
+const created = await brands.createOrgBrand({
+  orgId: "org_8f3kd92ld0",
+  createOrgBrandRequest: { name: "Acme", companyName: "Acme ApS" },
+})
+
+const page = await brands.listOrgBrands({ orgId: "org_8f3kd92ld0" })
+await brands.updateOrgBrand({
+  orgId: "org_8f3kd92ld0",
+  brandId: created.id,
+  updateOrgBrandRequest: { vatNumber: "DK12345678" },
+})
+await brands.archiveOrgBrand({ orgId: "org_8f3kd92ld0", brandId: created.id })
+```
+
+Retire a brand with `archiveOrgBrand` — archived brands keep their slug and can be restored with
+`unarchiveOrgBrand`. Permanent deletion is dashboard-only: it is refused while any order, shipment,
+member or token still references the brand. Brands require a plan that includes them; creating one
+past your plan's limit returns `403`.
 
 ## Listing & pagination
 

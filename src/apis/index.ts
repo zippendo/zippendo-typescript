@@ -2,6 +2,7 @@
 /* eslint-disable */
 export * from './AddressesApi';
 export * from './BillingApi';
+export * from './BrandsApi';
 export * from './CarrierCatalogApi';
 export * from './CarriersApi';
 export * from './OrdersApi';

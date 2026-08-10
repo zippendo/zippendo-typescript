@@ -20,6 +20,13 @@ import {
     BatchSplitShipmentRequestShipmentsInnerToJSON,
     BatchSplitShipmentRequestShipmentsInnerToJSONTyped,
 } from './BatchSplitShipmentRequestShipmentsInner';
+import type { CreateShippingRuleRequestAdditionalParametersValue } from './CreateShippingRuleRequestAdditionalParametersValue';
+import {
+    CreateShippingRuleRequestAdditionalParametersValueFromJSON,
+    CreateShippingRuleRequestAdditionalParametersValueFromJSONTyped,
+    CreateShippingRuleRequestAdditionalParametersValueToJSON,
+    CreateShippingRuleRequestAdditionalParametersValueToJSONTyped,
+} from './CreateShippingRuleRequestAdditionalParametersValue';
 
 /**
  * 
@@ -58,11 +65,11 @@ export interface BatchSplitShipmentRequest {
      */
     services?: Array<string>;
     /**
-     * Carrier-specific parameters for all new shipments.
-     * @type {{ [key: string]: any; }}
+     * Carrier-specific parameters for all new shipments. Copied from the original if omitted.
+     * @type {{ [key: string]: CreateShippingRuleRequestAdditionalParametersValue; }}
      * @memberof BatchSplitShipmentRequest
      */
-    additionalParameters?: { [key: string]: any; };
+    additionalParameters?: { [key: string]: CreateShippingRuleRequestAdditionalParametersValue; };
 }
 
 /**
@@ -89,7 +96,7 @@ export function BatchSplitShipmentRequestFromJSONTyped(json: any, ignoreDiscrimi
         'carrierId': json['carrierId'] == null ? undefined : json['carrierId'],
         'productId': json['productId'] == null ? undefined : json['productId'],
         'services': json['services'] == null ? undefined : json['services'],
-        'additionalParameters': json['additionalParameters'] == null ? undefined : json['additionalParameters'],
+        'additionalParameters': json['additionalParameters'] == null ? undefined : (mapValues(json['additionalParameters'], CreateShippingRuleRequestAdditionalParametersValueFromJSON)),
     };
 }
 
@@ -109,7 +116,7 @@ export function BatchSplitShipmentRequestToJSONTyped(value?: BatchSplitShipmentR
         'carrierId': value['carrierId'],
         'productId': value['productId'],
         'services': value['services'],
-        'additionalParameters': value['additionalParameters'],
+        'additionalParameters': value['additionalParameters'] == null ? undefined : (mapValues(value['additionalParameters'], CreateShippingRuleRequestAdditionalParametersValueToJSON)),
     };
 }
 

@@ -13,61 +13,61 @@
  */
 
 import { mapValues } from '../runtime';
-import type { CreateShippingRuleRequestAdditionalParametersAnyOfValueAnyOfCoordinatesInner } from './CreateShippingRuleRequestAdditionalParametersAnyOfValueAnyOfCoordinatesInner';
+import type { ListShippingRules200ResponseDataInnerAdditionalParametersValueAnyOfCoordinatesInner } from './ListShippingRules200ResponseDataInnerAdditionalParametersValueAnyOfCoordinatesInner';
 import {
-    CreateShippingRuleRequestAdditionalParametersAnyOfValueAnyOfCoordinatesInnerFromJSON,
-    CreateShippingRuleRequestAdditionalParametersAnyOfValueAnyOfCoordinatesInnerFromJSONTyped,
-    CreateShippingRuleRequestAdditionalParametersAnyOfValueAnyOfCoordinatesInnerToJSON,
-    CreateShippingRuleRequestAdditionalParametersAnyOfValueAnyOfCoordinatesInnerToJSONTyped,
-} from './CreateShippingRuleRequestAdditionalParametersAnyOfValueAnyOfCoordinatesInner';
+    ListShippingRules200ResponseDataInnerAdditionalParametersValueAnyOfCoordinatesInnerFromJSON,
+    ListShippingRules200ResponseDataInnerAdditionalParametersValueAnyOfCoordinatesInnerFromJSONTyped,
+    ListShippingRules200ResponseDataInnerAdditionalParametersValueAnyOfCoordinatesInnerToJSON,
+    ListShippingRules200ResponseDataInnerAdditionalParametersValueAnyOfCoordinatesInnerToJSONTyped,
+} from './ListShippingRules200ResponseDataInnerAdditionalParametersValueAnyOfCoordinatesInner';
 
 /**
  * 
  * @export
- * @interface CreateShippingRuleRequestAdditionalParametersAnyOfValueAnyOf
+ * @interface CreateShippingRuleRequestAdditionalParametersValueAnyOf
  */
-export interface CreateShippingRuleRequestAdditionalParametersAnyOfValueAnyOf {
+export interface CreateShippingRuleRequestAdditionalParametersValueAnyOf {
     /**
      * Identifier of the selected service point.
      * @type {string}
-     * @memberof CreateShippingRuleRequestAdditionalParametersAnyOfValueAnyOf
+     * @memberof CreateShippingRuleRequestAdditionalParametersValueAnyOf
      */
     id: string;
     /**
      * Display name of the service point.
      * @type {string}
-     * @memberof CreateShippingRuleRequestAdditionalParametersAnyOfValueAnyOf
+     * @memberof CreateShippingRuleRequestAdditionalParametersValueAnyOf
      */
     name: string;
     /**
      * Formatted address of the service point.
      * @type {string}
-     * @memberof CreateShippingRuleRequestAdditionalParametersAnyOfValueAnyOf
+     * @memberof CreateShippingRuleRequestAdditionalParametersValueAnyOf
      */
     address: string;
     /**
      * Latitude/longitude of the service point.
-     * @type {Array<CreateShippingRuleRequestAdditionalParametersAnyOfValueAnyOfCoordinatesInner>}
-     * @memberof CreateShippingRuleRequestAdditionalParametersAnyOfValueAnyOf
+     * @type {Array<ListShippingRules200ResponseDataInnerAdditionalParametersValueAnyOfCoordinatesInner>}
+     * @memberof CreateShippingRuleRequestAdditionalParametersValueAnyOf
      */
-    coordinates?: Array<CreateShippingRuleRequestAdditionalParametersAnyOfValueAnyOfCoordinatesInner>;
+    coordinates?: Array<ListShippingRules200ResponseDataInnerAdditionalParametersValueAnyOfCoordinatesInner>;
 }
 
 /**
- * Check if a given object implements the CreateShippingRuleRequestAdditionalParametersAnyOfValueAnyOf interface.
+ * Check if a given object implements the CreateShippingRuleRequestAdditionalParametersValueAnyOf interface.
  */
-export function instanceOfCreateShippingRuleRequestAdditionalParametersAnyOfValueAnyOf(value: object): value is CreateShippingRuleRequestAdditionalParametersAnyOfValueAnyOf {
+export function instanceOfCreateShippingRuleRequestAdditionalParametersValueAnyOf(value: object): value is CreateShippingRuleRequestAdditionalParametersValueAnyOf {
     if (!('id' in value) || value['id'] === undefined) return false;
     if (!('name' in value) || value['name'] === undefined) return false;
     if (!('address' in value) || value['address'] === undefined) return false;
     return true;
 }
 
-export function CreateShippingRuleRequestAdditionalParametersAnyOfValueAnyOfFromJSON(json: any): CreateShippingRuleRequestAdditionalParametersAnyOfValueAnyOf {
-    return CreateShippingRuleRequestAdditionalParametersAnyOfValueAnyOfFromJSONTyped(json, false);
+export function CreateShippingRuleRequestAdditionalParametersValueAnyOfFromJSON(json: any): CreateShippingRuleRequestAdditionalParametersValueAnyOf {
+    return CreateShippingRuleRequestAdditionalParametersValueAnyOfFromJSONTyped(json, false);
 }
 
-export function CreateShippingRuleRequestAdditionalParametersAnyOfValueAnyOfFromJSONTyped(json: any, ignoreDiscriminator: boolean): CreateShippingRuleRequestAdditionalParametersAnyOfValueAnyOf {
+export function CreateShippingRuleRequestAdditionalParametersValueAnyOfFromJSONTyped(json: any, ignoreDiscriminator: boolean): CreateShippingRuleRequestAdditionalParametersValueAnyOf {
     if (json == null) {
         return json;
     }
@@ -76,15 +76,15 @@ export function CreateShippingRuleRequestAdditionalParametersAnyOfValueAnyOfFrom
         'id': json['id'],
         'name': json['name'],
         'address': json['address'],
-        'coordinates': json['coordinates'] == null ? undefined : ((json['coordinates'] as Array<any>).map(CreateShippingRuleRequestAdditionalParametersAnyOfValueAnyOfCoordinatesInnerFromJSON)),
+        'coordinates': json['coordinates'] == null ? undefined : ((json['coordinates'] as Array<any>).map(ListShippingRules200ResponseDataInnerAdditionalParametersValueAnyOfCoordinatesInnerFromJSON)),
     };
 }
 
-export function CreateShippingRuleRequestAdditionalParametersAnyOfValueAnyOfToJSON(json: any): CreateShippingRuleRequestAdditionalParametersAnyOfValueAnyOf {
-    return CreateShippingRuleRequestAdditionalParametersAnyOfValueAnyOfToJSONTyped(json, false);
+export function CreateShippingRuleRequestAdditionalParametersValueAnyOfToJSON(json: any): CreateShippingRuleRequestAdditionalParametersValueAnyOf {
+    return CreateShippingRuleRequestAdditionalParametersValueAnyOfToJSONTyped(json, false);
 }
 
-export function CreateShippingRuleRequestAdditionalParametersAnyOfValueAnyOfToJSONTyped(value?: CreateShippingRuleRequestAdditionalParametersAnyOfValueAnyOf | null, ignoreDiscriminator: boolean = false): any {
+export function CreateShippingRuleRequestAdditionalParametersValueAnyOfToJSONTyped(value?: CreateShippingRuleRequestAdditionalParametersValueAnyOf | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }
@@ -94,7 +94,7 @@ export function CreateShippingRuleRequestAdditionalParametersAnyOfValueAnyOfToJS
         'id': value['id'],
         'name': value['name'],
         'address': value['address'],
-        'coordinates': value['coordinates'] == null ? undefined : ((value['coordinates'] as Array<any>).map(CreateShippingRuleRequestAdditionalParametersAnyOfValueAnyOfCoordinatesInnerToJSON)),
+        'coordinates': value['coordinates'] == null ? undefined : ((value['coordinates'] as Array<any>).map(ListShippingRules200ResponseDataInnerAdditionalParametersValueAnyOfCoordinatesInnerToJSON)),
     };
 }
 

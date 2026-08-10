@@ -9,7 +9,7 @@ Name | Type
 `carrierId` | string
 `productId` | string
 `services` | Array&lt;string&gt;
-`additionalParameters` | [{ [key: string]: ListShipments200ResponseDataInnerCarrierSettingsAdditionalParametersValue; }](ListShipments200ResponseDataInnerCarrierSettingsAdditionalParametersValue.md)
+`additionalParameters` | [{ [key: string]: ListShippingRules200ResponseDataInnerAdditionalParametersValue; }](ListShippingRules200ResponseDataInnerAdditionalParametersValue.md)
 
 ## Example
 

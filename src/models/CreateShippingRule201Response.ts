@@ -20,13 +20,13 @@ import {
     ListShippingRules200ResponseDataInnerConditionsInnerToJSON,
     ListShippingRules200ResponseDataInnerConditionsInnerToJSONTyped,
 } from './ListShippingRules200ResponseDataInnerConditionsInner';
-import type { ListShippingRules200ResponseDataInnerAdditionalParametersInner } from './ListShippingRules200ResponseDataInnerAdditionalParametersInner';
+import type { ListShippingRules200ResponseDataInnerAdditionalParametersValue } from './ListShippingRules200ResponseDataInnerAdditionalParametersValue';
 import {
-    ListShippingRules200ResponseDataInnerAdditionalParametersInnerFromJSON,
-    ListShippingRules200ResponseDataInnerAdditionalParametersInnerFromJSONTyped,
-    ListShippingRules200ResponseDataInnerAdditionalParametersInnerToJSON,
-    ListShippingRules200ResponseDataInnerAdditionalParametersInnerToJSONTyped,
-} from './ListShippingRules200ResponseDataInnerAdditionalParametersInner';
+    ListShippingRules200ResponseDataInnerAdditionalParametersValueFromJSON,
+    ListShippingRules200ResponseDataInnerAdditionalParametersValueFromJSONTyped,
+    ListShippingRules200ResponseDataInnerAdditionalParametersValueToJSON,
+    ListShippingRules200ResponseDataInnerAdditionalParametersValueToJSONTyped,
+} from './ListShippingRules200ResponseDataInnerAdditionalParametersValue';
 
 /**
  * 
@@ -77,11 +77,11 @@ export interface CreateShippingRule201Response {
      */
     services: Array<string>;
     /**
-     * Carrier-specific extra parameters. DEPRECATED array form `[{ name, val }]` where `name` is the carrier parameter `key` (from the product's `additionalParameters[].key`, e.g. `returnFunctionality`) and `val` is the stringified value. This will change to a `{ key: value }` object in a future version — writes already accept either shape.
-     * @type {Array<ListShippingRules200ResponseDataInnerAdditionalParametersInner>}
+     * Carrier-specific extra parameters, keyed by the carrier parameter `key` from the product's `additionalParameters[].key`.
+     * @type {{ [key: string]: ListShippingRules200ResponseDataInnerAdditionalParametersValue; }}
      * @memberof CreateShippingRule201Response
      */
-    additionalParameters: Array<ListShippingRules200ResponseDataInnerAdditionalParametersInner>;
+    additionalParameters: { [key: string]: ListShippingRules200ResponseDataInnerAdditionalParametersValue; };
     /**
      * Sender address ID
      * @type {string}
@@ -274,7 +274,7 @@ export function CreateShippingRule201ResponseFromJSONTyped(json: any, ignoreDisc
         'carrierId': json['carrierId'],
         'productId': json['productId'],
         'services': json['services'],
-        'additionalParameters': ((json['additionalParameters'] as Array<any>).map(ListShippingRules200ResponseDataInnerAdditionalParametersInnerFromJSON)),
+        'additionalParameters': (mapValues(json['additionalParameters'], ListShippingRules200ResponseDataInnerAdditionalParametersValueFromJSON)),
         'addressId': json['addressId'],
         'receivingCountries': json['receivingCountries'],
         'emailNotification': json['emailNotification'],
@@ -317,7 +317,7 @@ export function CreateShippingRule201ResponseToJSONTyped(value?: CreateShippingR
         'carrierId': value['carrierId'],
         'productId': value['productId'],
         'services': value['services'],
-        'additionalParameters': ((value['additionalParameters'] as Array<any>).map(ListShippingRules200ResponseDataInnerAdditionalParametersInnerToJSON)),
+        'additionalParameters': (mapValues(value['additionalParameters'], ListShippingRules200ResponseDataInnerAdditionalParametersValueToJSON)),
         'addressId': value['addressId'],
         'receivingCountries': value['receivingCountries'],
         'emailNotification': value['emailNotification'],

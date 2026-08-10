@@ -13,13 +13,13 @@
  */
 
 import { mapValues } from '../runtime';
-import type { CreateShippingRuleRequestAdditionalParametersAnyOfValue } from './CreateShippingRuleRequestAdditionalParametersAnyOfValue';
+import type { CreateShippingRuleRequestAdditionalParametersValue } from './CreateShippingRuleRequestAdditionalParametersValue';
 import {
-    CreateShippingRuleRequestAdditionalParametersAnyOfValueFromJSON,
-    CreateShippingRuleRequestAdditionalParametersAnyOfValueFromJSONTyped,
-    CreateShippingRuleRequestAdditionalParametersAnyOfValueToJSON,
-    CreateShippingRuleRequestAdditionalParametersAnyOfValueToJSONTyped,
-} from './CreateShippingRuleRequestAdditionalParametersAnyOfValue';
+    CreateShippingRuleRequestAdditionalParametersValueFromJSON,
+    CreateShippingRuleRequestAdditionalParametersValueFromJSONTyped,
+    CreateShippingRuleRequestAdditionalParametersValueToJSON,
+    CreateShippingRuleRequestAdditionalParametersValueToJSONTyped,
+} from './CreateShippingRuleRequestAdditionalParametersValue';
 
 /**
  * 
@@ -47,10 +47,10 @@ export interface CreateShipmentRequestCarrierSettings {
     services: Array<string>;
     /**
      * Carrier-specific extra parameters as key/value pairs.
-     * @type {{ [key: string]: CreateShippingRuleRequestAdditionalParametersAnyOfValue; }}
+     * @type {{ [key: string]: CreateShippingRuleRequestAdditionalParametersValue; }}
      * @memberof CreateShipmentRequestCarrierSettings
      */
-    additionalParameters: { [key: string]: CreateShippingRuleRequestAdditionalParametersAnyOfValue; };
+    additionalParameters: { [key: string]: CreateShippingRuleRequestAdditionalParametersValue; };
 }
 
 /**
@@ -77,7 +77,7 @@ export function CreateShipmentRequestCarrierSettingsFromJSONTyped(json: any, ign
         'carrierId': json['carrierId'],
         'productId': json['productId'],
         'services': json['services'],
-        'additionalParameters': (mapValues(json['additionalParameters'], CreateShippingRuleRequestAdditionalParametersAnyOfValueFromJSON)),
+        'additionalParameters': (mapValues(json['additionalParameters'], CreateShippingRuleRequestAdditionalParametersValueFromJSON)),
     };
 }
 
@@ -95,7 +95,7 @@ export function CreateShipmentRequestCarrierSettingsToJSONTyped(value?: CreateSh
         'carrierId': value['carrierId'],
         'productId': value['productId'],
         'services': value['services'],
-        'additionalParameters': (mapValues(value['additionalParameters'], CreateShippingRuleRequestAdditionalParametersAnyOfValueToJSON)),
+        'additionalParameters': (mapValues(value['additionalParameters'], CreateShippingRuleRequestAdditionalParametersValueToJSON)),
     };
 }
 

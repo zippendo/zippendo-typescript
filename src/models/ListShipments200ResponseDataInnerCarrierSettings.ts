@@ -13,13 +13,13 @@
  */
 
 import { mapValues } from '../runtime';
-import type { ListShipments200ResponseDataInnerCarrierSettingsAdditionalParametersValue } from './ListShipments200ResponseDataInnerCarrierSettingsAdditionalParametersValue';
+import type { ListShippingRules200ResponseDataInnerAdditionalParametersValue } from './ListShippingRules200ResponseDataInnerAdditionalParametersValue';
 import {
-    ListShipments200ResponseDataInnerCarrierSettingsAdditionalParametersValueFromJSON,
-    ListShipments200ResponseDataInnerCarrierSettingsAdditionalParametersValueFromJSONTyped,
-    ListShipments200ResponseDataInnerCarrierSettingsAdditionalParametersValueToJSON,
-    ListShipments200ResponseDataInnerCarrierSettingsAdditionalParametersValueToJSONTyped,
-} from './ListShipments200ResponseDataInnerCarrierSettingsAdditionalParametersValue';
+    ListShippingRules200ResponseDataInnerAdditionalParametersValueFromJSON,
+    ListShippingRules200ResponseDataInnerAdditionalParametersValueFromJSONTyped,
+    ListShippingRules200ResponseDataInnerAdditionalParametersValueToJSON,
+    ListShippingRules200ResponseDataInnerAdditionalParametersValueToJSONTyped,
+} from './ListShippingRules200ResponseDataInnerAdditionalParametersValue';
 
 /**
  * 
@@ -47,10 +47,10 @@ export interface ListShipments200ResponseDataInnerCarrierSettings {
     services: Array<string>;
     /**
      * Carrier-specific extra parameters as key/value pairs.
-     * @type {{ [key: string]: ListShipments200ResponseDataInnerCarrierSettingsAdditionalParametersValue; }}
+     * @type {{ [key: string]: ListShippingRules200ResponseDataInnerAdditionalParametersValue; }}
      * @memberof ListShipments200ResponseDataInnerCarrierSettings
      */
-    additionalParameters: { [key: string]: ListShipments200ResponseDataInnerCarrierSettingsAdditionalParametersValue; };
+    additionalParameters: { [key: string]: ListShippingRules200ResponseDataInnerAdditionalParametersValue; };
 }
 
 /**
@@ -77,7 +77,7 @@ export function ListShipments200ResponseDataInnerCarrierSettingsFromJSONTyped(js
         'carrierId': json['carrierId'],
         'productId': json['productId'],
         'services': json['services'],
-        'additionalParameters': (mapValues(json['additionalParameters'], ListShipments200ResponseDataInnerCarrierSettingsAdditionalParametersValueFromJSON)),
+        'additionalParameters': (mapValues(json['additionalParameters'], ListShippingRules200ResponseDataInnerAdditionalParametersValueFromJSON)),
     };
 }
 
@@ -95,7 +95,7 @@ export function ListShipments200ResponseDataInnerCarrierSettingsToJSONTyped(valu
         'carrierId': value['carrierId'],
         'productId': value['productId'],
         'services': value['services'],
-        'additionalParameters': (mapValues(value['additionalParameters'], ListShipments200ResponseDataInnerCarrierSettingsAdditionalParametersValueToJSON)),
+        'additionalParameters': (mapValues(value['additionalParameters'], ListShippingRules200ResponseDataInnerAdditionalParametersValueToJSON)),
     };
 }
 

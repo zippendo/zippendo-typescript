@@ -13,6 +13,14 @@
  */
 
 import { mapValues } from '../runtime';
+import type { CreateShippingRuleRequestAdditionalParametersValue } from './CreateShippingRuleRequestAdditionalParametersValue';
+import {
+    CreateShippingRuleRequestAdditionalParametersValueFromJSON,
+    CreateShippingRuleRequestAdditionalParametersValueFromJSONTyped,
+    CreateShippingRuleRequestAdditionalParametersValueToJSON,
+    CreateShippingRuleRequestAdditionalParametersValueToJSONTyped,
+} from './CreateShippingRuleRequestAdditionalParametersValue';
+
 /**
  * 
  * @export
@@ -50,11 +58,11 @@ export interface SplitShipmentRequest {
      */
     services?: Array<string>;
     /**
-     * Carrier-specific parameters for the new shipment.
-     * @type {{ [key: string]: any; }}
+     * Carrier-specific parameters for the new shipment. Copied from the original if omitted.
+     * @type {{ [key: string]: CreateShippingRuleRequestAdditionalParametersValue; }}
      * @memberof SplitShipmentRequest
      */
-    additionalParameters?: { [key: string]: any; };
+    additionalParameters?: { [key: string]: CreateShippingRuleRequestAdditionalParametersValue; };
     /**
      * Reference for the new shipment. Defaults to the original reference with a suffix.
      * @type {string}
@@ -86,7 +94,7 @@ export function SplitShipmentRequestFromJSONTyped(json: any, ignoreDiscriminator
         'carrierId': json['carrierId'] == null ? undefined : json['carrierId'],
         'productId': json['productId'] == null ? undefined : json['productId'],
         'services': json['services'] == null ? undefined : json['services'],
-        'additionalParameters': json['additionalParameters'] == null ? undefined : json['additionalParameters'],
+        'additionalParameters': json['additionalParameters'] == null ? undefined : (mapValues(json['additionalParameters'], CreateShippingRuleRequestAdditionalParametersValueFromJSON)),
         'reference': json['reference'] == null ? undefined : json['reference'],
     };
 }
@@ -107,7 +115,7 @@ export function SplitShipmentRequestToJSONTyped(value?: SplitShipmentRequest | n
         'carrierId': value['carrierId'],
         'productId': value['productId'],
         'services': value['services'],
-        'additionalParameters': value['additionalParameters'],
+        'additionalParameters': value['additionalParameters'] == null ? undefined : (mapValues(value['additionalParameters'], CreateShippingRuleRequestAdditionalParametersValueToJSON)),
         'reference': value['reference'],
     };
 }

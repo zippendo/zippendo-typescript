@@ -1,5 +1,5 @@
 
-# CreateShippingRuleRequestAdditionalParametersAnyOfValueAnyOf
+# CreateShippingRuleRequestAdditionalParametersValueAnyOf
 
 
 ## Properties
@@ -9,12 +9,12 @@ Name | Type
 `id` | string
 `name` | string
 `address` | string
-`coordinates` | [Array&lt;CreateShippingRuleRequestAdditionalParametersAnyOfValueAnyOfCoordinatesInner&gt;](CreateShippingRuleRequestAdditionalParametersAnyOfValueAnyOfCoordinatesInner.md)
+`coordinates` | [Array&lt;ListShippingRules200ResponseDataInnerAdditionalParametersValueAnyOfCoordinatesInner&gt;](ListShippingRules200ResponseDataInnerAdditionalParametersValueAnyOfCoordinatesInner.md)
 
 ## Example
 
 ```typescript
-import type { CreateShippingRuleRequestAdditionalParametersAnyOfValueAnyOf } from '@zippendo/sdk'
+import type { CreateShippingRuleRequestAdditionalParametersValueAnyOf } from '@zippendo/sdk'
 
 // TODO: Update the object below with actual values
 const example = {
@@ -22,7 +22,7 @@ const example = {
   "name": Føtex Nørrebro,
   "address": Nørrebrogade 20, 2200 København N,
   "coordinates": [55.6987,12.5501],
-} satisfies CreateShippingRuleRequestAdditionalParametersAnyOfValueAnyOf
+} satisfies CreateShippingRuleRequestAdditionalParametersValueAnyOf
 
 console.log(example)
 
@@ -31,7 +31,7 @@ const exampleJSON: string = JSON.stringify(example)
 console.log(exampleJSON)
 
 // Parse the JSON string back to an object
-const exampleParsed = JSON.parse(exampleJSON) as CreateShippingRuleRequestAdditionalParametersAnyOfValueAnyOf
+const exampleParsed = JSON.parse(exampleJSON) as CreateShippingRuleRequestAdditionalParametersValueAnyOf
 console.log(exampleParsed)
 ```
 

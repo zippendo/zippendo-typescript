@@ -16,31 +16,31 @@ import { mapValues } from '../runtime';
 /**
  * 
  * @export
- * @interface CreateShippingRuleRequestAdditionalParametersAnyOfValueAnyOfCoordinatesInner
+ * @interface ListShippingRules200ResponseDataInnerAdditionalParametersValueAnyOfCoordinatesInner
  */
-export interface CreateShippingRuleRequestAdditionalParametersAnyOfValueAnyOfCoordinatesInner {
+export interface ListShippingRules200ResponseDataInnerAdditionalParametersValueAnyOfCoordinatesInner {
 }
 
 /**
- * Check if a given object implements the CreateShippingRuleRequestAdditionalParametersAnyOfValueAnyOfCoordinatesInner interface.
+ * Check if a given object implements the ListShippingRules200ResponseDataInnerAdditionalParametersValueAnyOfCoordinatesInner interface.
  */
-export function instanceOfCreateShippingRuleRequestAdditionalParametersAnyOfValueAnyOfCoordinatesInner(value: object): value is CreateShippingRuleRequestAdditionalParametersAnyOfValueAnyOfCoordinatesInner {
+export function instanceOfListShippingRules200ResponseDataInnerAdditionalParametersValueAnyOfCoordinatesInner(value: object): value is ListShippingRules200ResponseDataInnerAdditionalParametersValueAnyOfCoordinatesInner {
     return true;
 }
 
-export function CreateShippingRuleRequestAdditionalParametersAnyOfValueAnyOfCoordinatesInnerFromJSON(json: any): CreateShippingRuleRequestAdditionalParametersAnyOfValueAnyOfCoordinatesInner {
-    return CreateShippingRuleRequestAdditionalParametersAnyOfValueAnyOfCoordinatesInnerFromJSONTyped(json, false);
+export function ListShippingRules200ResponseDataInnerAdditionalParametersValueAnyOfCoordinatesInnerFromJSON(json: any): ListShippingRules200ResponseDataInnerAdditionalParametersValueAnyOfCoordinatesInner {
+    return ListShippingRules200ResponseDataInnerAdditionalParametersValueAnyOfCoordinatesInnerFromJSONTyped(json, false);
 }
 
-export function CreateShippingRuleRequestAdditionalParametersAnyOfValueAnyOfCoordinatesInnerFromJSONTyped(json: any, ignoreDiscriminator: boolean): CreateShippingRuleRequestAdditionalParametersAnyOfValueAnyOfCoordinatesInner {
+export function ListShippingRules200ResponseDataInnerAdditionalParametersValueAnyOfCoordinatesInnerFromJSONTyped(json: any, ignoreDiscriminator: boolean): ListShippingRules200ResponseDataInnerAdditionalParametersValueAnyOfCoordinatesInner {
     return json;
 }
 
-export function CreateShippingRuleRequestAdditionalParametersAnyOfValueAnyOfCoordinatesInnerToJSON(json: any): CreateShippingRuleRequestAdditionalParametersAnyOfValueAnyOfCoordinatesInner {
-    return CreateShippingRuleRequestAdditionalParametersAnyOfValueAnyOfCoordinatesInnerToJSONTyped(json, false);
+export function ListShippingRules200ResponseDataInnerAdditionalParametersValueAnyOfCoordinatesInnerToJSON(json: any): ListShippingRules200ResponseDataInnerAdditionalParametersValueAnyOfCoordinatesInner {
+    return ListShippingRules200ResponseDataInnerAdditionalParametersValueAnyOfCoordinatesInnerToJSONTyped(json, false);
 }
 
-export function CreateShippingRuleRequestAdditionalParametersAnyOfValueAnyOfCoordinatesInnerToJSONTyped(value?: CreateShippingRuleRequestAdditionalParametersAnyOfValueAnyOfCoordinatesInner | null, ignoreDiscriminator: boolean = false): any {
+export function ListShippingRules200ResponseDataInnerAdditionalParametersValueAnyOfCoordinatesInnerToJSONTyped(value?: ListShippingRules200ResponseDataInnerAdditionalParametersValueAnyOfCoordinatesInner | null, ignoreDiscriminator: boolean = false): any {
     return value;
 }
 

@@ -13,7 +13,7 @@ Name | Type
 `carrierId` | string
 `productId` | string
 `services` | Array&lt;string&gt;
-`additionalParameters` | [Array&lt;ListShippingRules200ResponseDataInnerAdditionalParametersInner&gt;](ListShippingRules200ResponseDataInnerAdditionalParametersInner.md)
+`additionalParameters` | [{ [key: string]: ListShippingRules200ResponseDataInnerAdditionalParametersValue; }](ListShippingRules200ResponseDataInnerAdditionalParametersValue.md)
 `addressId` | string
 `receivingCountries` | Array&lt;string&gt;
 `emailNotification` | boolean
@@ -55,7 +55,7 @@ const example = {
   "carrierId": carr_01HZX9K2QF,
   "productId": PNL13,
   "services": ["EMAIL_NOTIFICATION"],
-  "additionalParameters": [{"name":"returnFunctionality","val":"LABELLESS"}],
+  "additionalParameters": {"returnFunctionality":"LABELLESS","returnQrEmail":true},
   "addressId": addr_01HZX9K2QF,
   "receivingCountries": ["DK","SE"],
   "emailNotification": true,

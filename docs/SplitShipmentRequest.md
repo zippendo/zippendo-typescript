@@ -11,7 +11,7 @@ Name | Type
 `carrierId` | string
 `productId` | string
 `services` | Array&lt;string&gt;
-`additionalParameters` | { [key: string]: any; }
+`additionalParameters` | [{ [key: string]: CreateShippingRuleRequestAdditionalParametersValue; }](CreateShippingRuleRequestAdditionalParametersValue.md)
 `reference` | string
 
 ## Example

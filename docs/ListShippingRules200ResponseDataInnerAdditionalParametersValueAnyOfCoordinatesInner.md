@@ -1,24 +1,20 @@
 
-# CreateShippingRuleRequestAdditionalParametersAnyOfInner
+# ListShippingRules200ResponseDataInnerAdditionalParametersValueAnyOfCoordinatesInner
 
 
 ## Properties
 
 Name | Type
 ------------ | -------------
-`name` | string
-`val` | string
 
 ## Example
 
 ```typescript
-import type { CreateShippingRuleRequestAdditionalParametersAnyOfInner } from '@zippendo/sdk'
+import type { ListShippingRules200ResponseDataInnerAdditionalParametersValueAnyOfCoordinatesInner } from '@zippendo/sdk'
 
 // TODO: Update the object below with actual values
 const example = {
-  "name": returnFunctionality,
-  "val": LABELLESS,
-} satisfies CreateShippingRuleRequestAdditionalParametersAnyOfInner
+} satisfies ListShippingRules200ResponseDataInnerAdditionalParametersValueAnyOfCoordinatesInner
 
 console.log(example)
 
@@ -27,7 +23,7 @@ const exampleJSON: string = JSON.stringify(example)
 console.log(exampleJSON)
 
 // Parse the JSON string back to an object
-const exampleParsed = JSON.parse(exampleJSON) as CreateShippingRuleRequestAdditionalParametersAnyOfInner
+const exampleParsed = JSON.parse(exampleJSON) as ListShippingRules200ResponseDataInnerAdditionalParametersValueAnyOfCoordinatesInner
 console.log(exampleParsed)
 ```
 

@@ -13,6 +13,13 @@
  */
 
 import { mapValues } from '../runtime';
+import type { CreateShippingRuleRequestAdditionalParametersValue } from './CreateShippingRuleRequestAdditionalParametersValue';
+import {
+    CreateShippingRuleRequestAdditionalParametersValueFromJSON,
+    CreateShippingRuleRequestAdditionalParametersValueFromJSONTyped,
+    CreateShippingRuleRequestAdditionalParametersValueToJSON,
+    CreateShippingRuleRequestAdditionalParametersValueToJSONTyped,
+} from './CreateShippingRuleRequestAdditionalParametersValue';
 import type { CreateShippingRuleRequestConditionsInner } from './CreateShippingRuleRequestConditionsInner';
 import {
     CreateShippingRuleRequestConditionsInnerFromJSON,
@@ -20,13 +27,6 @@ import {
     CreateShippingRuleRequestConditionsInnerToJSON,
     CreateShippingRuleRequestConditionsInnerToJSONTyped,
 } from './CreateShippingRuleRequestConditionsInner';
-import type { CreateShippingRuleRequestAdditionalParameters } from './CreateShippingRuleRequestAdditionalParameters';
-import {
-    CreateShippingRuleRequestAdditionalParametersFromJSON,
-    CreateShippingRuleRequestAdditionalParametersFromJSONTyped,
-    CreateShippingRuleRequestAdditionalParametersToJSON,
-    CreateShippingRuleRequestAdditionalParametersToJSONTyped,
-} from './CreateShippingRuleRequestAdditionalParameters';
 
 /**
  * 
@@ -71,11 +71,11 @@ export interface CreateShippingRuleRequest {
      */
     services: Array<string>;
     /**
-     * 
-     * @type {CreateShippingRuleRequestAdditionalParameters}
+     * Carrier-specific extra parameters, keyed by the carrier parameter `key` from the product's `additionalParameters[].key` (e.g. `returnFunctionality`).
+     * @type {{ [key: string]: CreateShippingRuleRequestAdditionalParametersValue; }}
      * @memberof CreateShippingRuleRequest
      */
-    additionalParameters?: CreateShippingRuleRequestAdditionalParameters;
+    additionalParameters?: { [key: string]: CreateShippingRuleRequestAdditionalParametersValue; };
     /**
      * Sender address ID
      * @type {string}
@@ -227,7 +227,7 @@ export function CreateShippingRuleRequestFromJSONTyped(json: any, ignoreDiscrimi
         'carrierId': json['carrierId'],
         'productId': json['productId'],
         'services': json['services'],
-        'additionalParameters': json['additionalParameters'] == null ? undefined : CreateShippingRuleRequestAdditionalParametersFromJSON(json['additionalParameters']),
+        'additionalParameters': json['additionalParameters'] == null ? undefined : (mapValues(json['additionalParameters'], CreateShippingRuleRequestAdditionalParametersValueFromJSON)),
         'addressId': json['addressId'],
         'receivingCountries': json['receivingCountries'],
         'emailNotification': json['emailNotification'] == null ? undefined : json['emailNotification'],
@@ -266,7 +266,7 @@ export function CreateShippingRuleRequestToJSONTyped(value?: CreateShippingRuleR
         'carrierId': value['carrierId'],
         'productId': value['productId'],
         'services': value['services'],
-        'additionalParameters': CreateShippingRuleRequestAdditionalParametersToJSON(value['additionalParameters']),
+        'additionalParameters': value['additionalParameters'] == null ? undefined : (mapValues(value['additionalParameters'], CreateShippingRuleRequestAdditionalParametersValueToJSON)),
         'addressId': value['addressId'],
         'receivingCountries': value['receivingCountries'],
         'emailNotification': value['emailNotification'],

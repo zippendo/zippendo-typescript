@@ -9,7 +9,7 @@ Name | Type
 `carrierId` | string
 `productId` | string
 `services` | Array&lt;string&gt;
-`additionalParameters` | [{ [key: string]: CreateShippingRuleRequestAdditionalParametersAnyOfValue; }](CreateShippingRuleRequestAdditionalParametersAnyOfValue.md)
+`additionalParameters` | [{ [key: string]: CreateShippingRuleRequestAdditionalParametersValue; }](CreateShippingRuleRequestAdditionalParametersValue.md)
 
 ## Example
 

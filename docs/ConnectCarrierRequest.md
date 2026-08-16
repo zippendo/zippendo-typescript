@@ -9,6 +9,7 @@ Name | Type
 `name` | string
 `carrierSlug` | string
 `config` | [{ [key: string]: ListCarriers200ResponseDataInnerConfigValue; }](ListCarriers200ResponseDataInnerConfigValue.md)
+`brandId` | string
 
 ## Example
 
@@ -20,6 +21,7 @@ const example = {
   "name": PostNord,
   "carrierSlug": postnord,
   "config": {"customerNumber":"123456"},
+  "brandId": brnd_8f3kd92ld0,
 } satisfies ConnectCarrierRequest
 
 console.log(example)

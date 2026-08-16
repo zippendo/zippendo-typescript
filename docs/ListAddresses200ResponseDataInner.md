@@ -20,6 +20,7 @@ Name | Type
 `customs` | { [key: string]: string; }
 `addressTypes` | Array&lt;string&gt;
 `orgId` | string
+`brandId` | string
 `createdAt` | string
 `updatedAt` | string
 
@@ -44,6 +45,7 @@ const example = {
   "customs": {"eori":"DK12345678"},
   "addressTypes": ["sender"],
   "orgId": org_01HZX9K2QF,
+  "brandId": brnd_8f3kd92ld0,
   "createdAt": 2026-06-22T09:00:00.000Z,
   "updatedAt": 2026-06-22T09:00:00.000Z,
 } satisfies ListAddresses200ResponseDataInner

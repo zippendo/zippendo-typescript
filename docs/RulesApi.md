@@ -84,6 +84,7 @@ example().catch(console.error);
 | **201** | Default Response |  -  |
 | **400** | Default Response |  -  |
 | **403** | Default Response |  -  |
+| **404** | Default Response |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
@@ -242,7 +243,7 @@ example().catch(console.error);
 
 ## listShippingRules
 
-> ListShippingRules200Response listShippingRules(orgId, page, limit)
+> ListShippingRules200Response listShippingRules(orgId, page, limit, brandId, brandScope)
 
 List shipping rules
 
@@ -272,6 +273,10 @@ async function example() {
     page: 1,
     // number | Items per page (max 100) (optional)
     limit: 20,
+    // string | Filter by brand. Pass a brand ID, or \"none\" for records not assigned to any brand. (optional)
+    brandId: brnd_8f3kd92ld0,
+    // 'own' | 'shared' | 'both' | How the brand context narrows this list: \"own\" returns only rows assigned to the current brand (requires a brand session, a brand-bound token, or the X-Zippendo-Brand header), \"shared\" returns only unassigned organization-wide rows, \"both\" (default) returns both. The X-Zippendo-Brand-Scope header supplies a default when the parameter is omitted. For strictly brand-owned records (orders, shipments), a brand-scoped request combined with \"shared\" returns no rows, since those records are never visible organization-wide from within a brand context. (optional)
+    brandScope: own,
   } satisfies ListShippingRulesRequest;
 
   try {
@@ -294,6 +299,8 @@ example().catch(console.error);
 | **orgId** | `string` | Organization ID | [Defaults to `undefined`] |
 | **page** | `number` | Page number (1-based) | [Optional] [Defaults to `1`] |
 | **limit** | `number` | Items per page (max 100) | [Optional] [Defaults to `20`] |
+| **brandId** | `string` | Filter by brand. Pass a brand ID, or \&quot;none\&quot; for records not assigned to any brand. | [Optional] [Defaults to `undefined`] |
+| **brandScope** | `own`, `shared`, `both` | How the brand context narrows this list: \&quot;own\&quot; returns only rows assigned to the current brand (requires a brand session, a brand-bound token, or the X-Zippendo-Brand header), \&quot;shared\&quot; returns only unassigned organization-wide rows, \&quot;both\&quot; (default) returns both. The X-Zippendo-Brand-Scope header supplies a default when the parameter is omitted. For strictly brand-owned records (orders, shipments), a brand-scoped request combined with \&quot;shared\&quot; returns no rows, since those records are never visible organization-wide from within a brand context. | [Optional] [Defaults to `undefined`] [Enum: own, shared, both] |
 
 ### Return type
 

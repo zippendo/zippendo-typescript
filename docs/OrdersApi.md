@@ -244,7 +244,7 @@ example().catch(console.error);
 
 ## listOrders
 
-> ListOrders200Response listOrders(orgId, page, limit, brandId, status, orderChannelId, search)
+> ListOrders200Response listOrders(orgId, page, limit, brandId, brandScope, status, orderChannelId, search)
 
 List orders
 
@@ -276,6 +276,8 @@ async function example() {
     limit: 20,
     // string | Filter by brand. Pass a brand ID, or \"none\" for records not assigned to any brand. (optional)
     brandId: brnd_8f3kd92ld0,
+    // 'own' | 'shared' | 'both' | How the brand context narrows this list: \"own\" returns only rows assigned to the current brand (requires a brand session, a brand-bound token, or the X-Zippendo-Brand header), \"shared\" returns only unassigned organization-wide rows, \"both\" (default) returns both. The X-Zippendo-Brand-Scope header supplies a default when the parameter is omitted. For strictly brand-owned records (orders, shipments), a brand-scoped request combined with \"shared\" returns no rows, since those records are never visible organization-wide from within a brand context. (optional)
+    brandScope: own,
     // 'pending' | 'processing' | 'partially_fulfilled' | 'fulfilled' | 'error' | 'cancelled' | Order fulfilment status derived from its shipments. (optional)
     status: processing,
     // string | Filter by order channel ID. (optional)
@@ -305,6 +307,7 @@ example().catch(console.error);
 | **page** | `number` | Page number (1-based) | [Optional] [Defaults to `1`] |
 | **limit** | `number` | Items per page (max 100) | [Optional] [Defaults to `20`] |
 | **brandId** | `string` | Filter by brand. Pass a brand ID, or \&quot;none\&quot; for records not assigned to any brand. | [Optional] [Defaults to `undefined`] |
+| **brandScope** | `own`, `shared`, `both` | How the brand context narrows this list: \&quot;own\&quot; returns only rows assigned to the current brand (requires a brand session, a brand-bound token, or the X-Zippendo-Brand header), \&quot;shared\&quot; returns only unassigned organization-wide rows, \&quot;both\&quot; (default) returns both. The X-Zippendo-Brand-Scope header supplies a default when the parameter is omitted. For strictly brand-owned records (orders, shipments), a brand-scoped request combined with \&quot;shared\&quot; returns no rows, since those records are never visible organization-wide from within a brand context. | [Optional] [Defaults to `undefined`] [Enum: own, shared, both] |
 | **status** | `pending`, `processing`, `partially_fulfilled`, `fulfilled`, `error`, `cancelled` | Order fulfilment status derived from its shipments. | [Optional] [Defaults to `undefined`] [Enum: pending, processing, partially_fulfilled, fulfilled, error, cancelled] |
 | **orderChannelId** | `string` | Filter by order channel ID. | [Optional] [Defaults to `undefined`] |
 | **search** | `string` | Search by order number or customer name/email. | [Optional] [Defaults to `undefined`] |

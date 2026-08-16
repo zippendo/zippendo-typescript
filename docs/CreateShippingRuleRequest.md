@@ -31,6 +31,7 @@ Name | Type
 `documentPrinterId` | string
 `returnShippingRuleId` | string
 `autoCreateReturnShipment` | boolean
+`brandId` | string
 
 ## Example
 
@@ -64,6 +65,7 @@ const example = {
   "documentPrinterId": null,
   "returnShippingRuleId": null,
   "autoCreateReturnShipment": false,
+  "brandId": brnd_8f3kd92ld0,
 } satisfies CreateShippingRuleRequest
 
 console.log(example)

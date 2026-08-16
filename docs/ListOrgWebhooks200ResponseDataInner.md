@@ -11,6 +11,7 @@ Name | Type
 `url` | string
 `events` | Array&lt;string&gt;
 `isActive` | boolean
+`brandId` | string
 `createdAt` | string
 `updatedAt` | string
 
@@ -26,6 +27,7 @@ const example = {
   "url": https://hooks.example.dk/zippendo,
   "events": ["shipment.created"],
   "isActive": true,
+  "brandId": brnd_8f3kd92ld0,
   "createdAt": 2026-06-01T09:30:00.000Z,
   "updatedAt": 2026-06-10T11:15:00.000Z,
 } satisfies ListOrgWebhooks200ResponseDataInner

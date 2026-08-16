@@ -18,6 +18,7 @@ Name | Type
 `email` | string
 `customs` | { [key: string]: string; }
 `addressTypes` | Array&lt;string&gt;
+`brandId` | string
 
 ## Example
 
@@ -38,6 +39,7 @@ const example = {
   "email": lager@example.dk,
   "customs": {"eori":"DK12345678"},
   "addressTypes": ["sender"],
+  "brandId": brnd_8f3kd92ld0,
 } satisfies UpdateAddressRequest
 
 console.log(example)

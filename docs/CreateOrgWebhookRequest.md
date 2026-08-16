@@ -10,6 +10,7 @@ Name | Type
 `url` | string
 `events` | Array&lt;string&gt;
 `isActive` | boolean
+`brandId` | string
 
 ## Example
 
@@ -22,6 +23,7 @@ const example = {
   "url": https://hooks.example.dk/zippendo,
   "events": ["shipment.created","tracking.updated"],
   "isActive": true,
+  "brandId": brnd_8f3kd92ld0,
 } satisfies CreateOrgWebhookRequest
 
 console.log(example)

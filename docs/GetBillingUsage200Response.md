@@ -10,6 +10,7 @@ Name | Type
 `shipments` | [GetBillingUsage200ResponseShipments](GetBillingUsage200ResponseShipments.md)
 `limits` | [GetBillingUsage200ResponseLimits](GetBillingUsage200ResponseLimits.md)
 `addOns` | [Array&lt;GetBillingUsage200ResponseAddOnsInner&gt;](GetBillingUsage200ResponseAddOnsInner.md)
+`zippyMessages` | [GetBillingUsage200ResponseZippyMessages](GetBillingUsage200ResponseZippyMessages.md)
 
 ## Example
 
@@ -22,6 +23,7 @@ const example = {
   "shipments": null,
   "limits": null,
   "addOns": [],
+  "zippyMessages": null,
 } satisfies GetBillingUsage200Response
 
 console.log(example)

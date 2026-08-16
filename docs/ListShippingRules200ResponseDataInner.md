@@ -33,6 +33,7 @@ Name | Type
 `returnShippingRuleId` | string
 `autoCreateReturnShipment` | boolean
 `orgId` | string
+`brandId` | string
 `createdAt` | string
 `updatedAt` | string
 `carrier` | [ListShippingRules200ResponseDataInnerCarrier](ListShippingRules200ResponseDataInnerCarrier.md)
@@ -75,6 +76,7 @@ const example = {
   "returnShippingRuleId": null,
   "autoCreateReturnShipment": false,
   "orgId": org_01HZX9K2QF,
+  "brandId": brnd_8f3kd92ld0,
   "createdAt": 2026-06-22T09:00:00.000Z,
   "updatedAt": 2026-06-22T09:00:00.000Z,
   "carrier": null,

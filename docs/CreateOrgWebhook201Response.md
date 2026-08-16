@@ -12,6 +12,7 @@ Name | Type
 `secret` | string
 `events` | Array&lt;string&gt;
 `isActive` | boolean
+`brandId` | string
 `createdAt` | string
 `updatedAt` | string
 
@@ -28,6 +29,7 @@ const example = {
   "secret": whsec_8f3a1c2b9d4e5f6a,
   "events": ["shipment.created"],
   "isActive": true,
+  "brandId": brnd_8f3kd92ld0,
   "createdAt": 2026-06-01T09:30:00.000Z,
   "updatedAt": 2026-06-10T11:15:00.000Z,
 } satisfies CreateOrgWebhook201Response

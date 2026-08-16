@@ -1,30 +1,25 @@
 
-# UpdateOrgWebhookRequest
+# GetBillingUsage200ResponseZippyMessages
 
+Zippy AI message usage this period (present when Zippy access is enabled)
 
 ## Properties
 
 Name | Type
 ------------ | -------------
-`name` | string
-`url` | string
-`events` | Array&lt;string&gt;
-`isActive` | boolean
-`brandId` | string
+`used` | number
+`charges` | number
 
 ## Example
 
 ```typescript
-import type { UpdateOrgWebhookRequest } from '@zippendo/sdk'
+import type { GetBillingUsage200ResponseZippyMessages } from '@zippendo/sdk'
 
 // TODO: Update the object below with actual values
 const example = {
-  "name": Order fulfilment notifier,
-  "url": https://hooks.example.dk/zippendo,
-  "events": ["shipment.created"],
-  "isActive": true,
-  "brandId": brnd_8f3kd92ld0,
-} satisfies UpdateOrgWebhookRequest
+  "used": 42,
+  "charges": 4158,
+} satisfies GetBillingUsage200ResponseZippyMessages
 
 console.log(example)
 
@@ -33,7 +28,7 @@ const exampleJSON: string = JSON.stringify(example)
 console.log(exampleJSON)
 
 // Parse the JSON string back to an object
-const exampleParsed = JSON.parse(exampleJSON) as UpdateOrgWebhookRequest
+const exampleParsed = JSON.parse(exampleJSON) as GetBillingUsage200ResponseZippyMessages
 console.log(exampleParsed)
 ```
 

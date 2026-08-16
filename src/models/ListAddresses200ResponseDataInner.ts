@@ -2,7 +2,7 @@
 /* eslint-disable */
 /**
  * Zippendo Public API
- * Public API documentation for Zippendo. Authenticate using your API token (Bearer token prefixed with zipp_).  **Brands (sub-accounts).** An organization can be split into brands, each keeping its own orders, shipments and configuration separate. There are two ways to scope requests to one brand, and NEITHER changes any request body:  1. **Bind the token.** Create an API token with a `brandId` and every request it makes is confined    to that brand — reads filtered, writes stamped. This is the recommended way to give a single    brand\'s team its own credential. 2. **Send the `X-Zippendo-Brand` header.** An organization-wide token can scope an individual    request by sending the brand\'s id or slug in this header. Most SDKs let you set it once on the    client so every call inherits it.  A brand-bound token that receives an `X-Zippendo-Brand` header naming a different brand is rejected with `403 BRAND_ACCESS_DENIED` — the binding is never widened. Omit both and requests cover the whole organization, which is the behaviour of every existing token.  Records that belong to no brand carry `brandId: null`. Configuration (carriers, shipping rules, addresses) with a null brand is organization-wide and remains visible inside every brand; orders and shipments with a null brand are only visible organization-wide.  Brands themselves are managed under the **Brands** tag. Retiring a brand is done with `POST /orgs/{orgId}/brands/{brandId}/archive` — permanent deletion is a dashboard-only action, since it is refused while any order, shipment, member or token still references the brand. Brands require a plan that includes them; creating one beyond your plan\'s limit returns `403`.
+ * Public API documentation for Zippendo. Authenticate using your API token (Bearer token prefixed with zipp_).  **Brands (sub-accounts).** An organization can be split into brands, each keeping its own orders, shipments and configuration separate. There are two ways to scope requests to one brand, and NEITHER changes any request body:  1. **Bind the token.** Create an API token with a `brandId` and every request it makes is confined    to that brand — reads filtered, writes stamped. This is the recommended way to give a single    brand\'s team its own credential. 2. **Send the `X-Zippendo-Brand` header.** An organization-wide token can scope an individual    request by sending the brand\'s id or slug in this header. Most SDKs let you set it once on the    client so every call inherits it.  A brand-bound token that receives an `X-Zippendo-Brand` header naming a different brand is rejected with `403 BRAND_ACCESS_DENIED` — the binding is never widened. Omit both and requests cover the whole organization, which is the behaviour of every existing token.  Records that belong to no brand carry `brandId: null`. Configuration (carriers, shipping rules, addresses) with a null brand is organization-wide and remains visible inside every brand; orders and shipments with a null brand are only visible organization-wide.  List endpoints additionally take a `?brandScope=own|shared|both` parameter to narrow further within whichever brand context already applies. `own` returns only rows assigned to that brand, and requires a brand context — a brand-bound token, a resolved brand session, or the `X-Zippendo-Brand` header above — otherwise `400`. `shared` returns only the organization-wide rows (equivalent to filtering `brandId=none`). The default, `both`, keeps the existing behaviour: a brand context sees its own rows plus the organization-wide ones. Set `X-Zippendo-Brand-Scope` as a client default to apply the same choice to every request instead of repeating the query parameter on each call — an explicit `brandScope` query parameter always wins over the header, and a blank header value is ignored.  Brands themselves are managed under the **Brands** tag. Retiring a brand is done with `POST /orgs/{orgId}/brands/{brandId}/archive` — permanent deletion is a dashboard-only action, since it is refused while any order, shipment, member or token still references the brand. Brands require a plan that includes them; creating one beyond your plan\'s limit returns `403`.
  *
  * The version of the OpenAPI document: 1.0.0
  * Contact: support@zippendo.com
@@ -104,6 +104,12 @@ export interface ListAddresses200ResponseDataInner {
      */
     orgId: string;
     /**
+     * Brand this record belongs to, or null when it is organization-wide
+     * @type {string}
+     * @memberof ListAddresses200ResponseDataInner
+     */
+    brandId: string | null;
+    /**
      * Creation timestamp (ISO 8601)
      * @type {string}
      * @memberof ListAddresses200ResponseDataInner
@@ -146,6 +152,7 @@ export function instanceOfListAddresses200ResponseDataInner(value: object): valu
     if (!('email' in value) || value['email'] === undefined) return false;
     if (!('addressTypes' in value) || value['addressTypes'] === undefined) return false;
     if (!('orgId' in value) || value['orgId'] === undefined) return false;
+    if (!('brandId' in value) || value['brandId'] === undefined) return false;
     if (!('createdAt' in value) || value['createdAt'] === undefined) return false;
     if (!('updatedAt' in value) || value['updatedAt'] === undefined) return false;
     return true;
@@ -175,6 +182,7 @@ export function ListAddresses200ResponseDataInnerFromJSONTyped(json: any, ignore
         'customs': json['customs'] === undefined ? undefined : json['customs'] === null ? null : json['customs'],
         'addressTypes': json['addressTypes'],
         'orgId': json['orgId'],
+        'brandId': json['brandId'],
         'createdAt': json['createdAt'],
         'updatedAt': json['updatedAt'],
     };
@@ -205,6 +213,7 @@ export function ListAddresses200ResponseDataInnerToJSONTyped(value?: ListAddress
         'customs': value['customs'],
         'addressTypes': value['addressTypes'],
         'orgId': value['orgId'],
+        'brandId': value['brandId'],
         'createdAt': value['createdAt'],
         'updatedAt': value['updatedAt'],
     };

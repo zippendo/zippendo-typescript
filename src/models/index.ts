@@ -68,6 +68,7 @@ export * from './GetBillingUsage200ResponseCurrentPeriod';
 export * from './GetBillingUsage200ResponseLimits';
 export * from './GetBillingUsage200ResponseLimitsTeamMembers';
 export * from './GetBillingUsage200ResponseShipments';
+export * from './GetBillingUsage200ResponseZippyMessages';
 export * from './GetOrder200Response';
 export * from './GetOrder200ResponseShipmentsInner';
 export * from './GetOrder200ResponseShippingRule';

@@ -11,6 +11,7 @@ Name | Type
 `carrierSlug` | string
 `config` | [{ [key: string]: ListCarriers200ResponseDataInnerConfigValue; }](ListCarriers200ResponseDataInnerConfigValue.md)
 `orgId` | string
+`brandId` | string
 `createdAt` | string
 `updatedAt` | string
 `logo` | string
@@ -30,6 +31,7 @@ const example = {
   "carrierSlug": postnord,
   "config": {"customerNumber":"123456"},
   "orgId": org_01HZX9K2QF,
+  "brandId": brnd_8f3kd92ld0,
   "createdAt": 2026-06-22T09:00:00.000Z,
   "updatedAt": 2026-06-22T09:00:00.000Z,
   "logo": https://cdn.zippendo.com/logos/postnord.svg,

@@ -13,98 +13,63 @@
  */
 
 import { mapValues } from '../runtime';
-import type { ListOrders200ResponseDataInner } from './ListOrders200ResponseDataInner';
-import {
-    ListOrders200ResponseDataInnerFromJSON,
-    ListOrders200ResponseDataInnerFromJSONTyped,
-    ListOrders200ResponseDataInnerToJSON,
-    ListOrders200ResponseDataInnerToJSONTyped,
-} from './ListOrders200ResponseDataInner';
-
 /**
- * 
+ * Zippy AI message usage this period (present when Zippy access is enabled)
  * @export
- * @interface ListOrders200Response
+ * @interface GetBillingUsage200ResponseZippyMessages
  */
-export interface ListOrders200Response {
+export interface GetBillingUsage200ResponseZippyMessages {
     /**
-     * Page of results
-     * @type {Array<ListOrders200ResponseDataInner>}
-     * @memberof ListOrders200Response
-     */
-    data: Array<ListOrders200ResponseDataInner>;
-    /**
-     * Total matching items across all pages
+     * Zippy messages used this period
      * @type {number}
-     * @memberof ListOrders200Response
+     * @memberof GetBillingUsage200ResponseZippyMessages
      */
-    total: number;
+    used: number;
     /**
-     * Current page number (1-based)
+     * Zippy message charges so far, in øre
      * @type {number}
-     * @memberof ListOrders200Response
+     * @memberof GetBillingUsage200ResponseZippyMessages
      */
-    page: number;
-    /**
-     * Items per page
-     * @type {number}
-     * @memberof ListOrders200Response
-     */
-    limit: number;
-    /**
-     * Total number of pages
-     * @type {number}
-     * @memberof ListOrders200Response
-     */
-    totalPages: number;
+    charges: number;
 }
 
 /**
- * Check if a given object implements the ListOrders200Response interface.
+ * Check if a given object implements the GetBillingUsage200ResponseZippyMessages interface.
  */
-export function instanceOfListOrders200Response(value: object): value is ListOrders200Response {
-    if (!('data' in value) || value['data'] === undefined) return false;
-    if (!('total' in value) || value['total'] === undefined) return false;
-    if (!('page' in value) || value['page'] === undefined) return false;
-    if (!('limit' in value) || value['limit'] === undefined) return false;
-    if (!('totalPages' in value) || value['totalPages'] === undefined) return false;
+export function instanceOfGetBillingUsage200ResponseZippyMessages(value: object): value is GetBillingUsage200ResponseZippyMessages {
+    if (!('used' in value) || value['used'] === undefined) return false;
+    if (!('charges' in value) || value['charges'] === undefined) return false;
     return true;
 }
 
-export function ListOrders200ResponseFromJSON(json: any): ListOrders200Response {
-    return ListOrders200ResponseFromJSONTyped(json, false);
+export function GetBillingUsage200ResponseZippyMessagesFromJSON(json: any): GetBillingUsage200ResponseZippyMessages {
+    return GetBillingUsage200ResponseZippyMessagesFromJSONTyped(json, false);
 }
 
-export function ListOrders200ResponseFromJSONTyped(json: any, ignoreDiscriminator: boolean): ListOrders200Response {
+export function GetBillingUsage200ResponseZippyMessagesFromJSONTyped(json: any, ignoreDiscriminator: boolean): GetBillingUsage200ResponseZippyMessages {
     if (json == null) {
         return json;
     }
     return {
         
-        'data': ((json['data'] as Array<any>).map(ListOrders200ResponseDataInnerFromJSON)),
-        'total': json['total'],
-        'page': json['page'],
-        'limit': json['limit'],
-        'totalPages': json['totalPages'],
+        'used': json['used'],
+        'charges': json['charges'],
     };
 }
 
-export function ListOrders200ResponseToJSON(json: any): ListOrders200Response {
-    return ListOrders200ResponseToJSONTyped(json, false);
+export function GetBillingUsage200ResponseZippyMessagesToJSON(json: any): GetBillingUsage200ResponseZippyMessages {
+    return GetBillingUsage200ResponseZippyMessagesToJSONTyped(json, false);
 }
 
-export function ListOrders200ResponseToJSONTyped(value?: ListOrders200Response | null, ignoreDiscriminator: boolean = false): any {
+export function GetBillingUsage200ResponseZippyMessagesToJSONTyped(value?: GetBillingUsage200ResponseZippyMessages | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }
 
     return {
         
-        'data': ((value['data'] as Array<any>).map(ListOrders200ResponseDataInnerToJSON)),
-        'total': value['total'],
-        'page': value['page'],
-        'limit': value['limit'],
-        'totalPages': value['totalPages'],
+        'used': value['used'],
+        'charges': value['charges'],
     };
 }
 

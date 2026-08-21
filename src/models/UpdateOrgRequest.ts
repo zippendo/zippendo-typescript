@@ -56,6 +56,12 @@ export interface UpdateOrgRequest {
      */
     overageEnabled?: boolean;
     /**
+     * Billing/contact phone number
+     * @type {string}
+     * @memberof UpdateOrgRequest
+     */
+    phone?: string | null;
+    /**
      * Billing email for invoices
      * @type {string}
      * @memberof UpdateOrgRequest
@@ -143,6 +149,7 @@ export function UpdateOrgRequestFromJSONTyped(json: any, ignoreDiscriminator: bo
         'currency': json['currency'] == null ? undefined : json['currency'],
         'vatNumber': json['vatNumber'] === undefined ? undefined : json['vatNumber'] === null ? null : json['vatNumber'],
         'overageEnabled': json['overageEnabled'] == null ? undefined : json['overageEnabled'],
+        'phone': json['phone'] === undefined ? undefined : json['phone'] === null ? null : json['phone'],
         'billingEmail': json['billingEmail'] === undefined ? undefined : json['billingEmail'] === null ? null : json['billingEmail'],
         'companyName': json['companyName'] === undefined ? undefined : json['companyName'] === null ? null : json['companyName'],
         'addressLine1': json['addressLine1'] === undefined ? undefined : json['addressLine1'] === null ? null : json['addressLine1'],
@@ -171,6 +178,7 @@ export function UpdateOrgRequestToJSONTyped(value?: UpdateOrgRequest | null, ign
         'currency': value['currency'],
         'vatNumber': value['vatNumber'],
         'overageEnabled': value['overageEnabled'],
+        'phone': value['phone'],
         'billingEmail': value['billingEmail'],
         'companyName': value['companyName'],
         'addressLine1': value['addressLine1'],

@@ -79,6 +79,7 @@ export const ListApiTokens401ResponseCodeEnum = {
     BrandHasRecords: 'BRAND_HAS_RECORDS',
     UserNotFound: 'USER_NOT_FOUND',
     UserExists: 'USER_EXISTS',
+    TermsNotAccepted: 'TERMS_NOT_ACCEPTED',
     MemberNotFound: 'MEMBER_NOT_FOUND',
     MemberSelfBrandRestriction: 'MEMBER_SELF_BRAND_RESTRICTION',
     RoleNotFound: 'ROLE_NOT_FOUND',

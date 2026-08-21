@@ -12,6 +12,7 @@ Name | Type
 `currency` | string
 `vatNumber` | string
 `overageEnabled` | boolean
+`phone` | string
 `billingEmail` | string
 `companyName` | string
 `addressLine1` | string
@@ -34,6 +35,7 @@ const example = {
   "currency": DKK,
   "vatNumber": DK12345678,
   "overageEnabled": false,
+  "phone": +45 50 47 02 20,
   "billingEmail": billing@nordic-logistics.dk,
   "companyName": Nordic Logistics ApS,
   "addressLine1": Havnegade 12,

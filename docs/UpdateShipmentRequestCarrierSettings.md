@@ -1,7 +1,6 @@
 
-# CreateShipmentRequestCarrierSettings
+# UpdateShipmentRequestCarrierSettings
 
-Carrier configuration for the shipment. Optional when shippingRuleId is provided.
 
 ## Properties
 
@@ -15,7 +14,7 @@ Name | Type
 ## Example
 
 ```typescript
-import type { CreateShipmentRequestCarrierSettings } from '@zippendo/sdk'
+import type { UpdateShipmentRequestCarrierSettings } from '@zippendo/sdk'
 
 // TODO: Update the object below with actual values
 const example = {
@@ -23,7 +22,7 @@ const example = {
   "productId": prod_mypack_home,
   "services": ["A7"],
   "additionalParameters": {"notificationEmail":"anna@example.dk"},
-} satisfies CreateShipmentRequestCarrierSettings
+} satisfies UpdateShipmentRequestCarrierSettings
 
 console.log(example)
 
@@ -32,7 +31,7 @@ const exampleJSON: string = JSON.stringify(example)
 console.log(exampleJSON)
 
 // Parse the JSON string back to an object
-const exampleParsed = JSON.parse(exampleJSON) as CreateShipmentRequestCarrierSettings
+const exampleParsed = JSON.parse(exampleJSON) as UpdateShipmentRequestCarrierSettings
 console.log(exampleParsed)
 ```
 

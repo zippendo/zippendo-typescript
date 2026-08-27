@@ -11,7 +11,7 @@ Name | Type
 `servicePointId` | string
 `parties` | [Array&lt;CreateShipmentRequestPartiesInner&gt;](CreateShipmentRequestPartiesInner.md)
 `type` | string
-`carrierSettings` | [CreateShipmentRequestCarrierSettings](CreateShipmentRequestCarrierSettings.md)
+`carrierSettings` | [UpdateShipmentRequestCarrierSettings](UpdateShipmentRequestCarrierSettings.md)
 `parcels` | [Array&lt;CreateShipmentRequestParcelsInner&gt;](CreateShipmentRequestParcelsInner.md)
 `pickupDetails` | [CreateShipmentRequestPickupDetails](CreateShipmentRequestPickupDetails.md)
 `termOfTrade` | string
@@ -20,6 +20,7 @@ Name | Type
 `labelPrinterId` | string
 `documentPrinterId` | string
 `shippingRuleId` | string
+`droppoint` | [UpdateShipmentRequestDroppoint](UpdateShipmentRequestDroppoint.md)
 
 ## Example
 
@@ -42,6 +43,7 @@ const example = {
   "labelPrinterId": prn_label_01,
   "documentPrinterId": prn_doc_01,
   "shippingRuleId": rule_3c4d5e6f,
+  "droppoint": null,
 } satisfies UpdateShipmentRequest
 
 console.log(example)

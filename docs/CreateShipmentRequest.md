@@ -19,6 +19,8 @@ Name | Type
 `orderId` | string
 `labelPrinterId` | string
 `documentPrinterId` | string
+`shippingRuleId` | string
+`droppoint` | [CreateShipmentRequestDroppoint](CreateShipmentRequestDroppoint.md)
 
 ## Example
 
@@ -40,6 +42,8 @@ const example = {
   "orderId": ord_5e6f7a8b,
   "labelPrinterId": prn_label_01,
   "documentPrinterId": prn_doc_01,
+  "shippingRuleId": rule_3c4d5e6f,
+  "droppoint": null,
 } satisfies CreateShipmentRequest
 
 console.log(example)

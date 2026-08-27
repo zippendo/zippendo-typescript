@@ -78,6 +78,12 @@ export interface GetOrder200ResponseShipmentsInner {
      */
     carrierSettings: ListShipments200ResponseDataInnerCarrierSettings;
     /**
+     * Selected carrier service point identifier.
+     * @type {string}
+     * @memberof GetOrder200ResponseShipmentsInner
+     */
+    servicePointId?: string | null;
+    /**
      * Timestamp when the shipment was created.
      * @type {string}
      * @memberof GetOrder200ResponseShipmentsInner
@@ -159,6 +165,7 @@ export function GetOrder200ResponseShipmentsInnerFromJSONTyped(json: any, ignore
         'type': json['type'],
         'tracking': json['tracking'] === undefined ? undefined : json['tracking'] === null ? null : CreateShipment201ResponseTrackingFromJSON(json['tracking']),
         'carrierSettings': ListShipments200ResponseDataInnerCarrierSettingsFromJSON(json['carrierSettings']),
+        'servicePointId': json['servicePointId'] === undefined ? undefined : json['servicePointId'] === null ? null : json['servicePointId'],
         'createdAt': json['createdAt'],
         'updatedAt': json['updatedAt'],
         'shippingRuleId': json['shippingRuleId'] === undefined ? undefined : json['shippingRuleId'] === null ? null : json['shippingRuleId'],
@@ -183,6 +190,7 @@ export function GetOrder200ResponseShipmentsInnerToJSONTyped(value?: GetOrder200
         'type': value['type'],
         'tracking': CreateShipment201ResponseTrackingToJSON(value['tracking']),
         'carrierSettings': ListShipments200ResponseDataInnerCarrierSettingsToJSON(value['carrierSettings']),
+        'servicePointId': value['servicePointId'],
         'createdAt': value['createdAt'],
         'updatedAt': value['updatedAt'],
         'shippingRuleId': value['shippingRuleId'],

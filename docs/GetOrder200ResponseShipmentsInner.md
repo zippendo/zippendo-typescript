@@ -12,6 +12,7 @@ Name | Type
 `type` | string
 `tracking` | [CreateShipment201ResponseTracking](CreateShipment201ResponseTracking.md)
 `carrierSettings` | [ListShipments200ResponseDataInnerCarrierSettings](ListShipments200ResponseDataInnerCarrierSettings.md)
+`servicePointId` | string
 `createdAt` | string
 `updatedAt` | string
 `shippingRuleId` | string
@@ -30,6 +31,7 @@ const example = {
   "type": outbound,
   "tracking": null,
   "carrierSettings": null,
+  "servicePointId": sp_pn_4521,
   "createdAt": 2026-06-22T14:30:00.000Z,
   "updatedAt": 2026-06-22T14:30:00.000Z,
   "shippingRuleId": clz9k2f0a0002abcd5678ijkl,

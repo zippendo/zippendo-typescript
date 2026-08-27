@@ -27,6 +27,13 @@ import {
     CreateShipmentRequestCarrierSettingsToJSON,
     CreateShipmentRequestCarrierSettingsToJSONTyped,
 } from './CreateShipmentRequestCarrierSettings';
+import type { CreateShipmentRequestDroppoint } from './CreateShipmentRequestDroppoint';
+import {
+    CreateShipmentRequestDroppointFromJSON,
+    CreateShipmentRequestDroppointFromJSONTyped,
+    CreateShipmentRequestDroppointToJSON,
+    CreateShipmentRequestDroppointToJSONTyped,
+} from './CreateShipmentRequestDroppoint';
 import type { CreateShipmentRequestPartiesInner } from './CreateShipmentRequestPartiesInner';
 import {
     CreateShipmentRequestPartiesInnerFromJSON,
@@ -83,7 +90,7 @@ export interface CreateShipmentRequest {
      * @type {CreateShipmentRequestCarrierSettings}
      * @memberof CreateShipmentRequest
      */
-    carrierSettings: CreateShipmentRequestCarrierSettings;
+    carrierSettings?: CreateShipmentRequestCarrierSettings;
     /**
      * Parcels to include. Optional when orderId is provided.
      * @type {Array<CreateShipmentRequestParcelsInner>}
@@ -126,6 +133,18 @@ export interface CreateShipmentRequest {
      * @memberof CreateShipmentRequest
      */
     documentPrinterId?: string | null;
+    /**
+     * Create the shipment from this shipping rule: carrier settings and the sender address derive from the rule (explicit carrierSettings and addressId are then ignored).
+     * @type {string}
+     * @memberof CreateShipmentRequest
+     */
+    shippingRuleId?: string;
+    /**
+     * 
+     * @type {CreateShipmentRequestDroppoint}
+     * @memberof CreateShipmentRequest
+     */
+    droppoint?: CreateShipmentRequestDroppoint;
 }
 
 
@@ -159,7 +178,6 @@ export type CreateShipmentRequestStatusEnum = typeof CreateShipmentRequestStatus
  */
 export function instanceOfCreateShipmentRequest(value: object): value is CreateShipmentRequest {
     if (!('type' in value) || value['type'] === undefined) return false;
-    if (!('carrierSettings' in value) || value['carrierSettings'] === undefined) return false;
     return true;
 }
 
@@ -178,7 +196,7 @@ export function CreateShipmentRequestFromJSONTyped(json: any, ignoreDiscriminato
         'servicePointId': json['servicePointId'] === undefined ? undefined : json['servicePointId'] === null ? null : json['servicePointId'],
         'parties': json['parties'] == null ? undefined : ((json['parties'] as Array<any>).map(CreateShipmentRequestPartiesInnerFromJSON)),
         'type': json['type'],
-        'carrierSettings': CreateShipmentRequestCarrierSettingsFromJSON(json['carrierSettings']),
+        'carrierSettings': json['carrierSettings'] == null ? undefined : CreateShipmentRequestCarrierSettingsFromJSON(json['carrierSettings']),
         'parcels': json['parcels'] == null ? undefined : ((json['parcels'] as Array<any>).map(CreateShipmentRequestParcelsInnerFromJSON)),
         'pickupDetails': json['pickupDetails'] === undefined ? undefined : json['pickupDetails'] === null ? null : CreateShipmentRequestPickupDetailsFromJSON(json['pickupDetails']),
         'termOfTrade': json['termOfTrade'] == null ? undefined : json['termOfTrade'],
@@ -186,6 +204,8 @@ export function CreateShipmentRequestFromJSONTyped(json: any, ignoreDiscriminato
         'orderId': json['orderId'] === undefined ? undefined : json['orderId'] === null ? null : json['orderId'],
         'labelPrinterId': json['labelPrinterId'] === undefined ? undefined : json['labelPrinterId'] === null ? null : json['labelPrinterId'],
         'documentPrinterId': json['documentPrinterId'] === undefined ? undefined : json['documentPrinterId'] === null ? null : json['documentPrinterId'],
+        'shippingRuleId': json['shippingRuleId'] == null ? undefined : json['shippingRuleId'],
+        'droppoint': json['droppoint'] == null ? undefined : CreateShipmentRequestDroppointFromJSON(json['droppoint']),
     };
 }
 
@@ -213,6 +233,8 @@ export function CreateShipmentRequestToJSONTyped(value?: CreateShipmentRequest |
         'orderId': value['orderId'],
         'labelPrinterId': value['labelPrinterId'],
         'documentPrinterId': value['documentPrinterId'],
+        'shippingRuleId': value['shippingRuleId'],
+        'droppoint': CreateShipmentRequestDroppointToJSON(value['droppoint']),
     };
 }
 

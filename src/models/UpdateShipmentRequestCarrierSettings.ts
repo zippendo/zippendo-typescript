@@ -22,41 +22,41 @@ import {
 } from './CreateShippingRuleRequestAdditionalParametersValue';
 
 /**
- * Carrier configuration for the shipment. Optional when shippingRuleId is provided.
+ * 
  * @export
- * @interface CreateShipmentRequestCarrierSettings
+ * @interface UpdateShipmentRequestCarrierSettings
  */
-export interface CreateShipmentRequestCarrierSettings {
+export interface UpdateShipmentRequestCarrierSettings {
     /**
      * Identifier of the carrier to use.
      * @type {string}
-     * @memberof CreateShipmentRequestCarrierSettings
+     * @memberof UpdateShipmentRequestCarrierSettings
      */
     carrierId: string;
     /**
      * Identifier of the carrier product/service.
      * @type {string}
-     * @memberof CreateShipmentRequestCarrierSettings
+     * @memberof UpdateShipmentRequestCarrierSettings
      */
     productId: string;
     /**
      * Additional service codes requested from the carrier.
      * @type {Array<string>}
-     * @memberof CreateShipmentRequestCarrierSettings
+     * @memberof UpdateShipmentRequestCarrierSettings
      */
     services: Array<string>;
     /**
      * Carrier-specific extra parameters as key/value pairs.
      * @type {{ [key: string]: CreateShippingRuleRequestAdditionalParametersValue; }}
-     * @memberof CreateShipmentRequestCarrierSettings
+     * @memberof UpdateShipmentRequestCarrierSettings
      */
     additionalParameters: { [key: string]: CreateShippingRuleRequestAdditionalParametersValue; };
 }
 
 /**
- * Check if a given object implements the CreateShipmentRequestCarrierSettings interface.
+ * Check if a given object implements the UpdateShipmentRequestCarrierSettings interface.
  */
-export function instanceOfCreateShipmentRequestCarrierSettings(value: object): value is CreateShipmentRequestCarrierSettings {
+export function instanceOfUpdateShipmentRequestCarrierSettings(value: object): value is UpdateShipmentRequestCarrierSettings {
     if (!('carrierId' in value) || value['carrierId'] === undefined) return false;
     if (!('productId' in value) || value['productId'] === undefined) return false;
     if (!('services' in value) || value['services'] === undefined) return false;
@@ -64,11 +64,11 @@ export function instanceOfCreateShipmentRequestCarrierSettings(value: object): v
     return true;
 }
 
-export function CreateShipmentRequestCarrierSettingsFromJSON(json: any): CreateShipmentRequestCarrierSettings {
-    return CreateShipmentRequestCarrierSettingsFromJSONTyped(json, false);
+export function UpdateShipmentRequestCarrierSettingsFromJSON(json: any): UpdateShipmentRequestCarrierSettings {
+    return UpdateShipmentRequestCarrierSettingsFromJSONTyped(json, false);
 }
 
-export function CreateShipmentRequestCarrierSettingsFromJSONTyped(json: any, ignoreDiscriminator: boolean): CreateShipmentRequestCarrierSettings {
+export function UpdateShipmentRequestCarrierSettingsFromJSONTyped(json: any, ignoreDiscriminator: boolean): UpdateShipmentRequestCarrierSettings {
     if (json == null) {
         return json;
     }
@@ -81,11 +81,11 @@ export function CreateShipmentRequestCarrierSettingsFromJSONTyped(json: any, ign
     };
 }
 
-export function CreateShipmentRequestCarrierSettingsToJSON(json: any): CreateShipmentRequestCarrierSettings {
-    return CreateShipmentRequestCarrierSettingsToJSONTyped(json, false);
+export function UpdateShipmentRequestCarrierSettingsToJSON(json: any): UpdateShipmentRequestCarrierSettings {
+    return UpdateShipmentRequestCarrierSettingsToJSONTyped(json, false);
 }
 
-export function CreateShipmentRequestCarrierSettingsToJSONTyped(value?: CreateShipmentRequestCarrierSettings | null, ignoreDiscriminator: boolean = false): any {
+export function UpdateShipmentRequestCarrierSettingsToJSONTyped(value?: UpdateShipmentRequestCarrierSettings | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }

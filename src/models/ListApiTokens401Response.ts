@@ -108,6 +108,7 @@ export const ListApiTokens401ResponseCodeEnum = {
     ShipmentDocumentNotFound: 'SHIPMENT_DOCUMENT_NOT_FOUND',
     ShipmentAlreadySent: 'SHIPMENT_ALREADY_SENT',
     ShipmentInvalidState: 'SHIPMENT_INVALID_STATE',
+    ShipmentServicePointRequired: 'SHIPMENT_SERVICE_POINT_REQUIRED',
     ParcelNotFound: 'PARCEL_NOT_FOUND',
     ParcelInvalidSplit: 'PARCEL_INVALID_SPLIT',
     PickupNotFound: 'PICKUP_NOT_FOUND',

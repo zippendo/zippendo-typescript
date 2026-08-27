@@ -26,11 +26,11 @@ export interface CreateShipment201ResponseParcelsInnerOrderLinesInner {
      */
     id?: string;
     /**
-     * Stock keeping unit of the product.
+     * Stock keeping unit of the product. Optional — not every webshop assigns SKUs.
      * @type {string}
      * @memberof CreateShipment201ResponseParcelsInnerOrderLinesInner
      */
-    sku: string;
+    sku?: string | null;
     /**
      * Number of units in this order line.
      * @type {number}
@@ -85,7 +85,6 @@ export interface CreateShipment201ResponseParcelsInnerOrderLinesInner {
  * Check if a given object implements the CreateShipment201ResponseParcelsInnerOrderLinesInner interface.
  */
 export function instanceOfCreateShipment201ResponseParcelsInnerOrderLinesInner(value: object): value is CreateShipment201ResponseParcelsInnerOrderLinesInner {
-    if (!('sku' in value) || value['sku'] === undefined) return false;
     if (!('quantity' in value) || value['quantity'] === undefined) return false;
     return true;
 }
@@ -101,7 +100,7 @@ export function CreateShipment201ResponseParcelsInnerOrderLinesInnerFromJSONType
     return {
         
         'id': json['id'] == null ? undefined : json['id'],
-        'sku': json['sku'],
+        'sku': json['sku'] === undefined ? undefined : json['sku'] === null ? null : json['sku'],
         'quantity': json['quantity'],
         'description': json['description'] === undefined ? undefined : json['description'] === null ? null : json['description'],
         'unitPrice': json['unitPrice'] === undefined ? undefined : json['unitPrice'] === null ? null : json['unitPrice'],

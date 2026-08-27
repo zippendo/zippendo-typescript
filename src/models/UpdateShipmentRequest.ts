@@ -20,13 +20,13 @@ import {
     CreateShipmentRequestPickupDetailsToJSON,
     CreateShipmentRequestPickupDetailsToJSONTyped,
 } from './CreateShipmentRequestPickupDetails';
-import type { CreateShipmentRequestCarrierSettings } from './CreateShipmentRequestCarrierSettings';
+import type { UpdateShipmentRequestDroppoint } from './UpdateShipmentRequestDroppoint';
 import {
-    CreateShipmentRequestCarrierSettingsFromJSON,
-    CreateShipmentRequestCarrierSettingsFromJSONTyped,
-    CreateShipmentRequestCarrierSettingsToJSON,
-    CreateShipmentRequestCarrierSettingsToJSONTyped,
-} from './CreateShipmentRequestCarrierSettings';
+    UpdateShipmentRequestDroppointFromJSON,
+    UpdateShipmentRequestDroppointFromJSONTyped,
+    UpdateShipmentRequestDroppointToJSON,
+    UpdateShipmentRequestDroppointToJSONTyped,
+} from './UpdateShipmentRequestDroppoint';
 import type { CreateShipmentRequestPartiesInner } from './CreateShipmentRequestPartiesInner';
 import {
     CreateShipmentRequestPartiesInnerFromJSON,
@@ -34,6 +34,13 @@ import {
     CreateShipmentRequestPartiesInnerToJSON,
     CreateShipmentRequestPartiesInnerToJSONTyped,
 } from './CreateShipmentRequestPartiesInner';
+import type { UpdateShipmentRequestCarrierSettings } from './UpdateShipmentRequestCarrierSettings';
+import {
+    UpdateShipmentRequestCarrierSettingsFromJSON,
+    UpdateShipmentRequestCarrierSettingsFromJSONTyped,
+    UpdateShipmentRequestCarrierSettingsToJSON,
+    UpdateShipmentRequestCarrierSettingsToJSONTyped,
+} from './UpdateShipmentRequestCarrierSettings';
 import type { CreateShipmentRequestParcelsInner } from './CreateShipmentRequestParcelsInner';
 import {
     CreateShipmentRequestParcelsInnerFromJSON,
@@ -80,10 +87,10 @@ export interface UpdateShipmentRequest {
     type?: UpdateShipmentRequestTypeEnum;
     /**
      * 
-     * @type {CreateShipmentRequestCarrierSettings}
+     * @type {UpdateShipmentRequestCarrierSettings}
      * @memberof UpdateShipmentRequest
      */
-    carrierSettings?: CreateShipmentRequestCarrierSettings;
+    carrierSettings?: UpdateShipmentRequestCarrierSettings;
     /**
      * Parcels to include. Optional when orderId is provided.
      * @type {Array<CreateShipmentRequestParcelsInner>}
@@ -132,6 +139,12 @@ export interface UpdateShipmentRequest {
      * @memberof UpdateShipmentRequest
      */
     shippingRuleId?: string | null;
+    /**
+     * 
+     * @type {UpdateShipmentRequestDroppoint}
+     * @memberof UpdateShipmentRequest
+     */
+    droppoint?: UpdateShipmentRequestDroppoint;
 }
 
 
@@ -182,7 +195,7 @@ export function UpdateShipmentRequestFromJSONTyped(json: any, ignoreDiscriminato
         'servicePointId': json['servicePointId'] === undefined ? undefined : json['servicePointId'] === null ? null : json['servicePointId'],
         'parties': json['parties'] == null ? undefined : ((json['parties'] as Array<any>).map(CreateShipmentRequestPartiesInnerFromJSON)),
         'type': json['type'] == null ? undefined : json['type'],
-        'carrierSettings': json['carrierSettings'] == null ? undefined : CreateShipmentRequestCarrierSettingsFromJSON(json['carrierSettings']),
+        'carrierSettings': json['carrierSettings'] == null ? undefined : UpdateShipmentRequestCarrierSettingsFromJSON(json['carrierSettings']),
         'parcels': json['parcels'] == null ? undefined : ((json['parcels'] as Array<any>).map(CreateShipmentRequestParcelsInnerFromJSON)),
         'pickupDetails': json['pickupDetails'] === undefined ? undefined : json['pickupDetails'] === null ? null : CreateShipmentRequestPickupDetailsFromJSON(json['pickupDetails']),
         'termOfTrade': json['termOfTrade'] == null ? undefined : json['termOfTrade'],
@@ -191,6 +204,7 @@ export function UpdateShipmentRequestFromJSONTyped(json: any, ignoreDiscriminato
         'labelPrinterId': json['labelPrinterId'] === undefined ? undefined : json['labelPrinterId'] === null ? null : json['labelPrinterId'],
         'documentPrinterId': json['documentPrinterId'] === undefined ? undefined : json['documentPrinterId'] === null ? null : json['documentPrinterId'],
         'shippingRuleId': json['shippingRuleId'] === undefined ? undefined : json['shippingRuleId'] === null ? null : json['shippingRuleId'],
+        'droppoint': json['droppoint'] == null ? undefined : UpdateShipmentRequestDroppointFromJSON(json['droppoint']),
     };
 }
 
@@ -210,7 +224,7 @@ export function UpdateShipmentRequestToJSONTyped(value?: UpdateShipmentRequest |
         'servicePointId': value['servicePointId'],
         'parties': value['parties'] == null ? undefined : ((value['parties'] as Array<any>).map(CreateShipmentRequestPartiesInnerToJSON)),
         'type': value['type'],
-        'carrierSettings': CreateShipmentRequestCarrierSettingsToJSON(value['carrierSettings']),
+        'carrierSettings': UpdateShipmentRequestCarrierSettingsToJSON(value['carrierSettings']),
         'parcels': value['parcels'] == null ? undefined : ((value['parcels'] as Array<any>).map(CreateShipmentRequestParcelsInnerToJSON)),
         'pickupDetails': CreateShipmentRequestPickupDetailsToJSON(value['pickupDetails']),
         'termOfTrade': value['termOfTrade'],
@@ -219,6 +233,7 @@ export function UpdateShipmentRequestToJSONTyped(value?: UpdateShipmentRequest |
         'labelPrinterId': value['labelPrinterId'],
         'documentPrinterId': value['documentPrinterId'],
         'shippingRuleId': value['shippingRuleId'],
+        'droppoint': UpdateShipmentRequestDroppointToJSON(value['droppoint']),
     };
 }
 

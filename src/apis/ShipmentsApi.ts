@@ -421,7 +421,7 @@ export class ShipmentsApi extends runtime.BaseAPI {
     }
 
     /**
-     * Create a new shipment for an organization. When orderId is provided, parties and parcels are derived from the order.
+     * Create a new shipment for an organization. When orderId is provided, parties and parcels are derived from the order. When shippingRuleId is provided, carrier settings and the sender address derive from the rule.
      * Create shipment
      */
     async createShipmentRaw(requestParameters: CreateShipmentOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CreateShipment201Response>> {
@@ -432,7 +432,7 @@ export class ShipmentsApi extends runtime.BaseAPI {
     }
 
     /**
-     * Create a new shipment for an organization. When orderId is provided, parties and parcels are derived from the order.
+     * Create a new shipment for an organization. When orderId is provided, parties and parcels are derived from the order. When shippingRuleId is provided, carrier settings and the sender address derive from the rule.
      * Create shipment
      */
     async createShipment(requestParameters: CreateShipmentOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CreateShipment201Response> {

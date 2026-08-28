@@ -10,6 +10,7 @@ Name | Type
 `total` | number
 `sent` | number
 `failed` | number
+`skipped` | number
 
 ## Example
 
@@ -21,6 +22,7 @@ const example = {
   "total": 3,
   "sent": 2,
   "failed": 1,
+  "skipped": 0,
 } satisfies BatchSendShipments200ResponseSummary
 
 console.log(example)

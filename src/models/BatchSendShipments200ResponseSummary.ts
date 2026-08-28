@@ -20,7 +20,7 @@ import { mapValues } from '../runtime';
  */
 export interface BatchSendShipments200ResponseSummary {
     /**
-     * Number of unique shipments processed.
+     * Number of unique shipments requested.
      * @type {number}
      * @memberof BatchSendShipments200ResponseSummary
      */
@@ -32,11 +32,17 @@ export interface BatchSendShipments200ResponseSummary {
      */
     sent: number;
     /**
-     * How many failed.
+     * How many the carrier or Zippendo rejected.
      * @type {number}
      * @memberof BatchSendShipments200ResponseSummary
      */
     failed: number;
+    /**
+     * How many the batch ran out of time to attempt. Submit these again.
+     * @type {number}
+     * @memberof BatchSendShipments200ResponseSummary
+     */
+    skipped: number;
 }
 
 /**
@@ -46,6 +52,7 @@ export function instanceOfBatchSendShipments200ResponseSummary(value: object): v
     if (!('total' in value) || value['total'] === undefined) return false;
     if (!('sent' in value) || value['sent'] === undefined) return false;
     if (!('failed' in value) || value['failed'] === undefined) return false;
+    if (!('skipped' in value) || value['skipped'] === undefined) return false;
     return true;
 }
 
@@ -62,6 +69,7 @@ export function BatchSendShipments200ResponseSummaryFromJSONTyped(json: any, ign
         'total': json['total'],
         'sent': json['sent'],
         'failed': json['failed'],
+        'skipped': json['skipped'],
     };
 }
 
@@ -79,6 +87,7 @@ export function BatchSendShipments200ResponseSummaryToJSONTyped(value?: BatchSen
         'total': value['total'],
         'sent': value['sent'],
         'failed': value['failed'],
+        'skipped': value['skipped'],
     };
 }
 

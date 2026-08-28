@@ -123,6 +123,7 @@ export const SendShipment422ResponseCodeEnum = {
     ShipmentAlreadySent: 'SHIPMENT_ALREADY_SENT',
     ShipmentInvalidState: 'SHIPMENT_INVALID_STATE',
     ShipmentServicePointRequired: 'SHIPMENT_SERVICE_POINT_REQUIRED',
+    ShipmentSendNotAttempted: 'SHIPMENT_SEND_NOT_ATTEMPTED',
     ParcelNotFound: 'PARCEL_NOT_FOUND',
     ParcelInvalidSplit: 'PARCEL_INVALID_SPLIT',
     PickupNotFound: 'PICKUP_NOT_FOUND',

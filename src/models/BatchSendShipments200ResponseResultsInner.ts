@@ -34,19 +34,19 @@ export interface BatchSendShipments200ResponseResultsInner {
      */
     shipmentId: string;
     /**
-     * Whether this shipment was successfully booked with its carrier.
+     * `sent` when the carrier booked it, `failed` when the carrier or Zippendo rejected it, and `skipped` when the batch ran out of time before reaching it. A `skipped` shipment was never sent to the carrier and is safe to submit again.
      * @type {BatchSendShipments200ResponseResultsInnerStatusEnum}
      * @memberof BatchSendShipments200ResponseResultsInner
      */
     status: BatchSendShipments200ResponseResultsInnerStatusEnum;
     /**
-     * Canonical machine-readable error code, present when `status` is `failed`.
+     * Canonical machine-readable error code, present when `status` is `failed` or `skipped`.
      * @type {BatchSendShipments200ResponseResultsInnerCodeEnum}
      * @memberof BatchSendShipments200ResponseResultsInner
      */
     code?: BatchSendShipments200ResponseResultsInnerCodeEnum;
     /**
-     * Human-readable failure detail, present when `status` is `failed`.
+     * Human-readable detail, present when `status` is `failed` or `skipped`.
      * @type {string}
      * @memberof BatchSendShipments200ResponseResultsInner
      */
@@ -65,7 +65,8 @@ export interface BatchSendShipments200ResponseResultsInner {
  */
 export const BatchSendShipments200ResponseResultsInnerStatusEnum = {
     Sent: 'sent',
-    Failed: 'failed'
+    Failed: 'failed',
+    Skipped: 'skipped'
 } as const;
 export type BatchSendShipments200ResponseResultsInnerStatusEnum = typeof BatchSendShipments200ResponseResultsInnerStatusEnum[keyof typeof BatchSendShipments200ResponseResultsInnerStatusEnum];
 
@@ -138,6 +139,7 @@ export const BatchSendShipments200ResponseResultsInnerCodeEnum = {
     ShipmentAlreadySent: 'SHIPMENT_ALREADY_SENT',
     ShipmentInvalidState: 'SHIPMENT_INVALID_STATE',
     ShipmentServicePointRequired: 'SHIPMENT_SERVICE_POINT_REQUIRED',
+    ShipmentSendNotAttempted: 'SHIPMENT_SEND_NOT_ATTEMPTED',
     ParcelNotFound: 'PARCEL_NOT_FOUND',
     ParcelInvalidSplit: 'PARCEL_INVALID_SPLIT',
     PickupNotFound: 'PICKUP_NOT_FOUND',

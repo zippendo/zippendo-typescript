@@ -31,6 +31,12 @@ export interface GetBillingUsage200ResponseZippyMessages {
      * @memberof GetBillingUsage200ResponseZippyMessages
      */
     charges: number;
+    /**
+     * Maximum Zippy messages per month (-1 for unlimited)
+     * @type {number}
+     * @memberof GetBillingUsage200ResponseZippyMessages
+     */
+    limit: number;
 }
 
 /**
@@ -39,6 +45,7 @@ export interface GetBillingUsage200ResponseZippyMessages {
 export function instanceOfGetBillingUsage200ResponseZippyMessages(value: object): value is GetBillingUsage200ResponseZippyMessages {
     if (!('used' in value) || value['used'] === undefined) return false;
     if (!('charges' in value) || value['charges'] === undefined) return false;
+    if (!('limit' in value) || value['limit'] === undefined) return false;
     return true;
 }
 
@@ -54,6 +61,7 @@ export function GetBillingUsage200ResponseZippyMessagesFromJSONTyped(json: any, 
         
         'used': json['used'],
         'charges': json['charges'],
+        'limit': json['limit'],
     };
 }
 
@@ -70,6 +78,7 @@ export function GetBillingUsage200ResponseZippyMessagesToJSONTyped(value?: GetBi
         
         'used': value['used'],
         'charges': value['charges'],
+        'limit': value['limit'],
     };
 }
 

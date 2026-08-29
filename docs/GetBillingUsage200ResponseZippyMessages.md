@@ -9,6 +9,7 @@ Name | Type
 ------------ | -------------
 `used` | number
 `charges` | number
+`limit` | number
 
 ## Example
 
@@ -19,6 +20,7 @@ import type { GetBillingUsage200ResponseZippyMessages } from '@zippendo/sdk'
 const example = {
   "used": 42,
   "charges": 4158,
+  "limit": -1,
 } satisfies GetBillingUsage200ResponseZippyMessages
 
 console.log(example)

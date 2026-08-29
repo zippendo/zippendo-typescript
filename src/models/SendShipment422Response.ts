@@ -118,6 +118,7 @@ export const SendShipment422ResponseCodeEnum = {
     BillingManagedByShopify: 'BILLING_MANAGED_BY_SHOPIFY',
     BillingCheckoutRequired: 'BILLING_CHECKOUT_REQUIRED',
     ZippyAddonRequired: 'ZIPPY_ADDON_REQUIRED',
+    ZippyMessageLimitReached: 'ZIPPY_MESSAGE_LIMIT_REACHED',
     ShipmentNotFound: 'SHIPMENT_NOT_FOUND',
     ShipmentDocumentNotFound: 'SHIPMENT_DOCUMENT_NOT_FOUND',
     ShipmentAlreadySent: 'SHIPMENT_ALREADY_SENT',

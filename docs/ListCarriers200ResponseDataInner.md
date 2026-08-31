@@ -18,6 +18,8 @@ Name | Type
 `brandColor` | string
 `deprecated` | boolean
 `deprecationMessage` | string
+`generatesCustomsDocuments` | boolean
+`generatesCommercialInvoice` | boolean
 
 ## Example
 
@@ -38,6 +40,8 @@ const example = {
   "brandColor": #005BAA,
   "deprecated": true,
   "deprecationMessage": The standalone Instabox API is deprecated. Migrate to the Instabee-powered Instabox integration.,
+  "generatesCustomsDocuments": true,
+  "generatesCommercialInvoice": true,
 } satisfies ListCarriers200ResponseDataInner
 
 console.log(example)

@@ -139,6 +139,9 @@ export interface ListShipmentsRequest {
     limit?: number;
     brandId?: string;
     brandScope?: ListShipmentsBrandScopeEnum;
+    status?: ListShipmentsStatusEnum;
+    type?: ListShipmentsTypeEnum;
+    search?: string;
 }
 
 export interface SendShipmentRequest {
@@ -673,6 +676,18 @@ export class ShipmentsApi extends runtime.BaseAPI {
             queryParameters['brandScope'] = requestParameters['brandScope'];
         }
 
+        if (requestParameters['status'] != null) {
+            queryParameters['status'] = requestParameters['status'];
+        }
+
+        if (requestParameters['type'] != null) {
+            queryParameters['type'] = requestParameters['type'];
+        }
+
+        if (requestParameters['search'] != null) {
+            queryParameters['search'] = requestParameters['search'];
+        }
+
         const headerParameters: runtime.HTTPHeaders = {};
 
         if (this.configuration && this.configuration.accessToken) {
@@ -1079,3 +1094,25 @@ export const ListShipmentsBrandScopeEnum = {
     Both: 'both'
 } as const;
 export type ListShipmentsBrandScopeEnum = typeof ListShipmentsBrandScopeEnum[keyof typeof ListShipmentsBrandScopeEnum];
+/**
+ * @export
+ */
+export const ListShipmentsStatusEnum = {
+    Draft: 'draft',
+    Pending: 'pending',
+    Processing: 'processing',
+    Dispatched: 'dispatched',
+    PartlyDispatched: 'partly_dispatched',
+    Error: 'error',
+    Cancelled: 'cancelled',
+    OnHold: 'on_hold'
+} as const;
+export type ListShipmentsStatusEnum = typeof ListShipmentsStatusEnum[keyof typeof ListShipmentsStatusEnum];
+/**
+ * @export
+ */
+export const ListShipmentsTypeEnum = {
+    Outbound: 'outbound',
+    Inbound: 'inbound'
+} as const;
+export type ListShipmentsTypeEnum = typeof ListShipmentsTypeEnum[keyof typeof ListShipmentsTypeEnum];

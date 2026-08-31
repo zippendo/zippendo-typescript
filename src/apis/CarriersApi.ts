@@ -87,6 +87,8 @@ export interface ListCarriersRequest {
     limit?: number;
     brandId?: string;
     brandScope?: ListCarriersBrandScopeEnum;
+    carrierSlug?: string;
+    search?: string;
 }
 
 export interface UpdateCarrierOperationRequest {
@@ -466,6 +468,14 @@ export class CarriersApi extends runtime.BaseAPI {
 
         if (requestParameters['brandScope'] != null) {
             queryParameters['brandScope'] = requestParameters['brandScope'];
+        }
+
+        if (requestParameters['carrierSlug'] != null) {
+            queryParameters['carrierSlug'] = requestParameters['carrierSlug'];
+        }
+
+        if (requestParameters['search'] != null) {
+            queryParameters['search'] = requestParameters['search'];
         }
 
         const headerParameters: runtime.HTTPHeaders = {};

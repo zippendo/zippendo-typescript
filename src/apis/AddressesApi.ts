@@ -59,6 +59,8 @@ export interface ListAddressesRequest {
     page?: number;
     limit?: number;
     type?: ListAddressesTypeEnum;
+    countryCode?: string;
+    search?: string;
     brandId?: string;
     brandScope?: ListAddressesBrandScopeEnum;
 }
@@ -292,6 +294,14 @@ export class AddressesApi extends runtime.BaseAPI {
 
         if (requestParameters['type'] != null) {
             queryParameters['type'] = requestParameters['type'];
+        }
+
+        if (requestParameters['countryCode'] != null) {
+            queryParameters['countryCode'] = requestParameters['countryCode'];
+        }
+
+        if (requestParameters['search'] != null) {
+            queryParameters['search'] = requestParameters['search'];
         }
 
         if (requestParameters['brandId'] != null) {

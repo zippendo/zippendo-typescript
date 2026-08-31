@@ -82,6 +82,8 @@ export interface ListOrgWebhooksRequest {
     limit?: number;
     brandId?: string;
     brandScope?: ListOrgWebhooksBrandScopeEnum;
+    isActive?: string;
+    search?: string;
 }
 
 export interface TestOrgWebhookRequest {
@@ -389,6 +391,14 @@ export class WebhooksApi extends runtime.BaseAPI {
 
         if (requestParameters['brandScope'] != null) {
             queryParameters['brandScope'] = requestParameters['brandScope'];
+        }
+
+        if (requestParameters['isActive'] != null) {
+            queryParameters['isActive'] = requestParameters['isActive'];
+        }
+
+        if (requestParameters['search'] != null) {
+            queryParameters['search'] = requestParameters['search'];
         }
 
         const headerParameters: runtime.HTTPHeaders = {};

@@ -70,6 +70,8 @@ export interface ListShippingRulesRequest {
     limit?: number;
     brandId?: string;
     brandScope?: ListShippingRulesBrandScopeEnum;
+    carrierId?: string;
+    search?: string;
 }
 
 export interface UpdateShippingRuleOperationRequest {
@@ -301,6 +303,14 @@ export class RulesApi extends runtime.BaseAPI {
 
         if (requestParameters['brandScope'] != null) {
             queryParameters['brandScope'] = requestParameters['brandScope'];
+        }
+
+        if (requestParameters['carrierId'] != null) {
+            queryParameters['carrierId'] = requestParameters['carrierId'];
+        }
+
+        if (requestParameters['search'] != null) {
+            queryParameters['search'] = requestParameters['search'];
         }
 
         const headerParameters: runtime.HTTPHeaders = {};

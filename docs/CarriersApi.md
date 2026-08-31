@@ -403,7 +403,7 @@ example().catch(console.error);
 
 ## listCarriers
 
-> ListCarriers200Response listCarriers(orgId, page, limit, brandId, brandScope)
+> ListCarriers200Response listCarriers(orgId, page, limit, brandId, brandScope, carrierSlug, search)
 
 List carriers
 
@@ -437,6 +437,10 @@ async function example() {
     brandId: brnd_8f3kd92ld0,
     // 'own' | 'shared' | 'both' | How the brand context narrows this list: \"own\" returns only rows assigned to the current brand (requires a brand session, a brand-bound token, or the X-Zippendo-Brand header), \"shared\" returns only unassigned organization-wide rows, \"both\" (default) returns both. The X-Zippendo-Brand-Scope header supplies a default when the parameter is omitted. For strictly brand-owned records (orders, shipments), a brand-scoped request combined with \"shared\" returns no rows, since those records are never visible organization-wide from within a brand context. (optional)
     brandScope: own,
+    // string | Filter by carrier slug. (optional)
+    carrierSlug: gls,
+    // string | Search by carrier name. (optional)
+    search: PostNord,
   } satisfies ListCarriersRequest;
 
   try {
@@ -461,6 +465,8 @@ example().catch(console.error);
 | **limit** | `number` | Items per page (max 100) | [Optional] [Defaults to `20`] |
 | **brandId** | `string` | Filter by brand. Pass a brand ID, or \&quot;none\&quot; for records not assigned to any brand. | [Optional] [Defaults to `undefined`] |
 | **brandScope** | `own`, `shared`, `both` | How the brand context narrows this list: \&quot;own\&quot; returns only rows assigned to the current brand (requires a brand session, a brand-bound token, or the X-Zippendo-Brand header), \&quot;shared\&quot; returns only unassigned organization-wide rows, \&quot;both\&quot; (default) returns both. The X-Zippendo-Brand-Scope header supplies a default when the parameter is omitted. For strictly brand-owned records (orders, shipments), a brand-scoped request combined with \&quot;shared\&quot; returns no rows, since those records are never visible organization-wide from within a brand context. | [Optional] [Defaults to `undefined`] [Enum: own, shared, both] |
+| **carrierSlug** | `string` | Filter by carrier slug. | [Optional] [Defaults to `undefined`] |
+| **search** | `string` | Search by carrier name. | [Optional] [Defaults to `undefined`] |
 
 ### Return type
 

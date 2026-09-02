@@ -13,85 +13,101 @@
  */
 
 import { mapValues } from '../runtime';
+import type { UpdateOrderChannelRequestSettings } from './UpdateOrderChannelRequestSettings';
+import {
+    UpdateOrderChannelRequestSettingsFromJSON,
+    UpdateOrderChannelRequestSettingsFromJSONTyped,
+    UpdateOrderChannelRequestSettingsToJSON,
+    UpdateOrderChannelRequestSettingsToJSONTyped,
+} from './UpdateOrderChannelRequestSettings';
+
 /**
- * Summary of the order's source channel.
+ * 
  * @export
- * @interface ListOrders200ResponseDataInnerOrderChannel
+ * @interface UpdateOrderChannelRequest
  */
-export interface ListOrders200ResponseDataInnerOrderChannel {
+export interface UpdateOrderChannelRequest {
     /**
-     * Order channel ID.
+     * Brand this channel belongs to; null for organization-wide
      * @type {string}
-     * @memberof ListOrders200ResponseDataInnerOrderChannel
+     * @memberof UpdateOrderChannelRequest
      */
-    id: string;
+    brandId?: string | null;
     /**
-     * Order channel name.
+     * Display name for the channel.
      * @type {string}
-     * @memberof ListOrders200ResponseDataInnerOrderChannel
+     * @memberof UpdateOrderChannelRequest
      */
-    name: string;
+    name?: string;
     /**
-     * Type of the order channel (sales platform).
-     * @type {ListOrders200ResponseDataInnerOrderChannelTypeEnum}
-     * @memberof ListOrders200ResponseDataInnerOrderChannel
+     * Whether the channel is active.
+     * @type {boolean}
+     * @memberof UpdateOrderChannelRequest
      */
-    type: ListOrders200ResponseDataInnerOrderChannelTypeEnum;
+    enabled?: boolean;
+    /**
+     * Type-specific platform credentials.
+     * @type {{ [key: string]: any; }}
+     * @memberof UpdateOrderChannelRequest
+     */
+    credentials?: { [key: string]: any; } | null;
+    /**
+     * 
+     * @type {UpdateOrderChannelRequestSettings}
+     * @memberof UpdateOrderChannelRequest
+     */
+    settings?: UpdateOrderChannelRequestSettings;
+    /**
+     * IDs of shipping rules linked to this channel.
+     * @type {Array<string>}
+     * @memberof UpdateOrderChannelRequest
+     */
+    shippingRuleIds?: Array<string>;
 }
 
-
 /**
- * @export
+ * Check if a given object implements the UpdateOrderChannelRequest interface.
  */
-export const ListOrders200ResponseDataInnerOrderChannelTypeEnum = {
-    Shopify: 'shopify',
-    Woocommerce: 'woocommerce',
-    Manual: 'manual',
-    Custom: 'custom'
-} as const;
-export type ListOrders200ResponseDataInnerOrderChannelTypeEnum = typeof ListOrders200ResponseDataInnerOrderChannelTypeEnum[keyof typeof ListOrders200ResponseDataInnerOrderChannelTypeEnum];
-
-
-/**
- * Check if a given object implements the ListOrders200ResponseDataInnerOrderChannel interface.
- */
-export function instanceOfListOrders200ResponseDataInnerOrderChannel(value: object): value is ListOrders200ResponseDataInnerOrderChannel {
-    if (!('id' in value) || value['id'] === undefined) return false;
-    if (!('name' in value) || value['name'] === undefined) return false;
-    if (!('type' in value) || value['type'] === undefined) return false;
+export function instanceOfUpdateOrderChannelRequest(value: object): value is UpdateOrderChannelRequest {
     return true;
 }
 
-export function ListOrders200ResponseDataInnerOrderChannelFromJSON(json: any): ListOrders200ResponseDataInnerOrderChannel {
-    return ListOrders200ResponseDataInnerOrderChannelFromJSONTyped(json, false);
+export function UpdateOrderChannelRequestFromJSON(json: any): UpdateOrderChannelRequest {
+    return UpdateOrderChannelRequestFromJSONTyped(json, false);
 }
 
-export function ListOrders200ResponseDataInnerOrderChannelFromJSONTyped(json: any, ignoreDiscriminator: boolean): ListOrders200ResponseDataInnerOrderChannel {
+export function UpdateOrderChannelRequestFromJSONTyped(json: any, ignoreDiscriminator: boolean): UpdateOrderChannelRequest {
     if (json == null) {
         return json;
     }
     return {
         
-        'id': json['id'],
-        'name': json['name'],
-        'type': json['type'],
+        'brandId': json['brandId'] === undefined ? undefined : json['brandId'] === null ? null : json['brandId'],
+        'name': json['name'] == null ? undefined : json['name'],
+        'enabled': json['enabled'] == null ? undefined : json['enabled'],
+        'credentials': json['credentials'] === undefined ? undefined : json['credentials'] === null ? null : json['credentials'],
+        'settings': json['settings'] == null ? undefined : UpdateOrderChannelRequestSettingsFromJSON(json['settings']),
+        'shippingRuleIds': json['shippingRuleIds'] == null ? undefined : json['shippingRuleIds'],
     };
 }
 
-export function ListOrders200ResponseDataInnerOrderChannelToJSON(json: any): ListOrders200ResponseDataInnerOrderChannel {
-    return ListOrders200ResponseDataInnerOrderChannelToJSONTyped(json, false);
+export function UpdateOrderChannelRequestToJSON(json: any): UpdateOrderChannelRequest {
+    return UpdateOrderChannelRequestToJSONTyped(json, false);
 }
 
-export function ListOrders200ResponseDataInnerOrderChannelToJSONTyped(value?: ListOrders200ResponseDataInnerOrderChannel | null, ignoreDiscriminator: boolean = false): any {
+export function UpdateOrderChannelRequestToJSONTyped(value?: UpdateOrderChannelRequest | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }
 
     return {
         
-        'id': value['id'],
+        'brandId': value['brandId'],
         'name': value['name'],
-        'type': value['type'],
+        'enabled': value['enabled'],
+        'credentials': value['credentials'],
+        'settings': UpdateOrderChannelRequestSettingsToJSON(value['settings']),
+        'shippingRuleIds': value['shippingRuleIds'],
     };
 }
 

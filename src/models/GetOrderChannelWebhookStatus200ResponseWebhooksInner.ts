@@ -14,75 +14,84 @@
 
 import { mapValues } from '../runtime';
 /**
- * Summary of the order's source channel.
+ * 
  * @export
- * @interface ListOrders200ResponseDataInnerOrderChannel
+ * @interface GetOrderChannelWebhookStatus200ResponseWebhooksInner
  */
-export interface ListOrders200ResponseDataInnerOrderChannel {
+export interface GetOrderChannelWebhookStatus200ResponseWebhooksInner {
     /**
-     * Order channel ID.
+     * Platform webhook ID.
+     * @type {number}
+     * @memberof GetOrderChannelWebhookStatus200ResponseWebhooksInner
+     */
+    id: number;
+    /**
+     * Webhook event topic.
      * @type {string}
-     * @memberof ListOrders200ResponseDataInnerOrderChannel
+     * @memberof GetOrderChannelWebhookStatus200ResponseWebhooksInner
      */
-    id: string;
+    topic: string;
     /**
-     * Order channel name.
+     * Registered callback address.
      * @type {string}
-     * @memberof ListOrders200ResponseDataInnerOrderChannel
+     * @memberof GetOrderChannelWebhookStatus200ResponseWebhooksInner
      */
-    name: string;
+    address: string;
     /**
-     * Type of the order channel (sales platform).
-     * @type {ListOrders200ResponseDataInnerOrderChannelTypeEnum}
-     * @memberof ListOrders200ResponseDataInnerOrderChannel
+     * Webhook creation timestamp.
+     * @type {string}
+     * @memberof GetOrderChannelWebhookStatus200ResponseWebhooksInner
      */
-    type: ListOrders200ResponseDataInnerOrderChannelTypeEnum;
+    createdAt: string;
+    /**
+     * WooCommerce delivery URL (same as `address`; present for WooCommerce channels).
+     * @type {string}
+     * @memberof GetOrderChannelWebhookStatus200ResponseWebhooksInner
+     */
+    deliveryUrl?: string;
+    /**
+     * WooCommerce webhook status. A value other than `active` means WooCommerce disabled the webhook (e.g. after repeated delivery failures).
+     * @type {string}
+     * @memberof GetOrderChannelWebhookStatus200ResponseWebhooksInner
+     */
+    status?: string;
 }
 
-
 /**
- * @export
+ * Check if a given object implements the GetOrderChannelWebhookStatus200ResponseWebhooksInner interface.
  */
-export const ListOrders200ResponseDataInnerOrderChannelTypeEnum = {
-    Shopify: 'shopify',
-    Woocommerce: 'woocommerce',
-    Manual: 'manual',
-    Custom: 'custom'
-} as const;
-export type ListOrders200ResponseDataInnerOrderChannelTypeEnum = typeof ListOrders200ResponseDataInnerOrderChannelTypeEnum[keyof typeof ListOrders200ResponseDataInnerOrderChannelTypeEnum];
-
-
-/**
- * Check if a given object implements the ListOrders200ResponseDataInnerOrderChannel interface.
- */
-export function instanceOfListOrders200ResponseDataInnerOrderChannel(value: object): value is ListOrders200ResponseDataInnerOrderChannel {
+export function instanceOfGetOrderChannelWebhookStatus200ResponseWebhooksInner(value: object): value is GetOrderChannelWebhookStatus200ResponseWebhooksInner {
     if (!('id' in value) || value['id'] === undefined) return false;
-    if (!('name' in value) || value['name'] === undefined) return false;
-    if (!('type' in value) || value['type'] === undefined) return false;
+    if (!('topic' in value) || value['topic'] === undefined) return false;
+    if (!('address' in value) || value['address'] === undefined) return false;
+    if (!('createdAt' in value) || value['createdAt'] === undefined) return false;
     return true;
 }
 
-export function ListOrders200ResponseDataInnerOrderChannelFromJSON(json: any): ListOrders200ResponseDataInnerOrderChannel {
-    return ListOrders200ResponseDataInnerOrderChannelFromJSONTyped(json, false);
+export function GetOrderChannelWebhookStatus200ResponseWebhooksInnerFromJSON(json: any): GetOrderChannelWebhookStatus200ResponseWebhooksInner {
+    return GetOrderChannelWebhookStatus200ResponseWebhooksInnerFromJSONTyped(json, false);
 }
 
-export function ListOrders200ResponseDataInnerOrderChannelFromJSONTyped(json: any, ignoreDiscriminator: boolean): ListOrders200ResponseDataInnerOrderChannel {
+export function GetOrderChannelWebhookStatus200ResponseWebhooksInnerFromJSONTyped(json: any, ignoreDiscriminator: boolean): GetOrderChannelWebhookStatus200ResponseWebhooksInner {
     if (json == null) {
         return json;
     }
     return {
         
         'id': json['id'],
-        'name': json['name'],
-        'type': json['type'],
+        'topic': json['topic'],
+        'address': json['address'],
+        'createdAt': json['createdAt'],
+        'deliveryUrl': json['deliveryUrl'] == null ? undefined : json['deliveryUrl'],
+        'status': json['status'] == null ? undefined : json['status'],
     };
 }
 
-export function ListOrders200ResponseDataInnerOrderChannelToJSON(json: any): ListOrders200ResponseDataInnerOrderChannel {
-    return ListOrders200ResponseDataInnerOrderChannelToJSONTyped(json, false);
+export function GetOrderChannelWebhookStatus200ResponseWebhooksInnerToJSON(json: any): GetOrderChannelWebhookStatus200ResponseWebhooksInner {
+    return GetOrderChannelWebhookStatus200ResponseWebhooksInnerToJSONTyped(json, false);
 }
 
-export function ListOrders200ResponseDataInnerOrderChannelToJSONTyped(value?: ListOrders200ResponseDataInnerOrderChannel | null, ignoreDiscriminator: boolean = false): any {
+export function GetOrderChannelWebhookStatus200ResponseWebhooksInnerToJSONTyped(value?: GetOrderChannelWebhookStatus200ResponseWebhooksInner | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }
@@ -90,8 +99,11 @@ export function ListOrders200ResponseDataInnerOrderChannelToJSONTyped(value?: Li
     return {
         
         'id': value['id'],
-        'name': value['name'],
-        'type': value['type'],
+        'topic': value['topic'],
+        'address': value['address'],
+        'createdAt': value['createdAt'],
+        'deliveryUrl': value['deliveryUrl'],
+        'status': value['status'],
     };
 }
 

@@ -101,6 +101,18 @@ export interface CreateOrderRequest {
      */
     notes?: string | null;
     /**
+     * Shipping rule to ship this order with. When set, a shipment is created immediately (and dispatched if the channel has autoShipOnCreate enabled).
+     * @type {string}
+     * @memberof CreateOrderRequest
+     */
+    shippingRuleId?: string | null;
+    /**
+     * Shipping-method title from the source checkout; matched against the order channel's shipping-method mappings to pick a shipping rule.
+     * @type {string}
+     * @memberof CreateOrderRequest
+     */
+    shippingMethodTitle?: string | null;
+    /**
      * Raw platform-specific payload for reference.
      * @type {{ [key: string]: any; }}
      * @memberof CreateOrderRequest
@@ -139,6 +151,8 @@ export function CreateOrderRequestFromJSONTyped(json: any, ignoreDiscriminator: 
         'totalAmount': json['totalAmount'] === undefined ? undefined : json['totalAmount'] === null ? null : json['totalAmount'],
         'currency': json['currency'] === undefined ? undefined : json['currency'] === null ? null : json['currency'],
         'notes': json['notes'] === undefined ? undefined : json['notes'] === null ? null : json['notes'],
+        'shippingRuleId': json['shippingRuleId'] === undefined ? undefined : json['shippingRuleId'] === null ? null : json['shippingRuleId'],
+        'shippingMethodTitle': json['shippingMethodTitle'] === undefined ? undefined : json['shippingMethodTitle'] === null ? null : json['shippingMethodTitle'],
         'externalData': json['externalData'] === undefined ? undefined : json['externalData'] === null ? null : json['externalData'],
     };
 }
@@ -165,6 +179,8 @@ export function CreateOrderRequestToJSONTyped(value?: CreateOrderRequest | null,
         'totalAmount': value['totalAmount'],
         'currency': value['currency'],
         'notes': value['notes'],
+        'shippingRuleId': value['shippingRuleId'],
+        'shippingMethodTitle': value['shippingMethodTitle'],
         'externalData': value['externalData'],
     };
 }

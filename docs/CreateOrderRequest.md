@@ -17,6 +17,8 @@ Name | Type
 `totalAmount` | number
 `currency` | string
 `notes` | string
+`shippingRuleId` | string
+`shippingMethodTitle` | string
 `externalData` | { [key: string]: any; }
 
 ## Example
@@ -37,6 +39,8 @@ const example = {
   "totalAmount": 1047,
   "currency": DKK,
   "notes": Leave at front desk,
+  "shippingRuleId": clz9k2f0a0007abcd2468qrst,
+  "shippingMethodTitle": GLS Hjemmelevering,
   "externalData": null,
 } satisfies CreateOrderRequest
 

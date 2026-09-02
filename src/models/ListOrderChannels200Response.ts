@@ -13,85 +13,98 @@
  */
 
 import { mapValues } from '../runtime';
+import type { ListOrderChannels200ResponseDataInner } from './ListOrderChannels200ResponseDataInner';
+import {
+    ListOrderChannels200ResponseDataInnerFromJSON,
+    ListOrderChannels200ResponseDataInnerFromJSONTyped,
+    ListOrderChannels200ResponseDataInnerToJSON,
+    ListOrderChannels200ResponseDataInnerToJSONTyped,
+} from './ListOrderChannels200ResponseDataInner';
+
 /**
- * Summary of the order's source channel.
+ * 
  * @export
- * @interface ListOrders200ResponseDataInnerOrderChannel
+ * @interface ListOrderChannels200Response
  */
-export interface ListOrders200ResponseDataInnerOrderChannel {
+export interface ListOrderChannels200Response {
     /**
-     * Order channel ID.
-     * @type {string}
-     * @memberof ListOrders200ResponseDataInnerOrderChannel
+     * Page of results
+     * @type {Array<ListOrderChannels200ResponseDataInner>}
+     * @memberof ListOrderChannels200Response
      */
-    id: string;
+    data: Array<ListOrderChannels200ResponseDataInner>;
     /**
-     * Order channel name.
-     * @type {string}
-     * @memberof ListOrders200ResponseDataInnerOrderChannel
+     * Total matching items across all pages
+     * @type {number}
+     * @memberof ListOrderChannels200Response
      */
-    name: string;
+    total: number;
     /**
-     * Type of the order channel (sales platform).
-     * @type {ListOrders200ResponseDataInnerOrderChannelTypeEnum}
-     * @memberof ListOrders200ResponseDataInnerOrderChannel
+     * Current page number (1-based)
+     * @type {number}
+     * @memberof ListOrderChannels200Response
      */
-    type: ListOrders200ResponseDataInnerOrderChannelTypeEnum;
+    page: number;
+    /**
+     * Items per page
+     * @type {number}
+     * @memberof ListOrderChannels200Response
+     */
+    limit: number;
+    /**
+     * Total number of pages
+     * @type {number}
+     * @memberof ListOrderChannels200Response
+     */
+    totalPages: number;
 }
 
-
 /**
- * @export
+ * Check if a given object implements the ListOrderChannels200Response interface.
  */
-export const ListOrders200ResponseDataInnerOrderChannelTypeEnum = {
-    Shopify: 'shopify',
-    Woocommerce: 'woocommerce',
-    Manual: 'manual',
-    Custom: 'custom'
-} as const;
-export type ListOrders200ResponseDataInnerOrderChannelTypeEnum = typeof ListOrders200ResponseDataInnerOrderChannelTypeEnum[keyof typeof ListOrders200ResponseDataInnerOrderChannelTypeEnum];
-
-
-/**
- * Check if a given object implements the ListOrders200ResponseDataInnerOrderChannel interface.
- */
-export function instanceOfListOrders200ResponseDataInnerOrderChannel(value: object): value is ListOrders200ResponseDataInnerOrderChannel {
-    if (!('id' in value) || value['id'] === undefined) return false;
-    if (!('name' in value) || value['name'] === undefined) return false;
-    if (!('type' in value) || value['type'] === undefined) return false;
+export function instanceOfListOrderChannels200Response(value: object): value is ListOrderChannels200Response {
+    if (!('data' in value) || value['data'] === undefined) return false;
+    if (!('total' in value) || value['total'] === undefined) return false;
+    if (!('page' in value) || value['page'] === undefined) return false;
+    if (!('limit' in value) || value['limit'] === undefined) return false;
+    if (!('totalPages' in value) || value['totalPages'] === undefined) return false;
     return true;
 }
 
-export function ListOrders200ResponseDataInnerOrderChannelFromJSON(json: any): ListOrders200ResponseDataInnerOrderChannel {
-    return ListOrders200ResponseDataInnerOrderChannelFromJSONTyped(json, false);
+export function ListOrderChannels200ResponseFromJSON(json: any): ListOrderChannels200Response {
+    return ListOrderChannels200ResponseFromJSONTyped(json, false);
 }
 
-export function ListOrders200ResponseDataInnerOrderChannelFromJSONTyped(json: any, ignoreDiscriminator: boolean): ListOrders200ResponseDataInnerOrderChannel {
+export function ListOrderChannels200ResponseFromJSONTyped(json: any, ignoreDiscriminator: boolean): ListOrderChannels200Response {
     if (json == null) {
         return json;
     }
     return {
         
-        'id': json['id'],
-        'name': json['name'],
-        'type': json['type'],
+        'data': ((json['data'] as Array<any>).map(ListOrderChannels200ResponseDataInnerFromJSON)),
+        'total': json['total'],
+        'page': json['page'],
+        'limit': json['limit'],
+        'totalPages': json['totalPages'],
     };
 }
 
-export function ListOrders200ResponseDataInnerOrderChannelToJSON(json: any): ListOrders200ResponseDataInnerOrderChannel {
-    return ListOrders200ResponseDataInnerOrderChannelToJSONTyped(json, false);
+export function ListOrderChannels200ResponseToJSON(json: any): ListOrderChannels200Response {
+    return ListOrderChannels200ResponseToJSONTyped(json, false);
 }
 
-export function ListOrders200ResponseDataInnerOrderChannelToJSONTyped(value?: ListOrders200ResponseDataInnerOrderChannel | null, ignoreDiscriminator: boolean = false): any {
+export function ListOrderChannels200ResponseToJSONTyped(value?: ListOrderChannels200Response | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }
 
     return {
         
-        'id': value['id'],
-        'name': value['name'],
-        'type': value['type'],
+        'data': ((value['data'] as Array<any>).map(ListOrderChannels200ResponseDataInnerToJSON)),
+        'total': value['total'],
+        'page': value['page'],
+        'limit': value['limit'],
+        'totalPages': value['totalPages'],
     };
 }
 

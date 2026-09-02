@@ -5,6 +5,7 @@ export * from './BillingApi';
 export * from './BrandsApi';
 export * from './CarrierCatalogApi';
 export * from './CarriersApi';
+export * from './OrderChannelsApi';
 export * from './OrdersApi';
 export * from './OrgsApi';
 export * from './QuotesApi';

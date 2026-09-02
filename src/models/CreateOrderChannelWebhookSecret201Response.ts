@@ -14,84 +14,71 @@
 
 import { mapValues } from '../runtime';
 /**
- * Summary of the order's source channel.
+ * 
  * @export
- * @interface ListOrders200ResponseDataInnerOrderChannel
+ * @interface CreateOrderChannelWebhookSecret201Response
  */
-export interface ListOrders200ResponseDataInnerOrderChannel {
+export interface CreateOrderChannelWebhookSecret201Response {
     /**
-     * Order channel ID.
+     * The webhook signing secret. Returned only once — store it in your system; every push to the ingest URL must carry an HMAC-SHA256 hex signature of the raw body computed with it.
      * @type {string}
-     * @memberof ListOrders200ResponseDataInnerOrderChannel
+     * @memberof CreateOrderChannelWebhookSecret201Response
      */
-    id: string;
+    secret: string;
     /**
-     * Order channel name.
+     * The ingest URL your system pushes signed order events to.
      * @type {string}
-     * @memberof ListOrders200ResponseDataInnerOrderChannel
+     * @memberof CreateOrderChannelWebhookSecret201Response
      */
-    name: string;
+    webhookUrl: string;
     /**
-     * Type of the order channel (sales platform).
-     * @type {ListOrders200ResponseDataInnerOrderChannelTypeEnum}
-     * @memberof ListOrders200ResponseDataInnerOrderChannel
+     * When this secret was issued (ISO 8601).
+     * @type {Date}
+     * @memberof CreateOrderChannelWebhookSecret201Response
      */
-    type: ListOrders200ResponseDataInnerOrderChannelTypeEnum;
+    createdAt: Date;
 }
 
-
 /**
- * @export
+ * Check if a given object implements the CreateOrderChannelWebhookSecret201Response interface.
  */
-export const ListOrders200ResponseDataInnerOrderChannelTypeEnum = {
-    Shopify: 'shopify',
-    Woocommerce: 'woocommerce',
-    Manual: 'manual',
-    Custom: 'custom'
-} as const;
-export type ListOrders200ResponseDataInnerOrderChannelTypeEnum = typeof ListOrders200ResponseDataInnerOrderChannelTypeEnum[keyof typeof ListOrders200ResponseDataInnerOrderChannelTypeEnum];
-
-
-/**
- * Check if a given object implements the ListOrders200ResponseDataInnerOrderChannel interface.
- */
-export function instanceOfListOrders200ResponseDataInnerOrderChannel(value: object): value is ListOrders200ResponseDataInnerOrderChannel {
-    if (!('id' in value) || value['id'] === undefined) return false;
-    if (!('name' in value) || value['name'] === undefined) return false;
-    if (!('type' in value) || value['type'] === undefined) return false;
+export function instanceOfCreateOrderChannelWebhookSecret201Response(value: object): value is CreateOrderChannelWebhookSecret201Response {
+    if (!('secret' in value) || value['secret'] === undefined) return false;
+    if (!('webhookUrl' in value) || value['webhookUrl'] === undefined) return false;
+    if (!('createdAt' in value) || value['createdAt'] === undefined) return false;
     return true;
 }
 
-export function ListOrders200ResponseDataInnerOrderChannelFromJSON(json: any): ListOrders200ResponseDataInnerOrderChannel {
-    return ListOrders200ResponseDataInnerOrderChannelFromJSONTyped(json, false);
+export function CreateOrderChannelWebhookSecret201ResponseFromJSON(json: any): CreateOrderChannelWebhookSecret201Response {
+    return CreateOrderChannelWebhookSecret201ResponseFromJSONTyped(json, false);
 }
 
-export function ListOrders200ResponseDataInnerOrderChannelFromJSONTyped(json: any, ignoreDiscriminator: boolean): ListOrders200ResponseDataInnerOrderChannel {
+export function CreateOrderChannelWebhookSecret201ResponseFromJSONTyped(json: any, ignoreDiscriminator: boolean): CreateOrderChannelWebhookSecret201Response {
     if (json == null) {
         return json;
     }
     return {
         
-        'id': json['id'],
-        'name': json['name'],
-        'type': json['type'],
+        'secret': json['secret'],
+        'webhookUrl': json['webhookUrl'],
+        'createdAt': (new Date(json['createdAt'])),
     };
 }
 
-export function ListOrders200ResponseDataInnerOrderChannelToJSON(json: any): ListOrders200ResponseDataInnerOrderChannel {
-    return ListOrders200ResponseDataInnerOrderChannelToJSONTyped(json, false);
+export function CreateOrderChannelWebhookSecret201ResponseToJSON(json: any): CreateOrderChannelWebhookSecret201Response {
+    return CreateOrderChannelWebhookSecret201ResponseToJSONTyped(json, false);
 }
 
-export function ListOrders200ResponseDataInnerOrderChannelToJSONTyped(value?: ListOrders200ResponseDataInnerOrderChannel | null, ignoreDiscriminator: boolean = false): any {
+export function CreateOrderChannelWebhookSecret201ResponseToJSONTyped(value?: CreateOrderChannelWebhookSecret201Response | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }
 
     return {
         
-        'id': value['id'],
-        'name': value['name'],
-        'type': value['type'],
+        'secret': value['secret'],
+        'webhookUrl': value['webhookUrl'],
+        'createdAt': value['createdAt'].toISOString(),
     };
 }
 

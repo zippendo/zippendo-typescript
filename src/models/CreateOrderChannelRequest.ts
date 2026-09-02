@@ -13,85 +13,106 @@
  */
 
 import { mapValues } from '../runtime';
+import type { CreateOrderChannelRequestSettings } from './CreateOrderChannelRequestSettings';
+import {
+    CreateOrderChannelRequestSettingsFromJSON,
+    CreateOrderChannelRequestSettingsFromJSONTyped,
+    CreateOrderChannelRequestSettingsToJSON,
+    CreateOrderChannelRequestSettingsToJSONTyped,
+} from './CreateOrderChannelRequestSettings';
+
 /**
- * Summary of the order's source channel.
+ * 
  * @export
- * @interface ListOrders200ResponseDataInnerOrderChannel
+ * @interface CreateOrderChannelRequest
  */
-export interface ListOrders200ResponseDataInnerOrderChannel {
+export interface CreateOrderChannelRequest {
     /**
-     * Order channel ID.
+     * Display name for the channel.
      * @type {string}
-     * @memberof ListOrders200ResponseDataInnerOrderChannel
-     */
-    id: string;
-    /**
-     * Order channel name.
-     * @type {string}
-     * @memberof ListOrders200ResponseDataInnerOrderChannel
+     * @memberof CreateOrderChannelRequest
      */
     name: string;
     /**
-     * Type of the order channel (sales platform).
-     * @type {ListOrders200ResponseDataInnerOrderChannelTypeEnum}
-     * @memberof ListOrders200ResponseDataInnerOrderChannel
+     * Type of the order channel. Platform channels (Shopify, WooCommerce) are created via their connect flows.
+     * @type {CreateOrderChannelRequestTypeEnum}
+     * @memberof CreateOrderChannelRequest
      */
-    type: ListOrders200ResponseDataInnerOrderChannelTypeEnum;
+    type: CreateOrderChannelRequestTypeEnum;
+    /**
+     * Brand this channel belongs to; null for organization-wide
+     * @type {string}
+     * @memberof CreateOrderChannelRequest
+     */
+    brandId?: string | null;
+    /**
+     * Whether the channel is active.
+     * @type {boolean}
+     * @memberof CreateOrderChannelRequest
+     */
+    enabled?: boolean;
+    /**
+     * 
+     * @type {CreateOrderChannelRequestSettings}
+     * @memberof CreateOrderChannelRequest
+     */
+    settings?: CreateOrderChannelRequestSettings;
 }
 
 
 /**
  * @export
  */
-export const ListOrders200ResponseDataInnerOrderChannelTypeEnum = {
-    Shopify: 'shopify',
-    Woocommerce: 'woocommerce',
+export const CreateOrderChannelRequestTypeEnum = {
     Manual: 'manual',
     Custom: 'custom'
 } as const;
-export type ListOrders200ResponseDataInnerOrderChannelTypeEnum = typeof ListOrders200ResponseDataInnerOrderChannelTypeEnum[keyof typeof ListOrders200ResponseDataInnerOrderChannelTypeEnum];
+export type CreateOrderChannelRequestTypeEnum = typeof CreateOrderChannelRequestTypeEnum[keyof typeof CreateOrderChannelRequestTypeEnum];
 
 
 /**
- * Check if a given object implements the ListOrders200ResponseDataInnerOrderChannel interface.
+ * Check if a given object implements the CreateOrderChannelRequest interface.
  */
-export function instanceOfListOrders200ResponseDataInnerOrderChannel(value: object): value is ListOrders200ResponseDataInnerOrderChannel {
-    if (!('id' in value) || value['id'] === undefined) return false;
+export function instanceOfCreateOrderChannelRequest(value: object): value is CreateOrderChannelRequest {
     if (!('name' in value) || value['name'] === undefined) return false;
     if (!('type' in value) || value['type'] === undefined) return false;
     return true;
 }
 
-export function ListOrders200ResponseDataInnerOrderChannelFromJSON(json: any): ListOrders200ResponseDataInnerOrderChannel {
-    return ListOrders200ResponseDataInnerOrderChannelFromJSONTyped(json, false);
+export function CreateOrderChannelRequestFromJSON(json: any): CreateOrderChannelRequest {
+    return CreateOrderChannelRequestFromJSONTyped(json, false);
 }
 
-export function ListOrders200ResponseDataInnerOrderChannelFromJSONTyped(json: any, ignoreDiscriminator: boolean): ListOrders200ResponseDataInnerOrderChannel {
+export function CreateOrderChannelRequestFromJSONTyped(json: any, ignoreDiscriminator: boolean): CreateOrderChannelRequest {
     if (json == null) {
         return json;
     }
     return {
         
-        'id': json['id'],
         'name': json['name'],
         'type': json['type'],
+        'brandId': json['brandId'] === undefined ? undefined : json['brandId'] === null ? null : json['brandId'],
+        'enabled': json['enabled'] == null ? undefined : json['enabled'],
+        'settings': json['settings'] == null ? undefined : CreateOrderChannelRequestSettingsFromJSON(json['settings']),
     };
 }
 
-export function ListOrders200ResponseDataInnerOrderChannelToJSON(json: any): ListOrders200ResponseDataInnerOrderChannel {
-    return ListOrders200ResponseDataInnerOrderChannelToJSONTyped(json, false);
+export function CreateOrderChannelRequestToJSON(json: any): CreateOrderChannelRequest {
+    return CreateOrderChannelRequestToJSONTyped(json, false);
 }
 
-export function ListOrders200ResponseDataInnerOrderChannelToJSONTyped(value?: ListOrders200ResponseDataInnerOrderChannel | null, ignoreDiscriminator: boolean = false): any {
+export function CreateOrderChannelRequestToJSONTyped(value?: CreateOrderChannelRequest | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }
 
     return {
         
-        'id': value['id'],
         'name': value['name'],
         'type': value['type'],
+        'brandId': value['brandId'],
+        'enabled': value['enabled'],
+        'settings': CreateOrderChannelRequestSettingsToJSON(value['settings']),
     };
 }
 

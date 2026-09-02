@@ -14,84 +14,53 @@
 
 import { mapValues } from '../runtime';
 /**
- * Summary of the order's source channel.
+ * 
  * @export
- * @interface ListOrders200ResponseDataInnerOrderChannel
+ * @interface RevokeOrderChannelWebhookSecret200Response
  */
-export interface ListOrders200ResponseDataInnerOrderChannel {
+export interface RevokeOrderChannelWebhookSecret200Response {
     /**
-     * Order channel ID.
-     * @type {string}
-     * @memberof ListOrders200ResponseDataInnerOrderChannel
+     * Whether the signing secret was revoked.
+     * @type {boolean}
+     * @memberof RevokeOrderChannelWebhookSecret200Response
      */
-    id: string;
-    /**
-     * Order channel name.
-     * @type {string}
-     * @memberof ListOrders200ResponseDataInnerOrderChannel
-     */
-    name: string;
-    /**
-     * Type of the order channel (sales platform).
-     * @type {ListOrders200ResponseDataInnerOrderChannelTypeEnum}
-     * @memberof ListOrders200ResponseDataInnerOrderChannel
-     */
-    type: ListOrders200ResponseDataInnerOrderChannelTypeEnum;
+    revoked: boolean;
 }
 
-
 /**
- * @export
+ * Check if a given object implements the RevokeOrderChannelWebhookSecret200Response interface.
  */
-export const ListOrders200ResponseDataInnerOrderChannelTypeEnum = {
-    Shopify: 'shopify',
-    Woocommerce: 'woocommerce',
-    Manual: 'manual',
-    Custom: 'custom'
-} as const;
-export type ListOrders200ResponseDataInnerOrderChannelTypeEnum = typeof ListOrders200ResponseDataInnerOrderChannelTypeEnum[keyof typeof ListOrders200ResponseDataInnerOrderChannelTypeEnum];
-
-
-/**
- * Check if a given object implements the ListOrders200ResponseDataInnerOrderChannel interface.
- */
-export function instanceOfListOrders200ResponseDataInnerOrderChannel(value: object): value is ListOrders200ResponseDataInnerOrderChannel {
-    if (!('id' in value) || value['id'] === undefined) return false;
-    if (!('name' in value) || value['name'] === undefined) return false;
-    if (!('type' in value) || value['type'] === undefined) return false;
+export function instanceOfRevokeOrderChannelWebhookSecret200Response(value: object): value is RevokeOrderChannelWebhookSecret200Response {
+    if (!('revoked' in value) || value['revoked'] === undefined) return false;
     return true;
 }
 
-export function ListOrders200ResponseDataInnerOrderChannelFromJSON(json: any): ListOrders200ResponseDataInnerOrderChannel {
-    return ListOrders200ResponseDataInnerOrderChannelFromJSONTyped(json, false);
+export function RevokeOrderChannelWebhookSecret200ResponseFromJSON(json: any): RevokeOrderChannelWebhookSecret200Response {
+    return RevokeOrderChannelWebhookSecret200ResponseFromJSONTyped(json, false);
 }
 
-export function ListOrders200ResponseDataInnerOrderChannelFromJSONTyped(json: any, ignoreDiscriminator: boolean): ListOrders200ResponseDataInnerOrderChannel {
+export function RevokeOrderChannelWebhookSecret200ResponseFromJSONTyped(json: any, ignoreDiscriminator: boolean): RevokeOrderChannelWebhookSecret200Response {
     if (json == null) {
         return json;
     }
     return {
         
-        'id': json['id'],
-        'name': json['name'],
-        'type': json['type'],
+        'revoked': json['revoked'],
     };
 }
 
-export function ListOrders200ResponseDataInnerOrderChannelToJSON(json: any): ListOrders200ResponseDataInnerOrderChannel {
-    return ListOrders200ResponseDataInnerOrderChannelToJSONTyped(json, false);
+export function RevokeOrderChannelWebhookSecret200ResponseToJSON(json: any): RevokeOrderChannelWebhookSecret200Response {
+    return RevokeOrderChannelWebhookSecret200ResponseToJSONTyped(json, false);
 }
 
-export function ListOrders200ResponseDataInnerOrderChannelToJSONTyped(value?: ListOrders200ResponseDataInnerOrderChannel | null, ignoreDiscriminator: boolean = false): any {
+export function RevokeOrderChannelWebhookSecret200ResponseToJSONTyped(value?: RevokeOrderChannelWebhookSecret200Response | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }
 
     return {
         
-        'id': value['id'],
-        'name': value['name'],
-        'type': value['type'],
+        'revoked': value['revoked'],
     };
 }
 

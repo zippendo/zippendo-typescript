@@ -85,6 +85,7 @@ example().catch(console.error);
 | **400** | Default Response |  -  |
 | **403** | Default Response |  -  |
 | **404** | Default Response |  -  |
+| **409** | Default Response |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 

@@ -14,84 +14,81 @@
 
 import { mapValues } from '../runtime';
 /**
- * Summary of the order's source channel.
+ * 
  * @export
- * @interface ListOrders200ResponseDataInnerOrderChannel
+ * @interface CreateOrderChannelRequestSettingsShippingMethodMappingsInner
  */
-export interface ListOrders200ResponseDataInnerOrderChannel {
+export interface CreateOrderChannelRequestSettingsShippingMethodMappingsInner {
     /**
-     * Order channel ID.
+     * Shipping-method title to match against imported orders (trimmed, case-insensitive, exact).
      * @type {string}
-     * @memberof ListOrders200ResponseDataInnerOrderChannel
+     * @memberof CreateOrderChannelRequestSettingsShippingMethodMappingsInner
      */
-    id: string;
+    match: string;
     /**
-     * Order channel name.
+     * Shipping rule applied to orders whose shipping-method title matches.
      * @type {string}
-     * @memberof ListOrders200ResponseDataInnerOrderChannel
+     * @memberof CreateOrderChannelRequestSettingsShippingMethodMappingsInner
      */
-    name: string;
+    shippingRuleId: string;
     /**
-     * Type of the order channel (sales platform).
-     * @type {ListOrders200ResponseDataInnerOrderChannelTypeEnum}
-     * @memberof ListOrders200ResponseDataInnerOrderChannel
+     * For rules whose product delivers to a service point: 'nearest' auto-selects the closest point to the recipient address; 'manual' keeps the shipment in draft for manual selection.
+     * @type {CreateOrderChannelRequestSettingsShippingMethodMappingsInnerServicePointSelectionEnum}
+     * @memberof CreateOrderChannelRequestSettingsShippingMethodMappingsInner
      */
-    type: ListOrders200ResponseDataInnerOrderChannelTypeEnum;
+    servicePointSelection?: CreateOrderChannelRequestSettingsShippingMethodMappingsInnerServicePointSelectionEnum;
 }
 
 
 /**
  * @export
  */
-export const ListOrders200ResponseDataInnerOrderChannelTypeEnum = {
-    Shopify: 'shopify',
-    Woocommerce: 'woocommerce',
-    Manual: 'manual',
-    Custom: 'custom'
+export const CreateOrderChannelRequestSettingsShippingMethodMappingsInnerServicePointSelectionEnum = {
+    Nearest: 'nearest',
+    Manual: 'manual'
 } as const;
-export type ListOrders200ResponseDataInnerOrderChannelTypeEnum = typeof ListOrders200ResponseDataInnerOrderChannelTypeEnum[keyof typeof ListOrders200ResponseDataInnerOrderChannelTypeEnum];
+export type CreateOrderChannelRequestSettingsShippingMethodMappingsInnerServicePointSelectionEnum = typeof CreateOrderChannelRequestSettingsShippingMethodMappingsInnerServicePointSelectionEnum[keyof typeof CreateOrderChannelRequestSettingsShippingMethodMappingsInnerServicePointSelectionEnum];
 
 
 /**
- * Check if a given object implements the ListOrders200ResponseDataInnerOrderChannel interface.
+ * Check if a given object implements the CreateOrderChannelRequestSettingsShippingMethodMappingsInner interface.
  */
-export function instanceOfListOrders200ResponseDataInnerOrderChannel(value: object): value is ListOrders200ResponseDataInnerOrderChannel {
-    if (!('id' in value) || value['id'] === undefined) return false;
-    if (!('name' in value) || value['name'] === undefined) return false;
-    if (!('type' in value) || value['type'] === undefined) return false;
+export function instanceOfCreateOrderChannelRequestSettingsShippingMethodMappingsInner(value: object): value is CreateOrderChannelRequestSettingsShippingMethodMappingsInner {
+    if (!('match' in value) || value['match'] === undefined) return false;
+    if (!('shippingRuleId' in value) || value['shippingRuleId'] === undefined) return false;
     return true;
 }
 
-export function ListOrders200ResponseDataInnerOrderChannelFromJSON(json: any): ListOrders200ResponseDataInnerOrderChannel {
-    return ListOrders200ResponseDataInnerOrderChannelFromJSONTyped(json, false);
+export function CreateOrderChannelRequestSettingsShippingMethodMappingsInnerFromJSON(json: any): CreateOrderChannelRequestSettingsShippingMethodMappingsInner {
+    return CreateOrderChannelRequestSettingsShippingMethodMappingsInnerFromJSONTyped(json, false);
 }
 
-export function ListOrders200ResponseDataInnerOrderChannelFromJSONTyped(json: any, ignoreDiscriminator: boolean): ListOrders200ResponseDataInnerOrderChannel {
+export function CreateOrderChannelRequestSettingsShippingMethodMappingsInnerFromJSONTyped(json: any, ignoreDiscriminator: boolean): CreateOrderChannelRequestSettingsShippingMethodMappingsInner {
     if (json == null) {
         return json;
     }
     return {
         
-        'id': json['id'],
-        'name': json['name'],
-        'type': json['type'],
+        'match': json['match'],
+        'shippingRuleId': json['shippingRuleId'],
+        'servicePointSelection': json['servicePointSelection'] == null ? undefined : json['servicePointSelection'],
     };
 }
 
-export function ListOrders200ResponseDataInnerOrderChannelToJSON(json: any): ListOrders200ResponseDataInnerOrderChannel {
-    return ListOrders200ResponseDataInnerOrderChannelToJSONTyped(json, false);
+export function CreateOrderChannelRequestSettingsShippingMethodMappingsInnerToJSON(json: any): CreateOrderChannelRequestSettingsShippingMethodMappingsInner {
+    return CreateOrderChannelRequestSettingsShippingMethodMappingsInnerToJSONTyped(json, false);
 }
 
-export function ListOrders200ResponseDataInnerOrderChannelToJSONTyped(value?: ListOrders200ResponseDataInnerOrderChannel | null, ignoreDiscriminator: boolean = false): any {
+export function CreateOrderChannelRequestSettingsShippingMethodMappingsInnerToJSONTyped(value?: CreateOrderChannelRequestSettingsShippingMethodMappingsInner | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }
 
     return {
         
-        'id': value['id'],
-        'name': value['name'],
-        'type': value['type'],
+        'match': value['match'],
+        'shippingRuleId': value['shippingRuleId'],
+        'servicePointSelection': value['servicePointSelection'],
     };
 }
 

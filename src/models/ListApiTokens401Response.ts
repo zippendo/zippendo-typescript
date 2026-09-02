@@ -139,6 +139,7 @@ export const ListApiTokens401ResponseCodeEnum = {
     ShippingRuleInvalid: 'SHIPPING_RULE_INVALID',
     AddressNotFound: 'ADDRESS_NOT_FOUND',
     OrderNotFound: 'ORDER_NOT_FOUND',
+    OrderExists: 'ORDER_EXISTS',
     OrderChannelNotFound: 'ORDER_CHANNEL_NOT_FOUND',
     OrderChannelConfigInvalid: 'ORDER_CHANNEL_CONFIG_INVALID',
     IntegrationNotConfigured: 'INTEGRATION_NOT_CONFIGURED',

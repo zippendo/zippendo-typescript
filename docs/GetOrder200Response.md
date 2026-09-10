@@ -12,7 +12,7 @@ Name | Type
 `customerName` | string
 `customerEmail` | string
 `shippingAddress` | [CreateOrder201ResponseShippingAddress](CreateOrder201ResponseShippingAddress.md)
-`orderLines` | [Array&lt;CreateOrder201ResponseOrderLinesInner&gt;](CreateOrder201ResponseOrderLinesInner.md)
+`orderLines` | [Array&lt;GetOrder200ResponseOrderLinesInner&gt;](GetOrder200ResponseOrderLinesInner.md)
 `subtotalAmount` | number
 `totalAmount` | number
 `currency` | string

@@ -17,6 +17,7 @@ Name | Type
 `notes` | string
 `status` | string
 `shippingRuleId` | string
+`servicePointId` | string
 
 ## Example
 
@@ -36,6 +37,7 @@ const example = {
   "notes": Leave at front desk,
   "status": processing,
   "shippingRuleId": clz9k2f0a0002abcd5678ijkl,
+  "servicePointId": SP-1234,
 } satisfies UpdateOrderRequest
 
 console.log(example)

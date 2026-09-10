@@ -100,6 +100,12 @@ export interface UpdateOrderRequest {
      * @memberof UpdateOrderRequest
      */
     shippingRuleId?: string | null;
+    /**
+     * Service point (parcel shop) ID to apply to unsent outbound shipments.
+     * @type {string}
+     * @memberof UpdateOrderRequest
+     */
+    servicePointId?: string | null;
 }
 
 
@@ -145,6 +151,7 @@ export function UpdateOrderRequestFromJSONTyped(json: any, ignoreDiscriminator: 
         'notes': json['notes'] === undefined ? undefined : json['notes'] === null ? null : json['notes'],
         'status': json['status'] == null ? undefined : json['status'],
         'shippingRuleId': json['shippingRuleId'] === undefined ? undefined : json['shippingRuleId'] === null ? null : json['shippingRuleId'],
+        'servicePointId': json['servicePointId'] === undefined ? undefined : json['servicePointId'] === null ? null : json['servicePointId'],
     };
 }
 
@@ -170,6 +177,7 @@ export function UpdateOrderRequestToJSONTyped(value?: UpdateOrderRequest | null,
         'notes': value['notes'],
         'status': value['status'],
         'shippingRuleId': value['shippingRuleId'],
+        'servicePointId': value['servicePointId'],
     };
 }
 

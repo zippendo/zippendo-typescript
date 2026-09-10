@@ -152,6 +152,7 @@ export const BatchSendShipments200ResponseResultsInnerCodeEnum = {
     CarrierAuthFailed: 'CARRIER_AUTH_FAILED',
     CarrierNotFound: 'CARRIER_NOT_FOUND',
     CarrierProductNotFound: 'CARRIER_PRODUCT_NOT_FOUND',
+    CarrierProductRouteUnsupported: 'CARRIER_PRODUCT_ROUTE_UNSUPPORTED',
     CarrierConfigInvalid: 'CARRIER_CONFIG_INVALID',
     CarrierParameterInvalid: 'CARRIER_PARAMETER_INVALID',
     CarrierServerUnavailable: 'CARRIER_SERVER_UNAVAILABLE',

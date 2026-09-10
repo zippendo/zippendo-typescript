@@ -20,6 +20,13 @@ import {
     CreateShipment201ResponseDocumentsInnerToJSON,
     CreateShipment201ResponseDocumentsInnerToJSONTyped,
 } from './CreateShipment201ResponseDocumentsInner';
+import type { GetOrder200ResponseShipmentsInnerParcelsInner } from './GetOrder200ResponseShipmentsInnerParcelsInner';
+import {
+    GetOrder200ResponseShipmentsInnerParcelsInnerFromJSON,
+    GetOrder200ResponseShipmentsInnerParcelsInnerFromJSONTyped,
+    GetOrder200ResponseShipmentsInnerParcelsInnerToJSON,
+    GetOrder200ResponseShipmentsInnerParcelsInnerToJSONTyped,
+} from './GetOrder200ResponseShipmentsInnerParcelsInner';
 import type { ListShipments200ResponseDataInnerCarrierSettings } from './ListShipments200ResponseDataInnerCarrierSettings';
 import {
     ListShipments200ResponseDataInnerCarrierSettingsFromJSON,
@@ -107,6 +114,12 @@ export interface GetOrder200ResponseShipmentsInner {
      * @memberof GetOrder200ResponseShipmentsInner
      */
     documents?: Array<CreateShipment201ResponseDocumentsInner>;
+    /**
+     * Compact parcels for the order fulfillment workspace (no QR/label payloads).
+     * @type {Array<GetOrder200ResponseShipmentsInnerParcelsInner>}
+     * @memberof GetOrder200ResponseShipmentsInner
+     */
+    parcels: Array<GetOrder200ResponseShipmentsInnerParcelsInner>;
 }
 
 
@@ -146,6 +159,7 @@ export function instanceOfGetOrder200ResponseShipmentsInner(value: object): valu
     if (!('carrierSettings' in value) || value['carrierSettings'] === undefined) return false;
     if (!('createdAt' in value) || value['createdAt'] === undefined) return false;
     if (!('updatedAt' in value) || value['updatedAt'] === undefined) return false;
+    if (!('parcels' in value) || value['parcels'] === undefined) return false;
     return true;
 }
 
@@ -170,6 +184,7 @@ export function GetOrder200ResponseShipmentsInnerFromJSONTyped(json: any, ignore
         'updatedAt': json['updatedAt'],
         'shippingRuleId': json['shippingRuleId'] === undefined ? undefined : json['shippingRuleId'] === null ? null : json['shippingRuleId'],
         'documents': json['documents'] == null ? undefined : ((json['documents'] as Array<any>).map(CreateShipment201ResponseDocumentsInnerFromJSON)),
+        'parcels': ((json['parcels'] as Array<any>).map(GetOrder200ResponseShipmentsInnerParcelsInnerFromJSON)),
     };
 }
 
@@ -195,6 +210,7 @@ export function GetOrder200ResponseShipmentsInnerToJSONTyped(value?: GetOrder200
         'updatedAt': value['updatedAt'],
         'shippingRuleId': value['shippingRuleId'],
         'documents': value['documents'] == null ? undefined : ((value['documents'] as Array<any>).map(CreateShipment201ResponseDocumentsInnerToJSON)),
+        'parcels': ((value['parcels'] as Array<any>).map(GetOrder200ResponseShipmentsInnerParcelsInnerToJSON)),
     };
 }
 

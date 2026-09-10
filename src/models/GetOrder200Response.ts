@@ -13,6 +13,13 @@
  */
 
 import { mapValues } from '../runtime';
+import type { GetOrder200ResponseOrderLinesInner } from './GetOrder200ResponseOrderLinesInner';
+import {
+    GetOrder200ResponseOrderLinesInnerFromJSON,
+    GetOrder200ResponseOrderLinesInnerFromJSONTyped,
+    GetOrder200ResponseOrderLinesInnerToJSON,
+    GetOrder200ResponseOrderLinesInnerToJSONTyped,
+} from './GetOrder200ResponseOrderLinesInner';
 import type { GetOrder200ResponseShippingRule } from './GetOrder200ResponseShippingRule';
 import {
     GetOrder200ResponseShippingRuleFromJSON,
@@ -34,13 +41,6 @@ import {
     CreateOrder201ResponseShippingAddressToJSON,
     CreateOrder201ResponseShippingAddressToJSONTyped,
 } from './CreateOrder201ResponseShippingAddress';
-import type { CreateOrder201ResponseOrderLinesInner } from './CreateOrder201ResponseOrderLinesInner';
-import {
-    CreateOrder201ResponseOrderLinesInnerFromJSON,
-    CreateOrder201ResponseOrderLinesInnerFromJSONTyped,
-    CreateOrder201ResponseOrderLinesInnerToJSON,
-    CreateOrder201ResponseOrderLinesInnerToJSONTyped,
-} from './CreateOrder201ResponseOrderLinesInner';
 import type { GetOrder200ResponseShipmentsInner } from './GetOrder200ResponseShipmentsInner';
 import {
     GetOrder200ResponseShipmentsInnerFromJSON,
@@ -92,11 +92,11 @@ export interface GetOrder200Response {
      */
     shippingAddress?: CreateOrder201ResponseShippingAddress | null;
     /**
-     * Line items in the order.
-     * @type {Array<CreateOrder201ResponseOrderLinesInner>}
+     * Sold line items with quantity already allocated to outbound shipments.
+     * @type {Array<GetOrder200ResponseOrderLinesInner>}
      * @memberof GetOrder200Response
      */
-    orderLines: Array<CreateOrder201ResponseOrderLinesInner>;
+    orderLines: Array<GetOrder200ResponseOrderLinesInner>;
     /**
      * Order subtotal before shipping and tax.
      * @type {number}
@@ -231,7 +231,7 @@ export function GetOrder200ResponseFromJSONTyped(json: any, ignoreDiscriminator:
         'customerName': json['customerName'] === undefined ? undefined : json['customerName'] === null ? null : json['customerName'],
         'customerEmail': json['customerEmail'] === undefined ? undefined : json['customerEmail'] === null ? null : json['customerEmail'],
         'shippingAddress': json['shippingAddress'] === undefined ? undefined : json['shippingAddress'] === null ? null : CreateOrder201ResponseShippingAddressFromJSON(json['shippingAddress']),
-        'orderLines': ((json['orderLines'] as Array<any>).map(CreateOrder201ResponseOrderLinesInnerFromJSON)),
+        'orderLines': ((json['orderLines'] as Array<any>).map(GetOrder200ResponseOrderLinesInnerFromJSON)),
         'subtotalAmount': json['subtotalAmount'] === undefined ? undefined : json['subtotalAmount'] === null ? null : json['subtotalAmount'],
         'totalAmount': json['totalAmount'] === undefined ? undefined : json['totalAmount'] === null ? null : json['totalAmount'],
         'currency': json['currency'] === undefined ? undefined : json['currency'] === null ? null : json['currency'],
@@ -266,7 +266,7 @@ export function GetOrder200ResponseToJSONTyped(value?: GetOrder200Response | nul
         'customerName': value['customerName'],
         'customerEmail': value['customerEmail'],
         'shippingAddress': CreateOrder201ResponseShippingAddressToJSON(value['shippingAddress']),
-        'orderLines': ((value['orderLines'] as Array<any>).map(CreateOrder201ResponseOrderLinesInnerToJSON)),
+        'orderLines': ((value['orderLines'] as Array<any>).map(GetOrder200ResponseOrderLinesInnerToJSON)),
         'subtotalAmount': value['subtotalAmount'],
         'totalAmount': value['totalAmount'],
         'currency': value['currency'],

@@ -17,6 +17,7 @@ Name | Type
 `updatedAt` | string
 `shippingRuleId` | string
 `documents` | [Array&lt;CreateShipment201ResponseDocumentsInner&gt;](CreateShipment201ResponseDocumentsInner.md)
+`parcels` | [Array&lt;GetOrder200ResponseShipmentsInnerParcelsInner&gt;](GetOrder200ResponseShipmentsInnerParcelsInner.md)
 
 ## Example
 
@@ -36,6 +37,7 @@ const example = {
   "updatedAt": 2026-06-22T14:30:00.000Z,
   "shippingRuleId": clz9k2f0a0002abcd5678ijkl,
   "documents": null,
+  "parcels": null,
 } satisfies GetOrder200ResponseShipmentsInner
 
 console.log(example)

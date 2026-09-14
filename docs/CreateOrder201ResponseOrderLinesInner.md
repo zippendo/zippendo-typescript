@@ -25,6 +25,7 @@ Name | Type
 `taxable` | boolean
 `giftCard` | boolean
 `vendor` | string
+`id` | string
 
 ## Example
 
@@ -52,6 +53,7 @@ const example = {
   "taxable": true,
   "giftCard": false,
   "vendor": Norse Knits,
+  "id": clz9k2f0a0004abcd3456qrst,
 } satisfies CreateOrder201ResponseOrderLinesInner
 
 console.log(example)

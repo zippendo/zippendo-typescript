@@ -134,6 +134,12 @@ export interface GetOrder200ResponseOrderLinesInner {
      */
     vendor?: string | null;
     /**
+     * Order line ID. Present once the line is a row. Absent for jsonb-only lines during the dual-write window — do not synthesise one, or an edit would re-point packed lines.
+     * @type {string}
+     * @memberof GetOrder200ResponseOrderLinesInner
+     */
+    id?: string;
+    /**
      * Quantity already allocated to outbound shipments.
      * @type {number}
      * @memberof GetOrder200ResponseOrderLinesInner
@@ -193,6 +199,7 @@ export function GetOrder200ResponseOrderLinesInnerFromJSONTyped(json: any, ignor
         'taxable': json['taxable'] === undefined ? undefined : json['taxable'] === null ? null : json['taxable'],
         'giftCard': json['giftCard'] === undefined ? undefined : json['giftCard'] === null ? null : json['giftCard'],
         'vendor': json['vendor'] === undefined ? undefined : json['vendor'] === null ? null : json['vendor'],
+        'id': json['id'] == null ? undefined : json['id'],
         'packedQuantity': json['packedQuantity'],
     };
 }
@@ -227,6 +234,7 @@ export function GetOrder200ResponseOrderLinesInnerToJSONTyped(value?: GetOrder20
         'taxable': value['taxable'],
         'giftCard': value['giftCard'],
         'vendor': value['vendor'],
+        'id': value['id'],
         'packedQuantity': value['packedQuantity'],
     };
 }

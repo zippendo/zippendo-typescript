@@ -133,6 +133,12 @@ export interface CreateOrder201ResponseOrderLinesInner {
      * @memberof CreateOrder201ResponseOrderLinesInner
      */
     vendor?: string | null;
+    /**
+     * Order line ID. Present once the line is a row. Absent for jsonb-only lines during the dual-write window — do not synthesise one, or an edit would re-point packed lines.
+     * @type {string}
+     * @memberof CreateOrder201ResponseOrderLinesInner
+     */
+    id?: string;
 }
 
 
@@ -186,6 +192,7 @@ export function CreateOrder201ResponseOrderLinesInnerFromJSONTyped(json: any, ig
         'taxable': json['taxable'] === undefined ? undefined : json['taxable'] === null ? null : json['taxable'],
         'giftCard': json['giftCard'] === undefined ? undefined : json['giftCard'] === null ? null : json['giftCard'],
         'vendor': json['vendor'] === undefined ? undefined : json['vendor'] === null ? null : json['vendor'],
+        'id': json['id'] == null ? undefined : json['id'],
     };
 }
 
@@ -219,6 +226,7 @@ export function CreateOrder201ResponseOrderLinesInnerToJSONTyped(value?: CreateO
         'taxable': value['taxable'],
         'giftCard': value['giftCard'],
         'vendor': value['vendor'],
+        'id': value['id'],
     };
 }
 

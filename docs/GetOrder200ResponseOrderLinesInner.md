@@ -25,6 +25,7 @@ Name | Type
 `taxable` | boolean
 `giftCard` | boolean
 `vendor` | string
+`id` | string
 `packedQuantity` | number
 
 ## Example
@@ -53,6 +54,7 @@ const example = {
   "taxable": true,
   "giftCard": false,
   "vendor": Norse Knits,
+  "id": clz9k2f0a0004abcd3456qrst,
   "packedQuantity": 1,
 } satisfies GetOrder200ResponseOrderLinesInner
 

@@ -26,6 +26,12 @@ export interface CreateShipmentRequestParcelsInnerOrderLinesInner {
      */
     id?: string;
     /**
+     * ID of the order line this packed line came from. Null when the item did not originate from an order line, such as a free gift or a replacement part.
+     * @type {string}
+     * @memberof CreateShipmentRequestParcelsInnerOrderLinesInner
+     */
+    orderLineId?: string | null;
+    /**
      * Stock keeping unit of the product. Optional — not every webshop assigns SKUs.
      * @type {string}
      * @memberof CreateShipmentRequestParcelsInnerOrderLinesInner
@@ -74,7 +80,13 @@ export interface CreateShipmentRequestParcelsInnerOrderLinesInner {
      */
     countryOfOrigin?: string;
     /**
-     * Customs tariff (HS) code.
+     * Harmonized System customs code.
+     * @type {string}
+     * @memberof CreateShipmentRequestParcelsInnerOrderLinesInner
+     */
+    hsCode?: string | null;
+    /**
+     * Deprecated misspelling of `hsCode`, kept for backwards compatibility.
      * @type {string}
      * @memberof CreateShipmentRequestParcelsInnerOrderLinesInner
      */
@@ -100,6 +112,7 @@ export function CreateShipmentRequestParcelsInnerOrderLinesInnerFromJSONTyped(js
     return {
         
         'id': json['id'] == null ? undefined : json['id'],
+        'orderLineId': json['orderLineId'] === undefined ? undefined : json['orderLineId'] === null ? null : json['orderLineId'],
         'sku': json['sku'] === undefined ? undefined : json['sku'] === null ? null : json['sku'],
         'quantity': json['quantity'],
         'description': json['description'] === undefined ? undefined : json['description'] === null ? null : json['description'],
@@ -108,6 +121,7 @@ export function CreateShipmentRequestParcelsInnerOrderLinesInnerFromJSONTyped(js
         'vatPercent': json['vatPercent'] === undefined ? undefined : json['vatPercent'] === null ? null : json['vatPercent'],
         'location': json['location'] === undefined ? undefined : json['location'] === null ? null : json['location'],
         'countryOfOrigin': json['countryOfOrigin'] == null ? undefined : json['countryOfOrigin'],
+        'hsCode': json['hsCode'] === undefined ? undefined : json['hsCode'] === null ? null : json['hsCode'],
         'tarrifNumber': json['tarrifNumber'] === undefined ? undefined : json['tarrifNumber'] === null ? null : json['tarrifNumber'],
     };
 }
@@ -124,6 +138,7 @@ export function CreateShipmentRequestParcelsInnerOrderLinesInnerToJSONTyped(valu
     return {
         
         'id': value['id'],
+        'orderLineId': value['orderLineId'],
         'sku': value['sku'],
         'quantity': value['quantity'],
         'description': value['description'],
@@ -132,6 +147,7 @@ export function CreateShipmentRequestParcelsInnerOrderLinesInnerToJSONTyped(valu
         'vatPercent': value['vatPercent'],
         'location': value['location'],
         'countryOfOrigin': value['countryOfOrigin'],
+        'hsCode': value['hsCode'],
         'tarrifNumber': value['tarrifNumber'],
     };
 }

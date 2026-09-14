@@ -133,6 +133,12 @@ export interface CreateOrderRequestOrderLinesInner {
      * @memberof CreateOrderRequestOrderLinesInner
      */
     vendor?: string | null;
+    /**
+     * ID of the existing order line this entry edits. Omit to add a new line.
+     * @type {string}
+     * @memberof CreateOrderRequestOrderLinesInner
+     */
+    id?: string;
 }
 
 
@@ -186,6 +192,7 @@ export function CreateOrderRequestOrderLinesInnerFromJSONTyped(json: any, ignore
         'taxable': json['taxable'] === undefined ? undefined : json['taxable'] === null ? null : json['taxable'],
         'giftCard': json['giftCard'] === undefined ? undefined : json['giftCard'] === null ? null : json['giftCard'],
         'vendor': json['vendor'] === undefined ? undefined : json['vendor'] === null ? null : json['vendor'],
+        'id': json['id'] == null ? undefined : json['id'],
     };
 }
 
@@ -219,6 +226,7 @@ export function CreateOrderRequestOrderLinesInnerToJSONTyped(value?: CreateOrder
         'taxable': value['taxable'],
         'giftCard': value['giftCard'],
         'vendor': value['vendor'],
+        'id': value['id'],
     };
 }
 

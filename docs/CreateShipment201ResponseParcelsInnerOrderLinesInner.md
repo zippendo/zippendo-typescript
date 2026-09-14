@@ -7,6 +7,7 @@
 Name | Type
 ------------ | -------------
 `id` | string
+`orderLineId` | string
 `sku` | string
 `quantity` | number
 `description` | string
@@ -15,6 +16,7 @@ Name | Type
 `vatPercent` | number
 `location` | string
 `countryOfOrigin` | string
+`hsCode` | string
 `tarrifNumber` | string
 
 ## Example
@@ -25,6 +27,7 @@ import type { CreateShipment201ResponseParcelsInnerOrderLinesInner } from '@zipp
 // TODO: Update the object below with actual values
 const example = {
   "id": ol_9c1d2e3f,
+  "orderLineId": clz9k2f0a0004abcd3456qrst,
   "sku": SKU-1024,
   "quantity": 2,
   "description": Wool sweater, navy,
@@ -33,6 +36,7 @@ const example = {
   "vatPercent": 25,
   "location": A-12-3,
   "countryOfOrigin": DK,
+  "hsCode": 61101100,
   "tarrifNumber": 61101100,
 } satisfies CreateShipment201ResponseParcelsInnerOrderLinesInner
 

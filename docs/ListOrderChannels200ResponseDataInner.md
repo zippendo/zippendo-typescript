@@ -10,6 +10,7 @@ Name | Type
 `name` | string
 `type` | string
 `enabled` | boolean
+`role` | string
 `brandId` | string
 `hasCredentials` | boolean
 `settings` | [ListOrderChannels200ResponseDataInnerSettings](ListOrderChannels200ResponseDataInnerSettings.md)
@@ -32,6 +33,7 @@ const example = {
   "name": Anna's Shopify Store,
   "type": shopify,
   "enabled": true,
+  "role": orders_and_rates,
   "brandId": brnd_8f3kd92ld0,
   "hasCredentials": true,
   "settings": null,

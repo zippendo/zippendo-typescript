@@ -10,6 +10,7 @@ Name | Type
 `type` | string
 `brandId` | string
 `enabled` | boolean
+`role` | string
 `settings` | [CreateOrderChannelRequestSettings](CreateOrderChannelRequestSettings.md)
 
 ## Example
@@ -23,6 +24,7 @@ const example = {
   "type": custom,
   "brandId": brnd_8f3kd92ld0,
   "enabled": true,
+  "role": orders_and_rates,
   "settings": null,
 } satisfies CreateOrderChannelRequest
 

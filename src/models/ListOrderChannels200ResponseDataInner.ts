@@ -52,6 +52,12 @@ export interface ListOrderChannels200ResponseDataInner {
      */
     enabled: boolean;
     /**
+     * What Zippendo is used for on this channel. `orders_and_rates` (default) imports orders and serves checkout rates. `rates_only` serves checkout rates and service-point selection ONLY — orders are owned by an external system such as a WMS, nothing is imported, and no fulfilment or tracking is pushed back to the platform.
+     * @type {ListOrderChannels200ResponseDataInnerRoleEnum}
+     * @memberof ListOrderChannels200ResponseDataInner
+     */
+    role: ListOrderChannels200ResponseDataInnerRoleEnum;
+    /**
      * Brand this channel belongs to, or null for organization-wide. Orders synced from this channel inherit it, and so do the shipments and documents made from them.
      * @type {string}
      * @memberof ListOrderChannels200ResponseDataInner
@@ -125,6 +131,15 @@ export const ListOrderChannels200ResponseDataInnerTypeEnum = {
 } as const;
 export type ListOrderChannels200ResponseDataInnerTypeEnum = typeof ListOrderChannels200ResponseDataInnerTypeEnum[keyof typeof ListOrderChannels200ResponseDataInnerTypeEnum];
 
+/**
+ * @export
+ */
+export const ListOrderChannels200ResponseDataInnerRoleEnum = {
+    OrdersAndRates: 'orders_and_rates',
+    RatesOnly: 'rates_only'
+} as const;
+export type ListOrderChannels200ResponseDataInnerRoleEnum = typeof ListOrderChannels200ResponseDataInnerRoleEnum[keyof typeof ListOrderChannels200ResponseDataInnerRoleEnum];
+
 
 /**
  * Check if a given object implements the ListOrderChannels200ResponseDataInner interface.
@@ -134,6 +149,7 @@ export function instanceOfListOrderChannels200ResponseDataInner(value: object): 
     if (!('name' in value) || value['name'] === undefined) return false;
     if (!('type' in value) || value['type'] === undefined) return false;
     if (!('enabled' in value) || value['enabled'] === undefined) return false;
+    if (!('role' in value) || value['role'] === undefined) return false;
     if (!('brandId' in value) || value['brandId'] === undefined) return false;
     if (!('hasCredentials' in value) || value['hasCredentials'] === undefined) return false;
     if (!('settings' in value) || value['settings'] === undefined) return false;
@@ -157,6 +173,7 @@ export function ListOrderChannels200ResponseDataInnerFromJSONTyped(json: any, ig
         'name': json['name'],
         'type': json['type'],
         'enabled': json['enabled'],
+        'role': json['role'],
         'brandId': json['brandId'],
         'hasCredentials': json['hasCredentials'],
         'settings': ListOrderChannels200ResponseDataInnerSettingsFromJSON(json['settings']),
@@ -185,6 +202,7 @@ export function ListOrderChannels200ResponseDataInnerToJSONTyped(value?: ListOrd
         'name': value['name'],
         'type': value['type'],
         'enabled': value['enabled'],
+        'role': value['role'],
         'brandId': value['brandId'],
         'hasCredentials': value['hasCredentials'],
         'settings': ListOrderChannels200ResponseDataInnerSettingsToJSON(value['settings']),

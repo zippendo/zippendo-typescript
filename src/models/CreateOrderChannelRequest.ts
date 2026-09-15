@@ -52,6 +52,12 @@ export interface CreateOrderChannelRequest {
      */
     enabled?: boolean;
     /**
+     * What Zippendo is used for on this channel. `orders_and_rates` (default) imports orders and serves checkout rates. `rates_only` serves checkout rates and service-point selection ONLY — orders are owned by an external system such as a WMS, nothing is imported, and no fulfilment or tracking is pushed back to the platform.
+     * @type {CreateOrderChannelRequestRoleEnum}
+     * @memberof CreateOrderChannelRequest
+     */
+    role?: CreateOrderChannelRequestRoleEnum;
+    /**
      * 
      * @type {CreateOrderChannelRequestSettings}
      * @memberof CreateOrderChannelRequest
@@ -68,6 +74,15 @@ export const CreateOrderChannelRequestTypeEnum = {
     Custom: 'custom'
 } as const;
 export type CreateOrderChannelRequestTypeEnum = typeof CreateOrderChannelRequestTypeEnum[keyof typeof CreateOrderChannelRequestTypeEnum];
+
+/**
+ * @export
+ */
+export const CreateOrderChannelRequestRoleEnum = {
+    OrdersAndRates: 'orders_and_rates',
+    RatesOnly: 'rates_only'
+} as const;
+export type CreateOrderChannelRequestRoleEnum = typeof CreateOrderChannelRequestRoleEnum[keyof typeof CreateOrderChannelRequestRoleEnum];
 
 
 /**
@@ -93,6 +108,7 @@ export function CreateOrderChannelRequestFromJSONTyped(json: any, ignoreDiscrimi
         'type': json['type'],
         'brandId': json['brandId'] === undefined ? undefined : json['brandId'] === null ? null : json['brandId'],
         'enabled': json['enabled'] == null ? undefined : json['enabled'],
+        'role': json['role'] == null ? undefined : json['role'],
         'settings': json['settings'] == null ? undefined : CreateOrderChannelRequestSettingsFromJSON(json['settings']),
     };
 }
@@ -112,6 +128,7 @@ export function CreateOrderChannelRequestToJSONTyped(value?: CreateOrderChannelR
         'type': value['type'],
         'brandId': value['brandId'],
         'enabled': value['enabled'],
+        'role': value['role'],
         'settings': CreateOrderChannelRequestSettingsToJSON(value['settings']),
     };
 }

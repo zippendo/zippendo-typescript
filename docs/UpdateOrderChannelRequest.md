@@ -9,6 +9,7 @@ Name | Type
 `brandId` | string
 `name` | string
 `enabled` | boolean
+`role` | string
 `credentials` | { [key: string]: any; }
 `settings` | [UpdateOrderChannelRequestSettings](UpdateOrderChannelRequestSettings.md)
 `shippingRuleIds` | Array&lt;string&gt;
@@ -23,6 +24,7 @@ const example = {
   "brandId": brnd_8f3kd92ld0,
   "name": Anna's Shopify Store,
   "enabled": true,
+  "role": orders_and_rates,
   "credentials": null,
   "settings": null,
   "shippingRuleIds": ["clz9k2f0a0002abcd5678ijkl"],

@@ -46,6 +46,12 @@ export interface UpdateOrderChannelRequest {
      */
     enabled?: boolean;
     /**
+     * What Zippendo is used for on this channel. `orders_and_rates` (default) imports orders and serves checkout rates. `rates_only` serves checkout rates and service-point selection ONLY — orders are owned by an external system such as a WMS, nothing is imported, and no fulfilment or tracking is pushed back to the platform.
+     * @type {UpdateOrderChannelRequestRoleEnum}
+     * @memberof UpdateOrderChannelRequest
+     */
+    role?: UpdateOrderChannelRequestRoleEnum;
+    /**
      * Type-specific platform credentials.
      * @type {{ [key: string]: any; }}
      * @memberof UpdateOrderChannelRequest
@@ -64,6 +70,17 @@ export interface UpdateOrderChannelRequest {
      */
     shippingRuleIds?: Array<string>;
 }
+
+
+/**
+ * @export
+ */
+export const UpdateOrderChannelRequestRoleEnum = {
+    OrdersAndRates: 'orders_and_rates',
+    RatesOnly: 'rates_only'
+} as const;
+export type UpdateOrderChannelRequestRoleEnum = typeof UpdateOrderChannelRequestRoleEnum[keyof typeof UpdateOrderChannelRequestRoleEnum];
+
 
 /**
  * Check if a given object implements the UpdateOrderChannelRequest interface.
@@ -85,6 +102,7 @@ export function UpdateOrderChannelRequestFromJSONTyped(json: any, ignoreDiscrimi
         'brandId': json['brandId'] === undefined ? undefined : json['brandId'] === null ? null : json['brandId'],
         'name': json['name'] == null ? undefined : json['name'],
         'enabled': json['enabled'] == null ? undefined : json['enabled'],
+        'role': json['role'] == null ? undefined : json['role'],
         'credentials': json['credentials'] === undefined ? undefined : json['credentials'] === null ? null : json['credentials'],
         'settings': json['settings'] == null ? undefined : UpdateOrderChannelRequestSettingsFromJSON(json['settings']),
         'shippingRuleIds': json['shippingRuleIds'] == null ? undefined : json['shippingRuleIds'],
@@ -105,6 +123,7 @@ export function UpdateOrderChannelRequestToJSONTyped(value?: UpdateOrderChannelR
         'brandId': value['brandId'],
         'name': value['name'],
         'enabled': value['enabled'],
+        'role': value['role'],
         'credentials': value['credentials'],
         'settings': UpdateOrderChannelRequestSettingsToJSON(value['settings']),
         'shippingRuleIds': value['shippingRuleIds'],

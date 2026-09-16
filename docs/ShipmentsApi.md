@@ -568,11 +568,11 @@ example().catch(console.error);
 
 ## listShipments
 
-> ListShipments200Response listShipments(orgId, page, limit, brandId, brandScope, status, type, search)
+> ListShipments200Response listShipments(orgId, page, limit, brandId, brandScope, status, type, search, filter)
 
 List shipments
 
-List all shipments for an organization, paginated and ordered by newest first.
+List all shipments for an organization, paginated and ordered by newest first. Accepts an advanced filter definition.
 
 ### Example
 
@@ -608,6 +608,8 @@ async function example() {
     type: outbound,
     // string | Search by shipment reference or parcel tracking number. (optional)
     search: SHIP-1042,
+    // string | Advanced filter as a JSON-encoded definition: a `conjunction` (`and`/`or`) over `conditions`, each `{ id, field, operator, value }` or a nested group. Fields and operators per list are documented under Filtering lists in the API overview. An invalid filter returns 400 `FILTER_INVALID`. (optional)
+    filter: {"conjunction":"and","conditions":[{"id":"c_1","field":"status","operator":"in","value":["pending","processing"]}]},
   } satisfies ListShipmentsRequest;
 
   try {
@@ -635,6 +637,7 @@ example().catch(console.error);
 | **status** | `draft`, `pending`, `processing`, `dispatched`, `partly_dispatched`, `error`, `cancelled`, `on_hold` | Filter by shipment status. | [Optional] [Defaults to `undefined`] [Enum: draft, pending, processing, dispatched, partly_dispatched, error, cancelled, on_hold] |
 | **type** | `outbound`, `inbound` | Filter by direction. | [Optional] [Defaults to `undefined`] [Enum: outbound, inbound] |
 | **search** | `string` | Search by shipment reference or parcel tracking number. | [Optional] [Defaults to `undefined`] |
+| **filter** | `string` | Advanced filter as a JSON-encoded definition: a &#x60;conjunction&#x60; (&#x60;and&#x60;/&#x60;or&#x60;) over &#x60;conditions&#x60;, each &#x60;{ id, field, operator, value }&#x60; or a nested group. Fields and operators per list are documented under Filtering lists in the API overview. An invalid filter returns 400 &#x60;FILTER_INVALID&#x60;. | [Optional] [Defaults to `undefined`] |
 
 ### Return type
 

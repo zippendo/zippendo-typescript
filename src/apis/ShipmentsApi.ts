@@ -142,6 +142,7 @@ export interface ListShipmentsRequest {
     status?: ListShipmentsStatusEnum;
     type?: ListShipmentsTypeEnum;
     search?: string;
+    filter?: string;
 }
 
 export interface SendShipmentRequest {
@@ -688,6 +689,10 @@ export class ShipmentsApi extends runtime.BaseAPI {
             queryParameters['search'] = requestParameters['search'];
         }
 
+        if (requestParameters['filter'] != null) {
+            queryParameters['filter'] = requestParameters['filter'];
+        }
+
         const headerParameters: runtime.HTTPHeaders = {};
 
         if (this.configuration && this.configuration.accessToken) {
@@ -711,7 +716,7 @@ export class ShipmentsApi extends runtime.BaseAPI {
     }
 
     /**
-     * List all shipments for an organization, paginated and ordered by newest first.
+     * List all shipments for an organization, paginated and ordered by newest first. Accepts an advanced filter definition.
      * List shipments
      */
     async listShipmentsRaw(requestParameters: ListShipmentsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ListShipments200Response>> {
@@ -722,7 +727,7 @@ export class ShipmentsApi extends runtime.BaseAPI {
     }
 
     /**
-     * List all shipments for an organization, paginated and ordered by newest first.
+     * List all shipments for an organization, paginated and ordered by newest first. Accepts an advanced filter definition.
      * List shipments
      */
     async listShipments(requestParameters: ListShipmentsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ListShipments200Response> {

@@ -73,6 +73,7 @@ export interface ListOrdersRequest {
     status?: ListOrdersStatusEnum;
     orderChannelId?: string;
     search?: string;
+    filter?: string;
 }
 
 export interface UpdateOrderOperationRequest {
@@ -318,6 +319,10 @@ export class OrdersApi extends runtime.BaseAPI {
             queryParameters['search'] = requestParameters['search'];
         }
 
+        if (requestParameters['filter'] != null) {
+            queryParameters['filter'] = requestParameters['filter'];
+        }
+
         const headerParameters: runtime.HTTPHeaders = {};
 
         if (this.configuration && this.configuration.accessToken) {
@@ -341,7 +346,7 @@ export class OrdersApi extends runtime.BaseAPI {
     }
 
     /**
-     * Returns a paginated list of orders for an organization, filterable by status, channel, and search term.
+     * Returns a paginated list of orders for an organization, filterable by status, channel, search term and an advanced filter definition.
      * List orders
      */
     async listOrdersRaw(requestParameters: ListOrdersRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ListOrders200Response>> {
@@ -352,7 +357,7 @@ export class OrdersApi extends runtime.BaseAPI {
     }
 
     /**
-     * Returns a paginated list of orders for an organization, filterable by status, channel, and search term.
+     * Returns a paginated list of orders for an organization, filterable by status, channel, search term and an advanced filter definition.
      * List orders
      */
     async listOrders(requestParameters: ListOrdersRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ListOrders200Response> {

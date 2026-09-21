@@ -9,6 +9,7 @@ All URIs are relative to *https://api.zippendo.com*
 | [**createReturnShipment**](ShipmentsApi.md#createreturnshipment) | **POST** /orgs/{orgId}/shipments/{shipmentId}/create-return | Create return shipment |
 | [**createShipment**](ShipmentsApi.md#createshipmentoperation) | **POST** /orgs/{orgId}/shipments | Create shipment |
 | [**deleteShipment**](ShipmentsApi.md#deleteshipment) | **DELETE** /orgs/{orgId}/shipments/{shipmentId} | Delete shipment |
+| [**fetchShipmentLabel**](ShipmentsApi.md#fetchshipmentlabel) | **POST** /orgs/{orgId}/shipments/{shipmentId}/fetch-label | Fetch missing label |
 | [**getShipment**](ShipmentsApi.md#getshipment) | **GET** /orgs/{orgId}/shipments/{shipmentId} | Get shipment |
 | [**getShipmentDocumentContent**](ShipmentsApi.md#getshipmentdocumentcontent) | **GET** /orgs/{orgId}/shipments/{shipmentId}/documents/{documentId}/content | Download shipment document |
 | [**listShipments**](ShipmentsApi.md#listshipments) | **GET** /orgs/{orgId}/shipments | List shipments |
@@ -182,7 +183,7 @@ example().catch(console.error);
 
 Create return shipment
 
-Create and auto-send a return shipment from a dispatched outbound shipment with swapped sender/receiver. Requires a configured return shipping rule.
+Create and auto-send a return shipment from a dispatched outbound shipment with swapped sender/receiver. Requires a configured return shipping rule. The return is returned with its booking outcome: &#x60;dispatched&#x60;, or &#x60;error&#x60; with the carrier\&#39;s reasons in &#x60;errors&#x60;.
 
 ### Example
 
@@ -403,6 +404,84 @@ example().catch(console.error);
 | **400** | Default Response |  -  |
 | **403** | Default Response |  -  |
 | **404** | Default Response |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
+
+
+## fetchShipmentLabel
+
+> CreateShipment201Response fetchShipmentLabel(orgId, shipmentId)
+
+Fetch missing label
+
+Ask the carrier again for the label of a dispatched shipment whose label could not be downloaded when it was sent (it carries a LABEL_DOWNLOAD_FAILED error). Stores the label, clears the error and returns the shipment.
+
+### Example
+
+```ts
+import {
+  Configuration,
+  ShipmentsApi,
+} from '@zippendo/sdk';
+import type { FetchShipmentLabelRequest } from '@zippendo/sdk';
+
+async function example() {
+  console.log("🚀 Testing @zippendo/sdk SDK...");
+  const config = new Configuration({ 
+    // Configure HTTP bearer authorization: bearerAuth
+    accessToken: "YOUR BEARER TOKEN",
+  });
+  const api = new ShipmentsApi(config);
+
+  const body = {
+    // string | Organization identifier.
+    orgId: org_1a2b3c4d,
+    // string | Shipment identifier.
+    shipmentId: shp_4d9e7a2f,
+  } satisfies FetchShipmentLabelRequest;
+
+  try {
+    const data = await api.fetchShipmentLabel(body);
+    console.log(data);
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+// Run the test
+example().catch(console.error);
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **orgId** | `string` | Organization identifier. | [Defaults to `undefined`] |
+| **shipmentId** | `string` | Shipment identifier. | [Defaults to `undefined`] |
+
+### Return type
+
+[**CreateShipment201Response**](CreateShipment201Response.md)
+
+### Authorization
+
+[bearerAuth](../README.md#bearerAuth)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Default Response |  -  |
+| **403** | Default Response |  -  |
+| **404** | Default Response |  -  |
+| **409** | Default Response |  -  |
+| **422** | Default Response |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 

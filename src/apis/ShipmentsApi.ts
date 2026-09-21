@@ -120,6 +120,11 @@ export interface DeleteShipmentRequest {
     shipmentId: string;
 }
 
+export interface FetchShipmentLabelRequest {
+    orgId: string;
+    shipmentId: string;
+}
+
 export interface GetShipmentRequest {
     orgId: string;
     shipmentId: string;
@@ -360,7 +365,7 @@ export class ShipmentsApi extends runtime.BaseAPI {
     }
 
     /**
-     * Create and auto-send a return shipment from a dispatched outbound shipment with swapped sender/receiver. Requires a configured return shipping rule.
+     * Create and auto-send a return shipment from a dispatched outbound shipment with swapped sender/receiver. Requires a configured return shipping rule. The return is returned with its booking outcome: `dispatched`, or `error` with the carrier\'s reasons in `errors`.
      * Create return shipment
      */
     async createReturnShipmentRaw(requestParameters: CreateReturnShipmentRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CreateShipment201Response>> {
@@ -371,7 +376,7 @@ export class ShipmentsApi extends runtime.BaseAPI {
     }
 
     /**
-     * Create and auto-send a return shipment from a dispatched outbound shipment with swapped sender/receiver. Requires a configured return shipping rule.
+     * Create and auto-send a return shipment from a dispatched outbound shipment with swapped sender/receiver. Requires a configured return shipping rule. The return is returned with its booking outcome: `dispatched`, or `error` with the carrier\'s reasons in `errors`.
      * Create return shipment
      */
     async createReturnShipment(requestParameters: CreateReturnShipmentRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CreateShipment201Response> {
@@ -504,6 +509,69 @@ export class ShipmentsApi extends runtime.BaseAPI {
      */
     async deleteShipment(requestParameters: DeleteShipmentRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<RevokeApiToken200Response> {
         const response = await this.deleteShipmentRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     * Creates request options for fetchShipmentLabel without sending the request
+     */
+    async fetchShipmentLabelRequestOpts(requestParameters: FetchShipmentLabelRequest): Promise<runtime.RequestOpts> {
+        if (requestParameters['orgId'] == null) {
+            throw new runtime.RequiredError(
+                'orgId',
+                'Required parameter "orgId" was null or undefined when calling fetchShipmentLabel().'
+            );
+        }
+
+        if (requestParameters['shipmentId'] == null) {
+            throw new runtime.RequiredError(
+                'shipmentId',
+                'Required parameter "shipmentId" was null or undefined when calling fetchShipmentLabel().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        if (this.configuration && this.configuration.accessToken) {
+            const token = this.configuration.accessToken;
+            const tokenString = await token("bearerAuth", []);
+
+            if (tokenString) {
+                headerParameters["Authorization"] = `Bearer ${tokenString}`;
+            }
+        }
+
+        let urlPath = `/orgs/{orgId}/shipments/{shipmentId}/fetch-label`;
+        urlPath = urlPath.replace('{orgId}', encodeURIComponent(String(requestParameters['orgId'])));
+        urlPath = urlPath.replace('{shipmentId}', encodeURIComponent(String(requestParameters['shipmentId'])));
+
+        return {
+            path: urlPath,
+            method: 'POST',
+            headers: headerParameters,
+            query: queryParameters,
+        };
+    }
+
+    /**
+     * Ask the carrier again for the label of a dispatched shipment whose label could not be downloaded when it was sent (it carries a LABEL_DOWNLOAD_FAILED error). Stores the label, clears the error and returns the shipment.
+     * Fetch missing label
+     */
+    async fetchShipmentLabelRaw(requestParameters: FetchShipmentLabelRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CreateShipment201Response>> {
+        const requestOptions = await this.fetchShipmentLabelRequestOpts(requestParameters);
+        const response = await this.request(requestOptions, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => CreateShipment201ResponseFromJSON(jsonValue));
+    }
+
+    /**
+     * Ask the carrier again for the label of a dispatched shipment whose label could not be downloaded when it was sent (it carries a LABEL_DOWNLOAD_FAILED error). Stores the label, clears the error and returns the shipment.
+     * Fetch missing label
+     */
+    async fetchShipmentLabel(requestParameters: FetchShipmentLabelRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CreateShipment201Response> {
+        const response = await this.fetchShipmentLabelRaw(requestParameters, initOverrides);
         return await response.value();
     }
 

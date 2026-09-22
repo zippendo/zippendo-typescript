@@ -20,17 +20,23 @@ import { mapValues } from '../runtime';
  */
 export interface UpdateAddressRequest {
     /**
-     * Name of the address
+     * Company or person the parcel is sent from, printed on labels
      * @type {string}
      * @memberof UpdateAddressRequest
      */
     name?: string;
     /**
-     * Attention contact person
+     * Internal label for this address; send null or an empty string to clear it
      * @type {string}
      * @memberof UpdateAddressRequest
      */
-    attContact?: string;
+    description?: string | null;
+    /**
+     * Contact person at this address; send null or an empty string to clear it
+     * @type {string}
+     * @memberof UpdateAddressRequest
+     */
+    attContact?: string | null;
     /**
      * Address line 1
      * @type {string}
@@ -38,11 +44,11 @@ export interface UpdateAddressRequest {
      */
     address1?: string;
     /**
-     * Address line 2
+     * Address line 2; send null or an empty string to clear it
      * @type {string}
      * @memberof UpdateAddressRequest
      */
-    address2?: string;
+    address2?: string | null;
     /**
      * Postal/ZIP code
      * @type {string}
@@ -68,11 +74,11 @@ export interface UpdateAddressRequest {
      */
     countryCode?: string;
     /**
-     * State/Province
+     * State/Province; send null or an empty string to clear it
      * @type {string}
      * @memberof UpdateAddressRequest
      */
-    state?: string;
+    state?: string | null;
     /**
      * Email address
      * @type {string}
@@ -129,14 +135,15 @@ export function UpdateAddressRequestFromJSONTyped(json: any, ignoreDiscriminator
     return {
         
         'name': json['name'] == null ? undefined : json['name'],
-        'attContact': json['attContact'] == null ? undefined : json['attContact'],
+        'description': json['description'] === undefined ? undefined : json['description'] === null ? null : json['description'],
+        'attContact': json['attContact'] === undefined ? undefined : json['attContact'] === null ? null : json['attContact'],
         'address1': json['address1'] == null ? undefined : json['address1'],
-        'address2': json['address2'] == null ? undefined : json['address2'],
+        'address2': json['address2'] === undefined ? undefined : json['address2'] === null ? null : json['address2'],
         'zipcode': json['zipcode'] == null ? undefined : json['zipcode'],
         'city': json['city'] == null ? undefined : json['city'],
         'phone': json['phone'] == null ? undefined : json['phone'],
         'countryCode': json['countryCode'] == null ? undefined : json['countryCode'],
-        'state': json['state'] == null ? undefined : json['state'],
+        'state': json['state'] === undefined ? undefined : json['state'] === null ? null : json['state'],
         'email': json['email'] == null ? undefined : json['email'],
         'customs': json['customs'] == null ? undefined : json['customs'],
         'addressTypes': json['addressTypes'] == null ? undefined : json['addressTypes'],
@@ -156,6 +163,7 @@ export function UpdateAddressRequestToJSONTyped(value?: UpdateAddressRequest | n
     return {
         
         'name': value['name'],
+        'description': value['description'],
         'attContact': value['attContact'],
         'address1': value['address1'],
         'address2': value['address2'],

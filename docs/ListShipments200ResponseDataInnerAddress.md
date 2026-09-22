@@ -8,6 +8,7 @@ Name | Type
 ------------ | -------------
 `id` | string
 `name` | string
+`description` | string
 `attContact` | string
 `address1` | string
 `address2` | string
@@ -32,7 +33,8 @@ import type { ListShipments200ResponseDataInnerAddress } from '@zippendo/sdk'
 // TODO: Update the object below with actual values
 const example = {
   "id": addr_01HZX9K2QF,
-  "name": Hovedlager,
+  "name": Zippendo ApS,
+  "description": Main warehouse, Copenhagen,
   "attContact": Mette Hansen,
   "address1": Vesterbrogade 1,
   "address2": 2. sal,

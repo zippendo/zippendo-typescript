@@ -277,7 +277,7 @@ async function example() {
     type: sender,
     // string | Filter by ISO 3166-1 alpha-2 country code. (optional)
     countryCode: DK,
-    // string | Search by address name, contact or city. (optional)
+    // string | Search by company name, description, contact or city. (optional)
     search: Copenhagen,
     // string | Filter by brand. Pass a brand ID, or \"none\" for records not assigned to any brand. (optional)
     brandId: brnd_8f3kd92ld0,
@@ -307,7 +307,7 @@ example().catch(console.error);
 | **limit** | `number` | Items per page (max 100) | [Optional] [Defaults to `20`] |
 | **type** | `sender`, `pickup`, `return` | Filter by address type (sender, pickup, return) | [Optional] [Defaults to `undefined`] [Enum: sender, pickup, return] |
 | **countryCode** | `string` | Filter by ISO 3166-1 alpha-2 country code. | [Optional] [Defaults to `undefined`] |
-| **search** | `string` | Search by address name, contact or city. | [Optional] [Defaults to `undefined`] |
+| **search** | `string` | Search by company name, description, contact or city. | [Optional] [Defaults to `undefined`] |
 | **brandId** | `string` | Filter by brand. Pass a brand ID, or \&quot;none\&quot; for records not assigned to any brand. | [Optional] [Defaults to `undefined`] |
 | **brandScope** | `own`, `shared`, `both` | How the brand context narrows this list: \&quot;own\&quot; returns only rows assigned to the current brand (requires a brand session, a brand-bound token, or the X-Zippendo-Brand header), \&quot;shared\&quot; returns only unassigned organization-wide rows, \&quot;both\&quot; (default) returns both. The X-Zippendo-Brand-Scope header supplies a default when the parameter is omitted. For strictly brand-owned records (orders, shipments), a brand-scoped request combined with \&quot;shared\&quot; returns no rows, since those records are never visible organization-wide from within a brand context. | [Optional] [Defaults to `undefined`] [Enum: own, shared, both] |
 

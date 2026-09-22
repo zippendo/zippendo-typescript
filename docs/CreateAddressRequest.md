@@ -7,6 +7,7 @@
 Name | Type
 ------------ | -------------
 `name` | string
+`description` | string
 `attContact` | string
 `address1` | string
 `address2` | string
@@ -27,7 +28,8 @@ import type { CreateAddressRequest } from '@zippendo/sdk'
 
 // TODO: Update the object below with actual values
 const example = {
-  "name": Hovedlager,
+  "name": Zippendo ApS,
+  "description": Main warehouse, Copenhagen,
   "attContact": Mette Hansen,
   "address1": Vesterbrogade 1,
   "address2": 2. sal,
@@ -35,7 +37,7 @@ const example = {
   "city": København,
   "phone": +4533123456,
   "countryCode": DK,
-  "state": ,
+  "state": Hovedstaden,
   "email": lager@example.dk,
   "customs": {"eori":"DK12345678"},
   "addressTypes": ["sender"],

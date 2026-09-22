@@ -26,17 +26,23 @@ export interface ListAddresses200ResponseDataInner {
      */
     id: string;
     /**
-     * Name of the address
+     * Company or person the parcel is sent from, printed on labels
      * @type {string}
      * @memberof ListAddresses200ResponseDataInner
      */
     name: string;
     /**
-     * Attention contact person
+     * Internal label for this address; never printed or sent to a carrier
      * @type {string}
      * @memberof ListAddresses200ResponseDataInner
      */
-    attContact: string;
+    description: string | null;
+    /**
+     * Contact person at this address, printed as the att. line
+     * @type {string}
+     * @memberof ListAddresses200ResponseDataInner
+     */
+    attContact: string | null;
     /**
      * Address line 1
      * @type {string}
@@ -141,6 +147,7 @@ export type ListAddresses200ResponseDataInnerAddressTypesEnum = typeof ListAddre
 export function instanceOfListAddresses200ResponseDataInner(value: object): value is ListAddresses200ResponseDataInner {
     if (!('id' in value) || value['id'] === undefined) return false;
     if (!('name' in value) || value['name'] === undefined) return false;
+    if (!('description' in value) || value['description'] === undefined) return false;
     if (!('attContact' in value) || value['attContact'] === undefined) return false;
     if (!('address1' in value) || value['address1'] === undefined) return false;
     if (!('address2' in value) || value['address2'] === undefined) return false;
@@ -170,6 +177,7 @@ export function ListAddresses200ResponseDataInnerFromJSONTyped(json: any, ignore
         
         'id': json['id'],
         'name': json['name'],
+        'description': json['description'],
         'attContact': json['attContact'],
         'address1': json['address1'],
         'address2': json['address2'],
@@ -201,6 +209,7 @@ export function ListAddresses200ResponseDataInnerToJSONTyped(value?: ListAddress
         
         'id': value['id'],
         'name': value['name'],
+        'description': value['description'],
         'attContact': value['attContact'],
         'address1': value['address1'],
         'address2': value['address2'],

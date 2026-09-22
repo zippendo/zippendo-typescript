@@ -20,17 +20,23 @@ import { mapValues } from '../runtime';
  */
 export interface CreateAddressRequest {
     /**
-     * Name of the address
+     * Company or person the parcel is sent from, printed on labels
      * @type {string}
      * @memberof CreateAddressRequest
      */
     name: string;
     /**
-     * Attention contact person
+     * Internal label for this address; never printed or sent to a carrier
      * @type {string}
      * @memberof CreateAddressRequest
      */
-    attContact: string;
+    description?: string | null;
+    /**
+     * Contact person at this address, printed as the att. line
+     * @type {string}
+     * @memberof CreateAddressRequest
+     */
+    attContact?: string | null;
     /**
      * Address line 1
      * @type {string}
@@ -42,7 +48,7 @@ export interface CreateAddressRequest {
      * @type {string}
      * @memberof CreateAddressRequest
      */
-    address2?: string;
+    address2?: string | null;
     /**
      * Postal/ZIP code
      * @type {string}
@@ -72,7 +78,7 @@ export interface CreateAddressRequest {
      * @type {string}
      * @memberof CreateAddressRequest
      */
-    state?: string;
+    state?: string | null;
     /**
      * Email address
      * @type {string}
@@ -116,7 +122,6 @@ export type CreateAddressRequestAddressTypesEnum = typeof CreateAddressRequestAd
  */
 export function instanceOfCreateAddressRequest(value: object): value is CreateAddressRequest {
     if (!('name' in value) || value['name'] === undefined) return false;
-    if (!('attContact' in value) || value['attContact'] === undefined) return false;
     if (!('address1' in value) || value['address1'] === undefined) return false;
     if (!('zipcode' in value) || value['zipcode'] === undefined) return false;
     if (!('city' in value) || value['city'] === undefined) return false;
@@ -137,14 +142,15 @@ export function CreateAddressRequestFromJSONTyped(json: any, ignoreDiscriminator
     return {
         
         'name': json['name'],
-        'attContact': json['attContact'],
+        'description': json['description'] === undefined ? undefined : json['description'] === null ? null : json['description'],
+        'attContact': json['attContact'] === undefined ? undefined : json['attContact'] === null ? null : json['attContact'],
         'address1': json['address1'],
-        'address2': json['address2'] == null ? undefined : json['address2'],
+        'address2': json['address2'] === undefined ? undefined : json['address2'] === null ? null : json['address2'],
         'zipcode': json['zipcode'],
         'city': json['city'],
         'phone': json['phone'],
         'countryCode': json['countryCode'],
-        'state': json['state'] == null ? undefined : json['state'],
+        'state': json['state'] === undefined ? undefined : json['state'] === null ? null : json['state'],
         'email': json['email'],
         'customs': json['customs'] == null ? undefined : json['customs'],
         'addressTypes': json['addressTypes'] == null ? undefined : json['addressTypes'],
@@ -164,6 +170,7 @@ export function CreateAddressRequestToJSONTyped(value?: CreateAddressRequest | n
     return {
         
         'name': value['name'],
+        'description': value['description'],
         'attContact': value['attContact'],
         'address1': value['address1'],
         'address2': value['address2'],

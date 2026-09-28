@@ -13,13 +13,6 @@
  */
 
 import { mapValues } from '../runtime';
-import type { GetBillingUsage200ResponseZippyMessages } from './GetBillingUsage200ResponseZippyMessages';
-import {
-    GetBillingUsage200ResponseZippyMessagesFromJSON,
-    GetBillingUsage200ResponseZippyMessagesFromJSONTyped,
-    GetBillingUsage200ResponseZippyMessagesToJSON,
-    GetBillingUsage200ResponseZippyMessagesToJSONTyped,
-} from './GetBillingUsage200ResponseZippyMessages';
 import type { GetBillingUsage200ResponseAddOnsInner } from './GetBillingUsage200ResponseAddOnsInner';
 import {
     GetBillingUsage200ResponseAddOnsInnerFromJSON,
@@ -34,6 +27,13 @@ import {
     GetBillingUsage200ResponseShipmentsToJSON,
     GetBillingUsage200ResponseShipmentsToJSONTyped,
 } from './GetBillingUsage200ResponseShipments';
+import type { GetBillingUsage200ResponseZippyCredits } from './GetBillingUsage200ResponseZippyCredits';
+import {
+    GetBillingUsage200ResponseZippyCreditsFromJSON,
+    GetBillingUsage200ResponseZippyCreditsFromJSONTyped,
+    GetBillingUsage200ResponseZippyCreditsToJSON,
+    GetBillingUsage200ResponseZippyCreditsToJSONTyped,
+} from './GetBillingUsage200ResponseZippyCredits';
 import type { GetBillingUsage200ResponseCurrentPeriod } from './GetBillingUsage200ResponseCurrentPeriod';
 import {
     GetBillingUsage200ResponseCurrentPeriodFromJSON,
@@ -81,10 +81,10 @@ export interface GetBillingUsage200Response {
     addOns: Array<GetBillingUsage200ResponseAddOnsInner>;
     /**
      * 
-     * @type {GetBillingUsage200ResponseZippyMessages}
+     * @type {GetBillingUsage200ResponseZippyCredits}
      * @memberof GetBillingUsage200Response
      */
-    zippyMessages?: GetBillingUsage200ResponseZippyMessages;
+    zippyCredits?: GetBillingUsage200ResponseZippyCredits;
 }
 
 /**
@@ -112,7 +112,7 @@ export function GetBillingUsage200ResponseFromJSONTyped(json: any, ignoreDiscrim
         'shipments': GetBillingUsage200ResponseShipmentsFromJSON(json['shipments']),
         'limits': GetBillingUsage200ResponseLimitsFromJSON(json['limits']),
         'addOns': ((json['addOns'] as Array<any>).map(GetBillingUsage200ResponseAddOnsInnerFromJSON)),
-        'zippyMessages': json['zippyMessages'] == null ? undefined : GetBillingUsage200ResponseZippyMessagesFromJSON(json['zippyMessages']),
+        'zippyCredits': json['zippyCredits'] == null ? undefined : GetBillingUsage200ResponseZippyCreditsFromJSON(json['zippyCredits']),
     };
 }
 
@@ -131,7 +131,7 @@ export function GetBillingUsage200ResponseToJSONTyped(value?: GetBillingUsage200
         'shipments': GetBillingUsage200ResponseShipmentsToJSON(value['shipments']),
         'limits': GetBillingUsage200ResponseLimitsToJSON(value['limits']),
         'addOns': ((value['addOns'] as Array<any>).map(GetBillingUsage200ResponseAddOnsInnerToJSON)),
-        'zippyMessages': GetBillingUsage200ResponseZippyMessagesToJSON(value['zippyMessages']),
+        'zippyCredits': GetBillingUsage200ResponseZippyCreditsToJSON(value['zippyCredits']),
     };
 }
 

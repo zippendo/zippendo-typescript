@@ -1,27 +1,31 @@
 
-# GetBillingUsage200ResponseZippyMessages
+# GetBillingUsage200ResponseZippyCredits
 
-Zippy AI message usage this period (present when Zippy access is enabled)
+Zippy AI credit usage this period (present when the Zippy add-on is enabled)
 
 ## Properties
 
 Name | Type
 ------------ | -------------
 `used` | number
+`included` | number
+`billed` | number
 `charges` | number
 `limit` | number
 
 ## Example
 
 ```typescript
-import type { GetBillingUsage200ResponseZippyMessages } from '@zippendo/sdk'
+import type { GetBillingUsage200ResponseZippyCredits } from '@zippendo/sdk'
 
 // TODO: Update the object below with actual values
 const example = {
-  "used": 42,
-  "charges": 4158,
+  "used": 2640,
+  "included": 2500,
+  "billed": 140,
+  "charges": 1000,
   "limit": -1,
-} satisfies GetBillingUsage200ResponseZippyMessages
+} satisfies GetBillingUsage200ResponseZippyCredits
 
 console.log(example)
 
@@ -30,7 +34,7 @@ const exampleJSON: string = JSON.stringify(example)
 console.log(exampleJSON)
 
 // Parse the JSON string back to an object
-const exampleParsed = JSON.parse(exampleJSON) as GetBillingUsage200ResponseZippyMessages
+const exampleParsed = JSON.parse(exampleJSON) as GetBillingUsage200ResponseZippyCredits
 console.log(exampleParsed)
 ```
 

@@ -14,62 +14,78 @@
 
 import { mapValues } from '../runtime';
 /**
- * Zippy AI message usage this period (present when Zippy access is enabled)
+ * Zippy AI credit usage this period (present when the Zippy add-on is enabled)
  * @export
- * @interface GetBillingUsage200ResponseZippyMessages
+ * @interface GetBillingUsage200ResponseZippyCredits
  */
-export interface GetBillingUsage200ResponseZippyMessages {
+export interface GetBillingUsage200ResponseZippyCredits {
     /**
-     * Zippy messages used this period
+     * Zippy credits used this period, included bundle and metered alike
      * @type {number}
-     * @memberof GetBillingUsage200ResponseZippyMessages
+     * @memberof GetBillingUsage200ResponseZippyCredits
      */
     used: number;
     /**
-     * Zippy message charges so far, in øre
+     * Credits included in the add-on bundle this period
      * @type {number}
-     * @memberof GetBillingUsage200ResponseZippyMessages
+     * @memberof GetBillingUsage200ResponseZippyCredits
+     */
+    included: number;
+    /**
+     * Credits beyond the bundle, metered this period
+     * @type {number}
+     * @memberof GetBillingUsage200ResponseZippyCredits
+     */
+    billed: number;
+    /**
+     * Metered credit charges so far, in øre (whole packs)
+     * @type {number}
+     * @memberof GetBillingUsage200ResponseZippyCredits
      */
     charges: number;
     /**
-     * Maximum Zippy messages per month (-1 for unlimited)
+     * Maximum Zippy credits per month (-1 for unlimited)
      * @type {number}
-     * @memberof GetBillingUsage200ResponseZippyMessages
+     * @memberof GetBillingUsage200ResponseZippyCredits
      */
     limit: number;
 }
 
 /**
- * Check if a given object implements the GetBillingUsage200ResponseZippyMessages interface.
+ * Check if a given object implements the GetBillingUsage200ResponseZippyCredits interface.
  */
-export function instanceOfGetBillingUsage200ResponseZippyMessages(value: object): value is GetBillingUsage200ResponseZippyMessages {
+export function instanceOfGetBillingUsage200ResponseZippyCredits(value: object): value is GetBillingUsage200ResponseZippyCredits {
     if (!('used' in value) || value['used'] === undefined) return false;
+    if (!('included' in value) || value['included'] === undefined) return false;
+    if (!('billed' in value) || value['billed'] === undefined) return false;
     if (!('charges' in value) || value['charges'] === undefined) return false;
     if (!('limit' in value) || value['limit'] === undefined) return false;
     return true;
 }
 
-export function GetBillingUsage200ResponseZippyMessagesFromJSON(json: any): GetBillingUsage200ResponseZippyMessages {
-    return GetBillingUsage200ResponseZippyMessagesFromJSONTyped(json, false);
+export function GetBillingUsage200ResponseZippyCreditsFromJSON(json: any): GetBillingUsage200ResponseZippyCredits {
+    return GetBillingUsage200ResponseZippyCreditsFromJSONTyped(json, false);
 }
 
-export function GetBillingUsage200ResponseZippyMessagesFromJSONTyped(json: any, ignoreDiscriminator: boolean): GetBillingUsage200ResponseZippyMessages {
+export function GetBillingUsage200ResponseZippyCreditsFromJSONTyped(json: any, ignoreDiscriminator: boolean): GetBillingUsage200ResponseZippyCredits {
     if (json == null) {
         return json;
     }
     return {
         
         'used': json['used'],
+        'included': json['included'],
+        'billed': json['billed'],
         'charges': json['charges'],
         'limit': json['limit'],
     };
 }
 
-export function GetBillingUsage200ResponseZippyMessagesToJSON(json: any): GetBillingUsage200ResponseZippyMessages {
-    return GetBillingUsage200ResponseZippyMessagesToJSONTyped(json, false);
+export function GetBillingUsage200ResponseZippyCreditsToJSON(json: any): GetBillingUsage200ResponseZippyCredits {
+    return GetBillingUsage200ResponseZippyCreditsToJSONTyped(json, false);
 }
 
-export function GetBillingUsage200ResponseZippyMessagesToJSONTyped(value?: GetBillingUsage200ResponseZippyMessages | null, ignoreDiscriminator: boolean = false): any {
+export function GetBillingUsage200ResponseZippyCreditsToJSONTyped(value?: GetBillingUsage200ResponseZippyCredits | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }
@@ -77,6 +93,8 @@ export function GetBillingUsage200ResponseZippyMessagesToJSONTyped(value?: GetBi
     return {
         
         'used': value['used'],
+        'included': value['included'],
+        'billed': value['billed'],
         'charges': value['charges'],
         'limit': value['limit'],
     };

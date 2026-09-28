@@ -73,7 +73,7 @@ export * from './GetBillingUsage200ResponseCurrentPeriod';
 export * from './GetBillingUsage200ResponseLimits';
 export * from './GetBillingUsage200ResponseLimitsTeamMembers';
 export * from './GetBillingUsage200ResponseShipments';
-export * from './GetBillingUsage200ResponseZippyMessages';
+export * from './GetBillingUsage200ResponseZippyCredits';
 export * from './GetOrder200Response';
 export * from './GetOrder200ResponseOrderLinesInner';
 export * from './GetOrder200ResponseShipmentsInner';

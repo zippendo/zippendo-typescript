@@ -134,7 +134,7 @@ export interface GetOrder200ResponseOrderLinesInner {
      */
     vendor?: string | null;
     /**
-     * Order line ID. Present once the line is a row. Absent for jsonb-only lines during the dual-write window — do not synthesise one, or an edit would re-point packed lines.
+     * Order line ID. Send it back as `orderLines[].id` when updating the order to edit this line in place.
      * @type {string}
      * @memberof GetOrder200ResponseOrderLinesInner
      */

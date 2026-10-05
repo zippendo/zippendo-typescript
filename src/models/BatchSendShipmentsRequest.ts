@@ -20,7 +20,7 @@ import { mapValues } from '../runtime';
  */
 export interface BatchSendShipmentsRequest {
     /**
-     * IDs of the shipments to book. Each must be in `pending` or `error` status; duplicates are ignored. Max 100 per request.
+     * IDs of the shipments to send. Each must be in `pending` or `error` status; duplicates are ignored. Max 100 per request.
      * @type {Array<string>}
      * @memberof BatchSendShipmentsRequest
      */

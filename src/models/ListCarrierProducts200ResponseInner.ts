@@ -42,7 +42,7 @@ import {
  */
 export interface ListCarrierProducts200ResponseInner {
     /**
-     * Display name of the shipping product
+     * Display name of the carrier product
      * @type {string}
      * @memberof ListCarrierProducts200ResponseInner
      */
@@ -60,13 +60,13 @@ export interface ListCarrierProducts200ResponseInner {
      */
     type: ListCarrierProducts200ResponseInnerTypeEnum;
     /**
-     * Description of the shipping product
+     * Description of the carrier product
      * @type {string}
      * @memberof ListCarrierProducts200ResponseInner
      */
     description?: string;
     /**
-     * Recipient countries supported by this product
+     * Receiver countries this product delivers to
      * @type {Array<string>}
      * @memberof ListCarrierProducts200ResponseInner
      */
@@ -78,7 +78,7 @@ export interface ListCarrierProducts200ResponseInner {
      */
     availableSenderCountries: Array<string>;
     /**
-     * Whether delivery is to a service point/pickup location
+     * Whether this product delivers to a service point
      * @type {boolean}
      * @memberof ListCarrierProducts200ResponseInner
      */

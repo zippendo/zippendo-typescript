@@ -85,7 +85,7 @@ export interface GetOrder200ResponseShipmentsInner {
      */
     carrierSettings: ListShipments200ResponseDataInnerCarrierSettings;
     /**
-     * Selected carrier service point identifier.
+     * Selected service point ID.
      * @type {string}
      * @memberof GetOrder200ResponseShipmentsInner
      */
@@ -115,7 +115,7 @@ export interface GetOrder200ResponseShipmentsInner {
      */
     documents?: Array<CreateShipment201ResponseDocumentsInner>;
     /**
-     * Compact parcels for the order fulfillment workspace (no QR/label payloads).
+     * Compact parcels for the order's fulfillment view (no QR/label payloads).
      * @type {Array<GetOrder200ResponseShipmentsInnerParcelsInner>}
      * @memberof GetOrder200ResponseShipmentsInner
      */

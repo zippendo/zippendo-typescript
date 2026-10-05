@@ -32,7 +32,7 @@ export interface ListOrderChannels200ResponseDataInnerSettingsShippingMethodMapp
      */
     shippingRuleId: string;
     /**
-     * For rules whose product delivers to a service point: 'nearest' auto-selects the closest point to the recipient address; 'manual' keeps the shipment in draft for manual selection.
+     * For rules whose product delivers to a service point: 'nearest' auto-selects the closest point to the receiver's address; 'manual' keeps the shipment in draft for manual selection.
      * @type {ListOrderChannels200ResponseDataInnerSettingsShippingMethodMappingsInnerServicePointSelectionEnum}
      * @memberof ListOrderChannels200ResponseDataInnerSettingsShippingMethodMappingsInner
      */

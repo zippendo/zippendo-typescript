@@ -20,7 +20,7 @@ import { mapValues } from '../runtime';
  */
 export interface CreateOrder201ResponseShippingAddress {
     /**
-     * Recipient full name.
+     * Receiver full name.
      * @type {string}
      * @memberof CreateOrder201ResponseShippingAddress
      */
@@ -86,13 +86,13 @@ export interface CreateOrder201ResponseShippingAddress {
      */
     countryCode: string;
     /**
-     * Recipient phone number.
+     * Receiver phone number.
      * @type {string}
      * @memberof CreateOrder201ResponseShippingAddress
      */
     phone?: string | null;
     /**
-     * Recipient email address.
+     * Receiver email address.
      * @type {string}
      * @memberof CreateOrder201ResponseShippingAddress
      */

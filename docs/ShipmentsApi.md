@@ -27,7 +27,7 @@ All URIs are relative to *https://api.zippendo.com*
 
 Batch send shipments
 
-Book multiple pending/error shipments with their carriers in one request. Each shipment is processed independently and reported in &#x60;results&#x60;; a failure on one shipment never aborts the others. Use it to send every shipment on an order at once.
+Send multiple shipments in &#x60;pending&#x60; or &#x60;error&#x60; status to their carriers in one request. Each shipment is processed independently and reported in &#x60;results&#x60;; a failure on one shipment never aborts the others. Use it to send every shipment on an order at once.
 
 ### Example
 
@@ -183,7 +183,7 @@ example().catch(console.error);
 
 Create return shipment
 
-Create and auto-send a return shipment from a dispatched outbound shipment with swapped sender/receiver. Requires a configured return shipping rule. The return is returned with its booking outcome: &#x60;dispatched&#x60;, or &#x60;error&#x60; with the carrier\&#39;s reasons in &#x60;errors&#x60;.
+Create and auto-send a return shipment from a dispatched outbound shipment with swapped sender/receiver. Requires a configured return shipping rule. The return is returned with the outcome of sending it: &#x60;dispatched&#x60;, or &#x60;error&#x60; with the carrier\&#39;s reasons in &#x60;errors&#x60;.
 
 ### Example
 
@@ -748,7 +748,7 @@ example().catch(console.error);
 
 Send shipment
 
-Book a pending or error shipment with the carrier, generating labels and tracking. Returns 422 with carrier errors if booking fails.
+Send a shipment in &#x60;pending&#x60; or &#x60;error&#x60; status to its carrier, generating labels and tracking. Returns 422 with the carrier\&#39;s errors if sending fails.
 
 ### Example
 

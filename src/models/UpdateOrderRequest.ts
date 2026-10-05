@@ -89,7 +89,7 @@ export interface UpdateOrderRequest {
      */
     notes?: string | null;
     /**
-     * Order fulfilment status derived from its shipments.
+     * Order fulfillment status derived from its shipments.
      * @type {UpdateOrderRequestStatusEnum}
      * @memberof UpdateOrderRequest
      */
@@ -101,7 +101,7 @@ export interface UpdateOrderRequest {
      */
     shippingRuleId?: string | null;
     /**
-     * Service point (parcel shop) ID to apply to unsent outbound shipments.
+     * Service point ID to apply to unsent outbound shipments.
      * @type {string}
      * @memberof UpdateOrderRequest
      */

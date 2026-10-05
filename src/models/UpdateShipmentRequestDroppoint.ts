@@ -22,7 +22,7 @@ import {
 } from './ListShippingRules200ResponseDataInnerAdditionalParametersValueAnyOfCoordinatesInner';
 
 /**
- * Display details of the selected service point, stored alongside `servicePointId`. Used when applying a service-point shipping rule (whose parameters otherwise replace the stored droppoint).
+ * Display details of the selected service point, stored alongside `servicePointId`. Used when applying a service-point shipping rule (whose parameters otherwise replace it).
  * @export
  * @interface UpdateShipmentRequestDroppoint
  */

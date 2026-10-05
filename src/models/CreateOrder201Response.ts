@@ -95,7 +95,7 @@ export interface CreateOrder201Response {
      */
     currency?: string | null;
     /**
-     * Order fulfilment status derived from its shipments.
+     * Order fulfillment status derived from its shipments.
      * @type {CreateOrder201ResponseStatusEnum}
      * @memberof CreateOrder201Response
      */

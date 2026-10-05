@@ -14,7 +14,7 @@
 
 import { mapValues } from '../runtime';
 /**
- * Zippy AI credit usage this period (present when the Zippy add-on is enabled)
+ * Zippy credit usage this period (present when the Zippy add-on is enabled)
  * @export
  * @interface GetBillingUsage200ResponseZippyCredits
  */

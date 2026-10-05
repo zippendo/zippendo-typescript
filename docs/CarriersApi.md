@@ -331,7 +331,7 @@ example().catch(console.error);
 
 List carrier products
 
-Returns the shipping products available for a connected carrier.
+Returns the carrier products available for a connected carrier.
 
 ### Example
 

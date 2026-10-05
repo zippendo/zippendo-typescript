@@ -116,7 +116,7 @@ export interface GetOrder200Response {
      */
     currency?: string | null;
     /**
-     * Order fulfilment status derived from its shipments.
+     * Order fulfillment status derived from its shipments.
      * @type {GetOrder200ResponseStatusEnum}
      * @memberof GetOrder200Response
      */

@@ -89,13 +89,13 @@ export interface CreateShippingRuleRequest {
      */
     receivingCountries: Array<string>;
     /**
-     * Send email notification to recipient
+     * Send an email notification to the receiver
      * @type {boolean}
      * @memberof CreateShippingRuleRequest
      */
     emailNotification?: boolean;
     /**
-     * Send SMS notification to recipient
+     * Send an SMS notification to the receiver
      * @type {boolean}
      * @memberof CreateShippingRuleRequest
      */
@@ -143,7 +143,7 @@ export interface CreateShippingRuleRequest {
      */
     generateCommercialInvoice?: boolean;
     /**
-     * Generate packing slip with package and item details
+     * Generate a packing slip with parcel and item details
      * @type {boolean}
      * @memberof CreateShippingRuleRequest
      */

@@ -68,13 +68,13 @@ export interface UpdateOrgBrandRequest {
      */
     country?: string | null;
     /**
-     * Primary brand colour — document title and table headers
+     * Primary brand color — document title and table headers
      * @type {string}
      * @memberof UpdateOrgBrandRequest
      */
     primaryColor?: string | null;
     /**
-     * Secondary brand colour — subtitle, section headings, totals accent
+     * Secondary brand color — subtitle, section headings, totals accent
      * @type {string}
      * @memberof UpdateOrgBrandRequest
      */

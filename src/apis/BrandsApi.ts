@@ -657,7 +657,7 @@ export class BrandsApi extends runtime.BaseAPI {
     }
 
     /**
-     * Updates a brand\'s name, slug, identity overrides (company name, VAT, customs, address) and document colours. Null clears an override so the organization\'s value applies again.
+     * Updates a brand\'s name, slug, identity overrides (company name, VAT, customs, address) and document colors. Null clears an override so the organization\'s value applies again.
      * Update brand
      */
     async updateOrgBrandRaw(requestParameters: UpdateOrgBrandOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ListOrgBrands200ResponseDataInner>> {
@@ -668,7 +668,7 @@ export class BrandsApi extends runtime.BaseAPI {
     }
 
     /**
-     * Updates a brand\'s name, slug, identity overrides (company name, VAT, customs, address) and document colours. Null clears an override so the organization\'s value applies again.
+     * Updates a brand\'s name, slug, identity overrides (company name, VAT, customs, address) and document colors. Null clears an override so the organization\'s value applies again.
      * Update brand
      */
     async updateOrgBrand(requestParameters: UpdateOrgBrandOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ListOrgBrands200ResponseDataInner> {

@@ -109,7 +109,7 @@ export interface CreateShipment201Response {
      */
     addressId?: string | null;
     /**
-     * Selected carrier service point identifier.
+     * Selected service point ID.
      * @type {string}
      * @memberof CreateShipment201Response
      */

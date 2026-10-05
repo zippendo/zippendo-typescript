@@ -76,6 +76,8 @@ export const ListApiTokens401ResponseCodeEnum = {
     OrgAccessDenied: 'ORG_ACCESS_DENIED',
     OrgDisabled: 'ORG_DISABLED',
     OrgSlugExists: 'ORG_SLUG_EXISTS',
+    SetupNotFound: 'SETUP_NOT_FOUND',
+    SetupExists: 'SETUP_EXISTS',
     BrandNotFound: 'BRAND_NOT_FOUND',
     BrandAccessDenied: 'BRAND_ACCESS_DENIED',
     BrandSlugExists: 'BRAND_SLUG_EXISTS',

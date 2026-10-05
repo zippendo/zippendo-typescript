@@ -26,7 +26,7 @@ export interface BatchSendShipments200ResponseSummary {
      */
     total: number;
     /**
-     * How many were successfully booked.
+     * How many were sent successfully.
      * @type {number}
      * @memberof BatchSendShipments200ResponseSummary
      */

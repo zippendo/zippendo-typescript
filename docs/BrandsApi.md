@@ -638,7 +638,7 @@ example().catch(console.error);
 
 Update brand
 
-Updates a brand\&#39;s name, slug, identity overrides (company name, VAT, customs, address) and document colours. Null clears an override so the organization\&#39;s value applies again.
+Updates a brand\&#39;s name, slug, identity overrides (company name, VAT, customs, address) and document colors. Null clears an override so the organization\&#39;s value applies again.
 
 ### Example
 

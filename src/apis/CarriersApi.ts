@@ -422,7 +422,7 @@ export class CarriersApi extends runtime.BaseAPI {
     }
 
     /**
-     * Returns the shipping products available for a connected carrier.
+     * Returns the carrier products available for a connected carrier.
      * List carrier products
      */
     async listCarrierProductsRaw(requestParameters: ListCarrierProductsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Array<ListCarrierProducts200ResponseInner>>> {
@@ -433,7 +433,7 @@ export class CarriersApi extends runtime.BaseAPI {
     }
 
     /**
-     * Returns the shipping products available for a connected carrier.
+     * Returns the carrier products available for a connected carrier.
      * List carrier products
      */
     async listCarrierProducts(requestParameters: ListCarrierProductsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Array<ListCarrierProducts200ResponseInner>> {

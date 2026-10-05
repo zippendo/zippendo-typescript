@@ -123,13 +123,13 @@ export interface ListShippingRules200ResponseDataInner {
      */
     receivingCountries: Array<string>;
     /**
-     * Send email notification to recipient
+     * Send an email notification to the receiver
      * @type {boolean}
      * @memberof ListShippingRules200ResponseDataInner
      */
     emailNotification: boolean;
     /**
-     * Send SMS notification to recipient
+     * Send an SMS notification to the receiver
      * @type {boolean}
      * @memberof ListShippingRules200ResponseDataInner
      */
@@ -177,7 +177,7 @@ export interface ListShippingRules200ResponseDataInner {
      */
     generateCommercialInvoice: boolean;
     /**
-     * Generate packing slip with package and item details
+     * Generate a packing slip with parcel and item details
      * @type {boolean}
      * @memberof ListShippingRules200ResponseDataInner
      */

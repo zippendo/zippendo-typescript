@@ -68,7 +68,7 @@ export interface CreateShipmentRequest {
      */
     addressId?: string | null;
     /**
-     * Selected carrier service point identifier.
+     * Selected service point ID.
      * @type {string}
      * @memberof CreateShipmentRequest
      */

@@ -52,7 +52,7 @@ export interface ListOrders200ResponseDataInner {
      */
     customerEmail?: string | null;
     /**
-     * Order fulfilment status derived from its shipments.
+     * Order fulfillment status derived from its shipments.
      * @type {ListOrders200ResponseDataInnerStatusEnum}
      * @memberof ListOrders200ResponseDataInner
      */

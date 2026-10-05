@@ -34,7 +34,7 @@ export interface BatchSendShipments200ResponseResultsInner {
      */
     shipmentId: string;
     /**
-     * `sent` when the carrier booked it, `failed` when the carrier or Zippendo rejected it, and `skipped` when the batch ran out of time before reaching it. A `skipped` shipment was never sent to the carrier and is safe to submit again.
+     * `sent` when the carrier accepted it, `failed` when the carrier or Zippendo rejected it, and `skipped` when the batch ran out of time before reaching it. A `skipped` shipment was never sent to the carrier and is safe to submit again.
      * @type {BatchSendShipments200ResponseResultsInnerStatusEnum}
      * @memberof BatchSendShipments200ResponseResultsInner
      */
@@ -52,7 +52,7 @@ export interface BatchSendShipments200ResponseResultsInner {
      */
     message?: string;
     /**
-     * Carrier-specific errors, present when the carrier rejected the booking.
+     * Carrier-specific errors, present when the carrier rejected the shipment.
      * @type {Array<SendShipment422ResponseErrorsInner>}
      * @memberof BatchSendShipments200ResponseResultsInner
      */
@@ -106,6 +106,8 @@ export const BatchSendShipments200ResponseResultsInnerCodeEnum = {
     OrgAccessDenied: 'ORG_ACCESS_DENIED',
     OrgDisabled: 'ORG_DISABLED',
     OrgSlugExists: 'ORG_SLUG_EXISTS',
+    SetupNotFound: 'SETUP_NOT_FOUND',
+    SetupExists: 'SETUP_EXISTS',
     BrandNotFound: 'BRAND_NOT_FOUND',
     BrandAccessDenied: 'BRAND_ACCESS_DENIED',
     BrandSlugExists: 'BRAND_SLUG_EXISTS',

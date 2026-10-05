@@ -46,7 +46,7 @@ export interface SendShipment422Response {
      */
     message: string;
     /**
-     * Detailed carrier errors that caused the booking to fail.
+     * Detailed carrier errors that made sending fail.
      * @type {Array<SendShipment422ResponseErrorsInner>}
      * @memberof SendShipment422Response
      */
@@ -90,6 +90,8 @@ export const SendShipment422ResponseCodeEnum = {
     OrgAccessDenied: 'ORG_ACCESS_DENIED',
     OrgDisabled: 'ORG_DISABLED',
     OrgSlugExists: 'ORG_SLUG_EXISTS',
+    SetupNotFound: 'SETUP_NOT_FOUND',
+    SetupExists: 'SETUP_EXISTS',
     BrandNotFound: 'BRAND_NOT_FOUND',
     BrandAccessDenied: 'BRAND_ACCESS_DENIED',
     BrandSlugExists: 'BRAND_SLUG_EXISTS',

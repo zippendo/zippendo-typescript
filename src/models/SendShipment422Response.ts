@@ -83,6 +83,8 @@ export const SendShipment422ResponseCodeEnum = {
     AuthMfaAlreadyEnabled: 'AUTH_MFA_ALREADY_ENABLED',
     CaptchaFailed: 'CAPTCHA_FAILED',
     EmailDomainBlocked: 'EMAIL_DOMAIN_BLOCKED',
+    EmailDomainUndeliverable: 'EMAIL_DOMAIN_UNDELIVERABLE',
+    BillingEmailUndeliverable: 'BILLING_EMAIL_UNDELIVERABLE',
     VatInvalid: 'VAT_INVALID',
     AuthMfaNotEnabled: 'AUTH_MFA_NOT_ENABLED',
     SessionRequired: 'SESSION_REQUIRED',

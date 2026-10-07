@@ -32,13 +32,13 @@ export interface GetBillingUsage200ResponseAddOnsInner {
      */
     quantity: number;
     /**
-     * Price per unit per month, in øre
+     * Price per unit per month, in minor units of the billing currency
      * @type {number}
      * @memberof GetBillingUsage200ResponseAddOnsInner
      */
     unitPrice: number;
     /**
-     * Total price per month, in øre
+     * Total price per month, in minor units of the billing currency
      * @type {number}
      * @memberof GetBillingUsage200ResponseAddOnsInner
      */

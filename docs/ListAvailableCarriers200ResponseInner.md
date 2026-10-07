@@ -17,6 +17,7 @@ Name | Type
 `optionalFields` | [Array&lt;ListAvailableCarriers200ResponseInnerRequiredFieldsInner&gt;](ListAvailableCarriers200ResponseInnerRequiredFieldsInner.md)
 `deprecated` | boolean
 `deprecationMessage` | string
+`beta` | boolean
 `generatesCustomsDocuments` | boolean
 `generatesCommercialInvoice` | boolean
 
@@ -38,6 +39,7 @@ const example = {
   "optionalFields": null,
   "deprecated": true,
   "deprecationMessage": The standalone Instabox API is deprecated. Migrate to the Instabee-powered Instabox integration.,
+  "beta": true,
   "generatesCustomsDocuments": true,
   "generatesCommercialInvoice": true,
 } satisfies ListAvailableCarriers200ResponseInner

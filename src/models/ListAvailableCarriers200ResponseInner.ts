@@ -94,6 +94,12 @@ export interface ListAvailableCarriers200ResponseInner {
      */
     deprecationMessage?: string;
     /**
+     * Whether this integration is newly launched and still being verified in production
+     * @type {boolean}
+     * @memberof ListAvailableCarriers200ResponseInner
+     */
+    beta?: boolean;
+    /**
      * Whether the carrier produces the customs declaration (CN22/CN23) itself and returns it with the label.
      * @type {boolean}
      * @memberof ListAvailableCarriers200ResponseInner
@@ -137,6 +143,7 @@ export function ListAvailableCarriers200ResponseInnerFromJSONTyped(json: any, ig
         'optionalFields': json['optionalFields'] == null ? undefined : ((json['optionalFields'] as Array<any>).map(ListAvailableCarriers200ResponseInnerRequiredFieldsInnerFromJSON)),
         'deprecated': json['deprecated'] == null ? undefined : json['deprecated'],
         'deprecationMessage': json['deprecationMessage'] == null ? undefined : json['deprecationMessage'],
+        'beta': json['beta'] == null ? undefined : json['beta'],
         'generatesCustomsDocuments': json['generatesCustomsDocuments'] == null ? undefined : json['generatesCustomsDocuments'],
         'generatesCommercialInvoice': json['generatesCommercialInvoice'] == null ? undefined : json['generatesCommercialInvoice'],
     };
@@ -164,6 +171,7 @@ export function ListAvailableCarriers200ResponseInnerToJSONTyped(value?: ListAva
         'optionalFields': value['optionalFields'] == null ? undefined : ((value['optionalFields'] as Array<any>).map(ListAvailableCarriers200ResponseInnerRequiredFieldsInnerToJSON)),
         'deprecated': value['deprecated'],
         'deprecationMessage': value['deprecationMessage'],
+        'beta': value['beta'],
         'generatesCustomsDocuments': value['generatesCustomsDocuments'],
         'generatesCommercialInvoice': value['generatesCommercialInvoice'],
     };

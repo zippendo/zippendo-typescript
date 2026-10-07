@@ -38,7 +38,7 @@ export interface GetBillingUsage200ResponseShipments {
      */
     overage: number;
     /**
-     * Overage charges so far, in øre
+     * Overage charges so far, in minor units of the billing currency
      * @type {number}
      * @memberof GetBillingUsage200ResponseShipments
      */

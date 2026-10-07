@@ -88,7 +88,7 @@ export interface ListCarriers200ResponseDataInner {
      */
     brandColor?: string;
     /**
-     * Whether this carrier integration is deprecated (still works, but discouraged)
+     * Whether this integration is deprecated (still works, but discouraged)
      * @type {boolean}
      * @memberof ListCarriers200ResponseDataInner
      */
@@ -99,6 +99,12 @@ export interface ListCarriers200ResponseDataInner {
      * @memberof ListCarriers200ResponseDataInner
      */
     deprecationMessage?: string;
+    /**
+     * Whether this integration is newly launched and still being verified in production
+     * @type {boolean}
+     * @memberof ListCarriers200ResponseDataInner
+     */
+    beta?: boolean;
     /**
      * Whether the carrier produces the customs declaration (CN22/CN23) itself and returns it with the label.
      * @type {boolean}
@@ -150,6 +156,7 @@ export function ListCarriers200ResponseDataInnerFromJSONTyped(json: any, ignoreD
         'brandColor': json['brandColor'] == null ? undefined : json['brandColor'],
         'deprecated': json['deprecated'] == null ? undefined : json['deprecated'],
         'deprecationMessage': json['deprecationMessage'] == null ? undefined : json['deprecationMessage'],
+        'beta': json['beta'] == null ? undefined : json['beta'],
         'generatesCustomsDocuments': json['generatesCustomsDocuments'] == null ? undefined : json['generatesCustomsDocuments'],
         'generatesCommercialInvoice': json['generatesCommercialInvoice'] == null ? undefined : json['generatesCommercialInvoice'],
     };
@@ -178,6 +185,7 @@ export function ListCarriers200ResponseDataInnerToJSONTyped(value?: ListCarriers
         'brandColor': value['brandColor'],
         'deprecated': value['deprecated'],
         'deprecationMessage': value['deprecationMessage'],
+        'beta': value['beta'],
         'generatesCustomsDocuments': value['generatesCustomsDocuments'],
         'generatesCommercialInvoice': value['generatesCommercialInvoice'],
     };

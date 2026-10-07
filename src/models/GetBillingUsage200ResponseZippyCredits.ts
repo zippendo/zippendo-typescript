@@ -38,7 +38,7 @@ export interface GetBillingUsage200ResponseZippyCredits {
      */
     billed: number;
     /**
-     * Metered credit charges so far, in øre (whole packs)
+     * Metered credit charges so far, in minor units of the billing currency (whole packs)
      * @type {number}
      * @memberof GetBillingUsage200ResponseZippyCredits
      */

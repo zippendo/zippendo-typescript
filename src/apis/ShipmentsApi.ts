@@ -556,7 +556,7 @@ export class ShipmentsApi extends runtime.BaseAPI {
     }
 
     /**
-     * Ask the carrier again for the label of a dispatched shipment whose label could not be downloaded when it was sent (it carries a LABEL_DOWNLOAD_FAILED error). Stores the label, clears the error and returns the shipment.
+     * Ask the carrier again for the label of a dispatched shipment whose label could not be downloaded when it was sent (it carries a LABEL_DOWNLOAD_FAILED or CARRIER_BOOKING_UNCONFIRMED warning). Stores the label, clears the warning and returns the shipment.
      * Fetch missing label
      */
     async fetchShipmentLabelRaw(requestParameters: FetchShipmentLabelRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CreateShipment201Response>> {
@@ -567,7 +567,7 @@ export class ShipmentsApi extends runtime.BaseAPI {
     }
 
     /**
-     * Ask the carrier again for the label of a dispatched shipment whose label could not be downloaded when it was sent (it carries a LABEL_DOWNLOAD_FAILED error). Stores the label, clears the error and returns the shipment.
+     * Ask the carrier again for the label of a dispatched shipment whose label could not be downloaded when it was sent (it carries a LABEL_DOWNLOAD_FAILED or CARRIER_BOOKING_UNCONFIRMED warning). Stores the label, clears the warning and returns the shipment.
      * Fetch missing label
      */
     async fetchShipmentLabel(requestParameters: FetchShipmentLabelRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CreateShipment201Response> {

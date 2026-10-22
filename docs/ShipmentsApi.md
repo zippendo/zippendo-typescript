@@ -183,7 +183,7 @@ example().catch(console.error);
 
 Create return shipment
 
-Create and auto-send a return shipment from a dispatched outbound shipment with swapped sender/receiver. Requires a configured return shipping rule. The return is returned with the outcome of sending it: &#x60;dispatched&#x60;, or &#x60;error&#x60; with the carrier\&#39;s reasons in &#x60;errors&#x60;.
+Create and auto-send a return shipment from a dispatched outbound shipment with swapped sender/receiver. Requires a configured return shipping rule. The return is returned with the outcome of sending it: &#x60;dispatched&#x60;, or &#x60;error&#x60; with the carrier\&#39;s reasons in &#x60;errors&#x60;. Returns 409 while a return for the same shipment is already being created.
 
 ### Example
 
@@ -250,6 +250,7 @@ example().catch(console.error);
 | **400** | Default Response |  -  |
 | **403** | Default Response |  -  |
 | **404** | Default Response |  -  |
+| **409** | Default Response |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
@@ -748,7 +749,7 @@ example().catch(console.error);
 
 Send shipment
 
-Send a shipment in &#x60;pending&#x60; or &#x60;error&#x60; status to its carrier, generating labels and tracking. Returns 422 with the carrier\&#39;s errors if sending fails.
+Send a shipment in &#x60;pending&#x60; or &#x60;error&#x60; status to its carrier, generating labels and tracking. Returns 422 with the carrier\&#39;s errors if sending fails, and 409 while the same shipment is already being sent.
 
 ### Example
 
@@ -815,6 +816,7 @@ example().catch(console.error);
 | **400** | Default Response |  -  |
 | **403** | Default Response |  -  |
 | **404** | Default Response |  -  |
+| **409** | Default Response |  -  |
 | **422** | Default Response |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)

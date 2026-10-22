@@ -365,7 +365,7 @@ export class ShipmentsApi extends runtime.BaseAPI {
     }
 
     /**
-     * Create and auto-send a return shipment from a dispatched outbound shipment with swapped sender/receiver. Requires a configured return shipping rule. The return is returned with the outcome of sending it: `dispatched`, or `error` with the carrier\'s reasons in `errors`.
+     * Create and auto-send a return shipment from a dispatched outbound shipment with swapped sender/receiver. Requires a configured return shipping rule. The return is returned with the outcome of sending it: `dispatched`, or `error` with the carrier\'s reasons in `errors`. Returns 409 while a return for the same shipment is already being created.
      * Create return shipment
      */
     async createReturnShipmentRaw(requestParameters: CreateReturnShipmentRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CreateShipment201Response>> {
@@ -376,7 +376,7 @@ export class ShipmentsApi extends runtime.BaseAPI {
     }
 
     /**
-     * Create and auto-send a return shipment from a dispatched outbound shipment with swapped sender/receiver. Requires a configured return shipping rule. The return is returned with the outcome of sending it: `dispatched`, or `error` with the carrier\'s reasons in `errors`.
+     * Create and auto-send a return shipment from a dispatched outbound shipment with swapped sender/receiver. Requires a configured return shipping rule. The return is returned with the outcome of sending it: `dispatched`, or `error` with the carrier\'s reasons in `errors`. Returns 409 while a return for the same shipment is already being created.
      * Create return shipment
      */
     async createReturnShipment(requestParameters: CreateReturnShipmentRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CreateShipment201Response> {
@@ -847,7 +847,7 @@ export class ShipmentsApi extends runtime.BaseAPI {
     }
 
     /**
-     * Send a shipment in `pending` or `error` status to its carrier, generating labels and tracking. Returns 422 with the carrier\'s errors if sending fails.
+     * Send a shipment in `pending` or `error` status to its carrier, generating labels and tracking. Returns 422 with the carrier\'s errors if sending fails, and 409 while the same shipment is already being sent.
      * Send shipment
      */
     async sendShipmentRaw(requestParameters: SendShipmentRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CreateShipment201Response>> {
@@ -858,7 +858,7 @@ export class ShipmentsApi extends runtime.BaseAPI {
     }
 
     /**
-     * Send a shipment in `pending` or `error` status to its carrier, generating labels and tracking. Returns 422 with the carrier\'s errors if sending fails.
+     * Send a shipment in `pending` or `error` status to its carrier, generating labels and tracking. Returns 422 with the carrier\'s errors if sending fails, and 409 while the same shipment is already being sent.
      * Send shipment
      */
     async sendShipment(requestParameters: SendShipmentRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CreateShipment201Response> {

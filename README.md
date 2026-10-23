@@ -4,6 +4,12 @@ Official TypeScript/JavaScript client for the [Zippendo](https://zippendo.com) s
 API. Built on the Fetch API, so it runs in Node 18+, Deno, Bun, browsers, and edge runtimes. Every
 request and response is fully typed.
 
+Book shipments and print labels with PostNord, GLS, DAO, Bring, DHL, DPD, UPS and more, track
+parcels, and manage orders, shipping rules and webhooks from your own code. New to the API? Start with
+the [SDK guide](https://www.zippendo.com/docs/sdks/overview) or browse the
+[API reference](https://www.zippendo.com/docs/api-reference/overview). To work from an AI assistant
+instead, connect the [Zippendo MCP server](https://www.zippendo.com/docs/mcp/overview).
+
 ## Install
 
 ```sh

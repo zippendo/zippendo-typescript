@@ -25,7 +25,7 @@ import type { ListCarrierProducts200ResponseInner } from '@zippendo/sdk'
 
 // TODO: Update the object below with actual values
 const example = {
-  "name": PostNord MyPack Home,
+  "name": PostNord Home,
   "productId": PNL13,
   "type": outbound,
   "description": Home delivery within Denmark,

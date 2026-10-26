@@ -72,6 +72,7 @@ docs/CreateShippingRuleRequestConditionsInnerOneOf1.md
 docs/CreateShippingRuleRequestConditionsInnerOneOf2.md
 docs/CreateShippingRuleRequestConditionsInnerOneOf3.md
 docs/CreateShippingRuleRequestConditionsInnerOneOf4.md
+docs/CreateShippingRuleRequestTranslationsValue.md
 docs/DeleteOrgWebhook200Response.md
 docs/DeleteShippingRule200Response.md
 docs/GetBillingUsage200Response.md
@@ -143,6 +144,7 @@ docs/ListShippingRules200ResponseDataInnerConditionsInnerOneOf3.md
 docs/ListShippingRules200ResponseDataInnerConditionsInnerOneOf4.md
 docs/ListShippingRules200ResponseDataInnerLabelPrinter.md
 docs/ListShippingRules200ResponseDataInnerReturnShippingRule.md
+docs/ListShippingRules200ResponseDataInnerTranslationsValue.md
 docs/OrderChannelsApi.md
 docs/OrdersApi.md
 docs/OrgsApi.md
@@ -263,6 +265,7 @@ src/models/CreateShippingRuleRequestConditionsInnerOneOf1.ts
 src/models/CreateShippingRuleRequestConditionsInnerOneOf2.ts
 src/models/CreateShippingRuleRequestConditionsInnerOneOf3.ts
 src/models/CreateShippingRuleRequestConditionsInnerOneOf4.ts
+src/models/CreateShippingRuleRequestTranslationsValue.ts
 src/models/DeleteOrgWebhook200Response.ts
 src/models/DeleteShippingRule200Response.ts
 src/models/GetBillingUsage200Response.ts
@@ -334,6 +337,7 @@ src/models/ListShippingRules200ResponseDataInnerConditionsInnerOneOf3.ts
 src/models/ListShippingRules200ResponseDataInnerConditionsInnerOneOf4.ts
 src/models/ListShippingRules200ResponseDataInnerLabelPrinter.ts
 src/models/ListShippingRules200ResponseDataInnerReturnShippingRule.ts
+src/models/ListShippingRules200ResponseDataInnerTranslationsValue.ts
 src/models/RevokeApiToken200Response.ts
 src/models/RevokeOrderChannelWebhookSecret200Response.ts
 src/models/SendShipment422Response.ts

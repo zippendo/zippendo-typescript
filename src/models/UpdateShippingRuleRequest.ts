@@ -27,6 +27,13 @@ import {
     CreateShippingRuleRequestConditionsInnerToJSON,
     CreateShippingRuleRequestConditionsInnerToJSONTyped,
 } from './CreateShippingRuleRequestConditionsInner';
+import type { CreateShippingRuleRequestTranslationsValue } from './CreateShippingRuleRequestTranslationsValue';
+import {
+    CreateShippingRuleRequestTranslationsValueFromJSON,
+    CreateShippingRuleRequestTranslationsValueFromJSONTyped,
+    CreateShippingRuleRequestTranslationsValueToJSON,
+    CreateShippingRuleRequestTranslationsValueToJSONTyped,
+} from './CreateShippingRuleRequestTranslationsValue';
 
 /**
  * 
@@ -46,6 +53,12 @@ export interface UpdateShippingRuleRequest {
      * @memberof UpdateShippingRuleRequest
      */
     description?: string;
+    /**
+     * Checkout name and description per language; a blank field falls back to the rule's own text
+     * @type {{ [key: string]: CreateShippingRuleRequestTranslationsValue; }}
+     * @memberof UpdateShippingRuleRequest
+     */
+    translations?: { [key: string]: CreateShippingRuleRequestTranslationsValue; };
     /**
      * Whether this rule is for outbound or inbound (return) shipments
      * @type {UpdateShippingRuleRequestDirectionEnum}
@@ -222,6 +235,7 @@ export function UpdateShippingRuleRequestFromJSONTyped(json: any, ignoreDiscrimi
         
         'name': json['name'] == null ? undefined : json['name'],
         'description': json['description'] == null ? undefined : json['description'],
+        'translations': json['translations'] == null ? undefined : (mapValues(json['translations'], CreateShippingRuleRequestTranslationsValueFromJSON)),
         'direction': json['direction'] == null ? undefined : json['direction'],
         'carrierId': json['carrierId'] == null ? undefined : json['carrierId'],
         'productId': json['productId'] == null ? undefined : json['productId'],
@@ -262,6 +276,7 @@ export function UpdateShippingRuleRequestToJSONTyped(value?: UpdateShippingRuleR
         
         'name': value['name'],
         'description': value['description'],
+        'translations': value['translations'] == null ? undefined : (mapValues(value['translations'], CreateShippingRuleRequestTranslationsValueToJSON)),
         'direction': value['direction'],
         'carrierId': value['carrierId'],
         'productId': value['productId'],

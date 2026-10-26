@@ -27,6 +27,13 @@ import {
     CreateShippingRuleRequestConditionsInnerToJSON,
     CreateShippingRuleRequestConditionsInnerToJSONTyped,
 } from './CreateShippingRuleRequestConditionsInner';
+import type { CreateShippingRuleRequestTranslationsValue } from './CreateShippingRuleRequestTranslationsValue';
+import {
+    CreateShippingRuleRequestTranslationsValueFromJSON,
+    CreateShippingRuleRequestTranslationsValueFromJSONTyped,
+    CreateShippingRuleRequestTranslationsValueToJSON,
+    CreateShippingRuleRequestTranslationsValueToJSONTyped,
+} from './CreateShippingRuleRequestTranslationsValue';
 
 /**
  * 
@@ -46,6 +53,12 @@ export interface CreateShippingRuleRequest {
      * @memberof CreateShippingRuleRequest
      */
     description?: string;
+    /**
+     * Checkout name and description per language; a blank field falls back to the rule's own text
+     * @type {{ [key: string]: CreateShippingRuleRequestTranslationsValue; }}
+     * @memberof CreateShippingRuleRequest
+     */
+    translations?: { [key: string]: CreateShippingRuleRequestTranslationsValue; };
     /**
      * Whether this rule is for outbound or inbound (return) shipments
      * @type {CreateShippingRuleRequestDirectionEnum}
@@ -229,6 +242,7 @@ export function CreateShippingRuleRequestFromJSONTyped(json: any, ignoreDiscrimi
         
         'name': json['name'],
         'description': json['description'] == null ? undefined : json['description'],
+        'translations': json['translations'] == null ? undefined : (mapValues(json['translations'], CreateShippingRuleRequestTranslationsValueFromJSON)),
         'direction': json['direction'] == null ? undefined : json['direction'],
         'carrierId': json['carrierId'],
         'productId': json['productId'],
@@ -269,6 +283,7 @@ export function CreateShippingRuleRequestToJSONTyped(value?: CreateShippingRuleR
         
         'name': value['name'],
         'description': value['description'],
+        'translations': value['translations'] == null ? undefined : (mapValues(value['translations'], CreateShippingRuleRequestTranslationsValueToJSON)),
         'direction': value['direction'],
         'carrierId': value['carrierId'],
         'productId': value['productId'],

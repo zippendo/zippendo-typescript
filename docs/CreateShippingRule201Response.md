@@ -9,6 +9,7 @@ Name | Type
 `id` | string
 `name` | string
 `description` | string
+`translations` | [{ [key: string]: ListShippingRules200ResponseDataInnerTranslationsValue; }](ListShippingRules200ResponseDataInnerTranslationsValue.md)
 `direction` | string
 `carrierId` | string
 `productId` | string
@@ -47,6 +48,7 @@ const example = {
   "id": rule_01HZX9K2QF,
   "name": Standard DK,
   "description": Standard levering i Danmark,
+  "translations": {"da":{"name":"Levering til døren","description":"Leveres inden for 1-2 hverdage"},"de":{"name":"Lieferung bis zur Haustür"}},
   "direction": outbound,
   "carrierId": carr_01HZX9K2QF,
   "productId": PNL13,

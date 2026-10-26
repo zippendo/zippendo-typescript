@@ -27,6 +27,13 @@ import {
     ListShippingRules200ResponseDataInnerAdditionalParametersValueToJSON,
     ListShippingRules200ResponseDataInnerAdditionalParametersValueToJSONTyped,
 } from './ListShippingRules200ResponseDataInnerAdditionalParametersValue';
+import type { ListShippingRules200ResponseDataInnerTranslationsValue } from './ListShippingRules200ResponseDataInnerTranslationsValue';
+import {
+    ListShippingRules200ResponseDataInnerTranslationsValueFromJSON,
+    ListShippingRules200ResponseDataInnerTranslationsValueFromJSONTyped,
+    ListShippingRules200ResponseDataInnerTranslationsValueToJSON,
+    ListShippingRules200ResponseDataInnerTranslationsValueToJSONTyped,
+} from './ListShippingRules200ResponseDataInnerTranslationsValue';
 
 /**
  * 
@@ -52,6 +59,12 @@ export interface CreateShippingRule201Response {
      * @memberof CreateShippingRule201Response
      */
     description: string | null;
+    /**
+     * Checkout name and description per language
+     * @type {{ [key: string]: ListShippingRules200ResponseDataInnerTranslationsValue; }}
+     * @memberof CreateShippingRule201Response
+     */
+    translations: { [key: string]: ListShippingRules200ResponseDataInnerTranslationsValue; };
     /**
      * Whether this rule is for outbound or inbound (return) shipments
      * @type {CreateShippingRule201ResponseDirectionEnum}
@@ -234,6 +247,7 @@ export function instanceOfCreateShippingRule201Response(value: object): value is
     if (!('id' in value) || value['id'] === undefined) return false;
     if (!('name' in value) || value['name'] === undefined) return false;
     if (!('description' in value) || value['description'] === undefined) return false;
+    if (!('translations' in value) || value['translations'] === undefined) return false;
     if (!('direction' in value) || value['direction'] === undefined) return false;
     if (!('carrierId' in value) || value['carrierId'] === undefined) return false;
     if (!('productId' in value) || value['productId'] === undefined) return false;
@@ -277,6 +291,7 @@ export function CreateShippingRule201ResponseFromJSONTyped(json: any, ignoreDisc
         'id': json['id'],
         'name': json['name'],
         'description': json['description'],
+        'translations': (mapValues(json['translations'], ListShippingRules200ResponseDataInnerTranslationsValueFromJSON)),
         'direction': json['direction'],
         'carrierId': json['carrierId'],
         'productId': json['productId'],
@@ -321,6 +336,7 @@ export function CreateShippingRule201ResponseToJSONTyped(value?: CreateShippingR
         'id': value['id'],
         'name': value['name'],
         'description': value['description'],
+        'translations': (mapValues(value['translations'], ListShippingRules200ResponseDataInnerTranslationsValueToJSON)),
         'direction': value['direction'],
         'carrierId': value['carrierId'],
         'productId': value['productId'],

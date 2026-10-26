@@ -8,6 +8,7 @@ Name | Type
 ------------ | -------------
 `name` | string
 `description` | string
+`translations` | [{ [key: string]: CreateShippingRuleRequestTranslationsValue; }](CreateShippingRuleRequestTranslationsValue.md)
 `direction` | string
 `carrierId` | string
 `productId` | string
@@ -42,6 +43,7 @@ import type { CreateShippingRuleRequest } from '@zippendo/sdk'
 const example = {
   "name": Standard DK,
   "description": Standard levering i Danmark,
+  "translations": {"da":{"name":"Levering til døren","description":"Leveres inden for 1-2 hverdage"},"de":{"name":"Lieferung bis zur Haustür"}},
   "direction": outbound,
   "carrierId": carr_01HZX9K2QF,
   "productId": PNL13,

@@ -48,6 +48,13 @@ import {
     ListShippingRules200ResponseDataInnerAdditionalParametersValueToJSON,
     ListShippingRules200ResponseDataInnerAdditionalParametersValueToJSONTyped,
 } from './ListShippingRules200ResponseDataInnerAdditionalParametersValue';
+import type { ListShippingRules200ResponseDataInnerTranslationsValue } from './ListShippingRules200ResponseDataInnerTranslationsValue';
+import {
+    ListShippingRules200ResponseDataInnerTranslationsValueFromJSON,
+    ListShippingRules200ResponseDataInnerTranslationsValueFromJSONTyped,
+    ListShippingRules200ResponseDataInnerTranslationsValueToJSON,
+    ListShippingRules200ResponseDataInnerTranslationsValueToJSONTyped,
+} from './ListShippingRules200ResponseDataInnerTranslationsValue';
 import type { ListShippingRules200ResponseDataInnerReturnShippingRule } from './ListShippingRules200ResponseDataInnerReturnShippingRule';
 import {
     ListShippingRules200ResponseDataInnerReturnShippingRuleFromJSON,
@@ -80,6 +87,12 @@ export interface ListShippingRules200ResponseDataInner {
      * @memberof ListShippingRules200ResponseDataInner
      */
     description: string | null;
+    /**
+     * Checkout name and description per language
+     * @type {{ [key: string]: ListShippingRules200ResponseDataInnerTranslationsValue; }}
+     * @memberof ListShippingRules200ResponseDataInner
+     */
+    translations: { [key: string]: ListShippingRules200ResponseDataInnerTranslationsValue; };
     /**
      * Whether this rule is for outbound or inbound (return) shipments
      * @type {ListShippingRules200ResponseDataInnerDirectionEnum}
@@ -292,6 +305,7 @@ export function instanceOfListShippingRules200ResponseDataInner(value: object): 
     if (!('id' in value) || value['id'] === undefined) return false;
     if (!('name' in value) || value['name'] === undefined) return false;
     if (!('description' in value) || value['description'] === undefined) return false;
+    if (!('translations' in value) || value['translations'] === undefined) return false;
     if (!('direction' in value) || value['direction'] === undefined) return false;
     if (!('carrierId' in value) || value['carrierId'] === undefined) return false;
     if (!('productId' in value) || value['productId'] === undefined) return false;
@@ -337,6 +351,7 @@ export function ListShippingRules200ResponseDataInnerFromJSONTyped(json: any, ig
         'id': json['id'],
         'name': json['name'],
         'description': json['description'],
+        'translations': (mapValues(json['translations'], ListShippingRules200ResponseDataInnerTranslationsValueFromJSON)),
         'direction': json['direction'],
         'carrierId': json['carrierId'],
         'productId': json['productId'],
@@ -386,6 +401,7 @@ export function ListShippingRules200ResponseDataInnerToJSONTyped(value?: ListShi
         'id': value['id'],
         'name': value['name'],
         'description': value['description'],
+        'translations': (mapValues(value['translations'], ListShippingRules200ResponseDataInnerTranslationsValueToJSON)),
         'direction': value['direction'],
         'carrierId': value['carrierId'],
         'productId': value['productId'],

@@ -104,6 +104,12 @@ export interface UpdateOrg200Response {
      */
     customs?: { [key: string]: string; } | null;
     /**
+     * Code printed on packing slips that a scan turns into a print: `QR`, `BARCODE`, or `NONE` for no code.
+     * @type {UpdateOrg200ResponsePackingSlipScanCodeEnum}
+     * @memberof UpdateOrg200Response
+     */
+    packingSlipScanCode: UpdateOrg200ResponsePackingSlipScanCodeEnum;
+    /**
      * Creation timestamp (ISO 8601)
      * @type {string}
      * @memberof UpdateOrg200Response
@@ -117,6 +123,18 @@ export interface UpdateOrg200Response {
     updatedAt: string;
 }
 
+
+/**
+ * @export
+ */
+export const UpdateOrg200ResponsePackingSlipScanCodeEnum = {
+    None: 'NONE',
+    Qr: 'QR',
+    Barcode: 'BARCODE'
+} as const;
+export type UpdateOrg200ResponsePackingSlipScanCodeEnum = typeof UpdateOrg200ResponsePackingSlipScanCodeEnum[keyof typeof UpdateOrg200ResponsePackingSlipScanCodeEnum];
+
+
 /**
  * Check if a given object implements the UpdateOrg200Response interface.
  */
@@ -126,6 +144,7 @@ export function instanceOfUpdateOrg200Response(value: object): value is UpdateOr
     if (!('slug' in value) || value['slug'] === undefined) return false;
     if (!('description' in value) || value['description'] === undefined) return false;
     if (!('currency' in value) || value['currency'] === undefined) return false;
+    if (!('packingSlipScanCode' in value) || value['packingSlipScanCode'] === undefined) return false;
     if (!('createdAt' in value) || value['createdAt'] === undefined) return false;
     if (!('updatedAt' in value) || value['updatedAt'] === undefined) return false;
     return true;
@@ -155,6 +174,7 @@ export function UpdateOrg200ResponseFromJSONTyped(json: any, ignoreDiscriminator
         'postalCode': json['postalCode'] === undefined ? undefined : json['postalCode'] === null ? null : json['postalCode'],
         'country': json['country'] === undefined ? undefined : json['country'] === null ? null : json['country'],
         'customs': json['customs'] === undefined ? undefined : json['customs'] === null ? null : json['customs'],
+        'packingSlipScanCode': json['packingSlipScanCode'],
         'createdAt': json['createdAt'],
         'updatedAt': json['updatedAt'],
     };
@@ -185,6 +205,7 @@ export function UpdateOrg200ResponseToJSONTyped(value?: UpdateOrg200Response | n
         'postalCode': value['postalCode'],
         'country': value['country'],
         'customs': value['customs'],
+        'packingSlipScanCode': value['packingSlipScanCode'],
         'createdAt': value['createdAt'],
         'updatedAt': value['updatedAt'],
     };

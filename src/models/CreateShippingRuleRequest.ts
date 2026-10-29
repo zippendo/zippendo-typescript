@@ -174,6 +174,12 @@ export interface CreateShippingRuleRequest {
      */
     autoPrintDocuments?: boolean;
     /**
+     * When automatic printing starts: `ON_BOOKING` prints as soon as the shipment is sent, `ON_SCAN` waits until the packing slip is scanned.
+     * @type {CreateShippingRuleRequestAutoPrintTriggerEnum}
+     * @memberof CreateShippingRuleRequest
+     */
+    autoPrintTrigger?: CreateShippingRuleRequestAutoPrintTriggerEnum;
+    /**
      * ID of the label printer
      * @type {string}
      * @memberof CreateShippingRuleRequest
@@ -214,6 +220,15 @@ export const CreateShippingRuleRequestDirectionEnum = {
     Inbound: 'inbound'
 } as const;
 export type CreateShippingRuleRequestDirectionEnum = typeof CreateShippingRuleRequestDirectionEnum[keyof typeof CreateShippingRuleRequestDirectionEnum];
+
+/**
+ * @export
+ */
+export const CreateShippingRuleRequestAutoPrintTriggerEnum = {
+    OnBooking: 'ON_BOOKING',
+    OnScan: 'ON_SCAN'
+} as const;
+export type CreateShippingRuleRequestAutoPrintTriggerEnum = typeof CreateShippingRuleRequestAutoPrintTriggerEnum[keyof typeof CreateShippingRuleRequestAutoPrintTriggerEnum];
 
 
 /**
@@ -262,6 +277,7 @@ export function CreateShippingRuleRequestFromJSONTyped(json: any, ignoreDiscrimi
         'generatePackingList': json['generatePackingList'] == null ? undefined : json['generatePackingList'],
         'autoPrintLabels': json['autoPrintLabels'] == null ? undefined : json['autoPrintLabels'],
         'autoPrintDocuments': json['autoPrintDocuments'] == null ? undefined : json['autoPrintDocuments'],
+        'autoPrintTrigger': json['autoPrintTrigger'] == null ? undefined : json['autoPrintTrigger'],
         'labelPrinterId': json['labelPrinterId'] === undefined ? undefined : json['labelPrinterId'] === null ? null : json['labelPrinterId'],
         'documentPrinterId': json['documentPrinterId'] === undefined ? undefined : json['documentPrinterId'] === null ? null : json['documentPrinterId'],
         'returnShippingRuleId': json['returnShippingRuleId'] === undefined ? undefined : json['returnShippingRuleId'] === null ? null : json['returnShippingRuleId'],
@@ -303,6 +319,7 @@ export function CreateShippingRuleRequestToJSONTyped(value?: CreateShippingRuleR
         'generatePackingList': value['generatePackingList'],
         'autoPrintLabels': value['autoPrintLabels'],
         'autoPrintDocuments': value['autoPrintDocuments'],
+        'autoPrintTrigger': value['autoPrintTrigger'],
         'labelPrinterId': value['labelPrinterId'],
         'documentPrinterId': value['documentPrinterId'],
         'returnShippingRuleId': value['returnShippingRuleId'],

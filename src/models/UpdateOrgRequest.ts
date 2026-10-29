@@ -103,6 +103,12 @@ export interface UpdateOrgRequest {
      * @memberof UpdateOrgRequest
      */
     customs?: { [key: string]: string; } | null;
+    /**
+     * Code printed on packing slips that a scan turns into a print: `QR`, `BARCODE`, or `NONE` for no code.
+     * @type {UpdateOrgRequestPackingSlipScanCodeEnum}
+     * @memberof UpdateOrgRequest
+     */
+    packingSlipScanCode?: UpdateOrgRequestPackingSlipScanCodeEnum;
 }
 
 
@@ -118,6 +124,16 @@ export const UpdateOrgRequestCurrencyEnum = {
     Nok: 'NOK'
 } as const;
 export type UpdateOrgRequestCurrencyEnum = typeof UpdateOrgRequestCurrencyEnum[keyof typeof UpdateOrgRequestCurrencyEnum];
+
+/**
+ * @export
+ */
+export const UpdateOrgRequestPackingSlipScanCodeEnum = {
+    None: 'NONE',
+    Qr: 'QR',
+    Barcode: 'BARCODE'
+} as const;
+export type UpdateOrgRequestPackingSlipScanCodeEnum = typeof UpdateOrgRequestPackingSlipScanCodeEnum[keyof typeof UpdateOrgRequestPackingSlipScanCodeEnum];
 
 
 /**
@@ -151,6 +167,7 @@ export function UpdateOrgRequestFromJSONTyped(json: any, ignoreDiscriminator: bo
         'postalCode': json['postalCode'] === undefined ? undefined : json['postalCode'] === null ? null : json['postalCode'],
         'country': json['country'] === undefined ? undefined : json['country'] === null ? null : json['country'],
         'customs': json['customs'] === undefined ? undefined : json['customs'] === null ? null : json['customs'],
+        'packingSlipScanCode': json['packingSlipScanCode'] == null ? undefined : json['packingSlipScanCode'],
     };
 }
 
@@ -179,6 +196,7 @@ export function UpdateOrgRequestToJSONTyped(value?: UpdateOrgRequest | null, ign
         'postalCode': value['postalCode'],
         'country': value['country'],
         'customs': value['customs'],
+        'packingSlipScanCode': value['packingSlipScanCode'],
     };
 }
 

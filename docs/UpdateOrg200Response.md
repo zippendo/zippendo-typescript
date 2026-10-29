@@ -20,6 +20,7 @@ Name | Type
 `postalCode` | string
 `country` | string
 `customs` | { [key: string]: string; }
+`packingSlipScanCode` | string
 `createdAt` | string
 `updatedAt` | string
 
@@ -44,6 +45,7 @@ const example = {
   "postalCode": 1058,
   "country": DK,
   "customs": {"eori":"DK12345678"},
+  "packingSlipScanCode": QR,
   "createdAt": 2026-06-22T14:30:00.000Z,
   "updatedAt": 2026-06-22T14:30:00.000Z,
 } satisfies UpdateOrg200Response

@@ -28,6 +28,7 @@ Name | Type
 `generatePackingList` | boolean
 `autoPrintLabels` | boolean
 `autoPrintDocuments` | boolean
+`autoPrintTrigger` | string
 `labelPrinterId` | string
 `documentPrinterId` | string
 `returnShippingRuleId` | string
@@ -63,6 +64,7 @@ const example = {
   "generatePackingList": false,
   "autoPrintLabels": false,
   "autoPrintDocuments": false,
+  "autoPrintTrigger": ON_BOOKING,
   "labelPrinterId": null,
   "documentPrinterId": null,
   "returnShippingRuleId": null,

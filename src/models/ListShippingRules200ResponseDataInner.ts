@@ -208,6 +208,12 @@ export interface ListShippingRules200ResponseDataInner {
      */
     autoPrintDocuments: boolean;
     /**
+     * When automatic printing starts: `ON_BOOKING` prints as soon as the shipment is sent, `ON_SCAN` waits until the packing slip is scanned.
+     * @type {ListShippingRules200ResponseDataInnerAutoPrintTriggerEnum}
+     * @memberof ListShippingRules200ResponseDataInner
+     */
+    autoPrintTrigger: ListShippingRules200ResponseDataInnerAutoPrintTriggerEnum;
+    /**
      * ID of the label printer
      * @type {string}
      * @memberof ListShippingRules200ResponseDataInner
@@ -297,6 +303,15 @@ export const ListShippingRules200ResponseDataInnerDirectionEnum = {
 } as const;
 export type ListShippingRules200ResponseDataInnerDirectionEnum = typeof ListShippingRules200ResponseDataInnerDirectionEnum[keyof typeof ListShippingRules200ResponseDataInnerDirectionEnum];
 
+/**
+ * @export
+ */
+export const ListShippingRules200ResponseDataInnerAutoPrintTriggerEnum = {
+    OnBooking: 'ON_BOOKING',
+    OnScan: 'ON_SCAN'
+} as const;
+export type ListShippingRules200ResponseDataInnerAutoPrintTriggerEnum = typeof ListShippingRules200ResponseDataInnerAutoPrintTriggerEnum[keyof typeof ListShippingRules200ResponseDataInnerAutoPrintTriggerEnum];
+
 
 /**
  * Check if a given object implements the ListShippingRules200ResponseDataInner interface.
@@ -325,6 +340,7 @@ export function instanceOfListShippingRules200ResponseDataInner(value: object): 
     if (!('generatePackingList' in value) || value['generatePackingList'] === undefined) return false;
     if (!('autoPrintLabels' in value) || value['autoPrintLabels'] === undefined) return false;
     if (!('autoPrintDocuments' in value) || value['autoPrintDocuments'] === undefined) return false;
+    if (!('autoPrintTrigger' in value) || value['autoPrintTrigger'] === undefined) return false;
     if (!('labelPrinterId' in value) || value['labelPrinterId'] === undefined) return false;
     if (!('documentPrinterId' in value) || value['documentPrinterId'] === undefined) return false;
     if (!('returnShippingRuleId' in value) || value['returnShippingRuleId'] === undefined) return false;
@@ -371,6 +387,7 @@ export function ListShippingRules200ResponseDataInnerFromJSONTyped(json: any, ig
         'generatePackingList': json['generatePackingList'],
         'autoPrintLabels': json['autoPrintLabels'],
         'autoPrintDocuments': json['autoPrintDocuments'],
+        'autoPrintTrigger': json['autoPrintTrigger'],
         'labelPrinterId': json['labelPrinterId'],
         'documentPrinterId': json['documentPrinterId'],
         'returnShippingRuleId': json['returnShippingRuleId'],
@@ -421,6 +438,7 @@ export function ListShippingRules200ResponseDataInnerToJSONTyped(value?: ListShi
         'generatePackingList': value['generatePackingList'],
         'autoPrintLabels': value['autoPrintLabels'],
         'autoPrintDocuments': value['autoPrintDocuments'],
+        'autoPrintTrigger': value['autoPrintTrigger'],
         'labelPrinterId': value['labelPrinterId'],
         'documentPrinterId': value['documentPrinterId'],
         'returnShippingRuleId': value['returnShippingRuleId'],

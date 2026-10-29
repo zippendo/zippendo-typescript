@@ -20,6 +20,7 @@ Name | Type
 `postalCode` | string
 `country` | string
 `customs` | { [key: string]: string; }
+`packingSlipScanCode` | string
 
 ## Example
 
@@ -42,6 +43,7 @@ const example = {
   "postalCode": 1058,
   "country": DK,
   "customs": null,
+  "packingSlipScanCode": QR,
 } satisfies UpdateOrgRequest
 
 console.log(example)

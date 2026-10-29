@@ -112,6 +112,12 @@ export interface GetOrg200Response {
      */
     customs?: { [key: string]: string; } | null;
     /**
+     * Code printed on packing slips that a scan turns into a print: `QR`, `BARCODE`, or `NONE` for no code.
+     * @type {GetOrg200ResponsePackingSlipScanCodeEnum}
+     * @memberof GetOrg200Response
+     */
+    packingSlipScanCode: GetOrg200ResponsePackingSlipScanCodeEnum;
+    /**
      * Creation timestamp (ISO 8601)
      * @type {string}
      * @memberof GetOrg200Response
@@ -131,6 +137,18 @@ export interface GetOrg200Response {
     count: GetOrg200ResponseCount;
 }
 
+
+/**
+ * @export
+ */
+export const GetOrg200ResponsePackingSlipScanCodeEnum = {
+    None: 'NONE',
+    Qr: 'QR',
+    Barcode: 'BARCODE'
+} as const;
+export type GetOrg200ResponsePackingSlipScanCodeEnum = typeof GetOrg200ResponsePackingSlipScanCodeEnum[keyof typeof GetOrg200ResponsePackingSlipScanCodeEnum];
+
+
 /**
  * Check if a given object implements the GetOrg200Response interface.
  */
@@ -140,6 +158,7 @@ export function instanceOfGetOrg200Response(value: object): value is GetOrg200Re
     if (!('slug' in value) || value['slug'] === undefined) return false;
     if (!('description' in value) || value['description'] === undefined) return false;
     if (!('currency' in value) || value['currency'] === undefined) return false;
+    if (!('packingSlipScanCode' in value) || value['packingSlipScanCode'] === undefined) return false;
     if (!('createdAt' in value) || value['createdAt'] === undefined) return false;
     if (!('updatedAt' in value) || value['updatedAt'] === undefined) return false;
     if ((!('count' in (value as Record<string, any>)) && !('_count' in (value as Record<string, any>))) || ((value as Record<string, any>)['count'] === undefined && (value as Record<string, any>)['_count'] === undefined)) return false;
@@ -170,6 +189,7 @@ export function GetOrg200ResponseFromJSONTyped(json: any, ignoreDiscriminator: b
         'postalCode': json['postalCode'] === undefined ? undefined : json['postalCode'] === null ? null : json['postalCode'],
         'country': json['country'] === undefined ? undefined : json['country'] === null ? null : json['country'],
         'customs': json['customs'] === undefined ? undefined : json['customs'] === null ? null : json['customs'],
+        'packingSlipScanCode': json['packingSlipScanCode'],
         'createdAt': json['createdAt'],
         'updatedAt': json['updatedAt'],
         'count': GetOrg200ResponseCountFromJSON(json['_count']),
@@ -201,6 +221,7 @@ export function GetOrg200ResponseToJSONTyped(value?: GetOrg200Response | null, i
         'postalCode': value['postalCode'],
         'country': value['country'],
         'customs': value['customs'],
+        'packingSlipScanCode': value['packingSlipScanCode'],
         'createdAt': value['createdAt'],
         'updatedAt': value['updatedAt'],
         '_count': GetOrg200ResponseCountToJSON(value['count']),

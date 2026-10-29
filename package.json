@@ -1,6 +1,6 @@
 {
   "name": "@zippendo/sdk",
-  "version": "1.3.18",
+  "version": "1.3.19",
   "description": "Official TypeScript and JavaScript SDK for the Zippendo shipping API: book shipments, print labels and track parcels with PostNord, GLS, DAO, Bring, DHL, DPD, UPS and more.",
   "author": {
     "name": "Zippendo",

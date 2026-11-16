@@ -20,7 +20,7 @@ All URIs are relative to *https://api.zippendo.com*
 
 Connect carrier
 
-Connects a new carrier to the organization with its configuration.
+Connects a new carrier to the organization with its configuration. Carriers that support it check the credentials with the carrier first and refuse them with CARRIER_AUTH_FAILED or CARRIER_CONFIG_INVALID.
 
 ### Example
 
@@ -87,6 +87,7 @@ example().catch(console.error);
 | **400** | Default Response |  -  |
 | **403** | Default Response |  -  |
 | **404** | Default Response |  -  |
+| **422** | Default Response |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
@@ -497,7 +498,7 @@ example().catch(console.error);
 
 Update carrier
 
-Updates a connected carrier\&#39;s configuration or name.
+Updates a connected carrier\&#39;s configuration or name. A new configuration is checked with the carrier first where the carrier supports it, as on connect.
 
 ### Example
 
@@ -567,6 +568,7 @@ example().catch(console.error);
 | **400** | Default Response |  -  |
 | **403** | Default Response |  -  |
 | **404** | Default Response |  -  |
+| **422** | Default Response |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 

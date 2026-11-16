@@ -6,6 +6,7 @@ All URIs are relative to *https://api.zippendo.com*
 |------------- | ------------- | -------------|
 | [**batchSendShipments**](ShipmentsApi.md#batchsendshipmentsoperation) | **POST** /orgs/{orgId}/shipments/batch-send | Batch send shipments |
 | [**batchSplitShipment**](ShipmentsApi.md#batchsplitshipmentoperation) | **POST** /orgs/{orgId}/shipments/{shipmentId}/batch-split-shipment | Batch split shipment |
+| [**cancelShipment**](ShipmentsApi.md#cancelshipment) | **POST** /orgs/{orgId}/shipments/{shipmentId}/cancel | Cancel sent shipment |
 | [**createReturnShipment**](ShipmentsApi.md#createreturnshipment) | **POST** /orgs/{orgId}/shipments/{shipmentId}/create-return | Create return shipment |
 | [**createShipment**](ShipmentsApi.md#createshipmentoperation) | **POST** /orgs/{orgId}/shipments | Create shipment |
 | [**deleteShipment**](ShipmentsApi.md#deleteshipment) | **DELETE** /orgs/{orgId}/shipments/{shipmentId} | Delete shipment |
@@ -173,6 +174,86 @@ example().catch(console.error);
 | **400** | Default Response |  -  |
 | **403** | Default Response |  -  |
 | **404** | Default Response |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
+
+
+## cancelShipment
+
+> CreateShipment201Response cancelShipment(orgId, shipmentId)
+
+Cancel sent shipment
+
+Cancel a sent shipment with its carrier. The shipment becomes &#x60;cancelled&#x60; when the carrier confirms at once; a carrier that confirms later leaves it &#x60;dispatched&#x60; with the request in its activity, and its tracking shows the outcome; a carrier that withdrew only some parcels leaves it &#x60;dispatched&#x60; with each parcel\&#39;s outcome in its activity. Only carriers whose &#x60;cancelsShipments&#x60; is true accept it, except products listed in &#x60;uncancellableProductIds&#x60;; others answer SHIPMENT_CANCEL_NOT_SUPPORTED, and a carrier that refuses (for example because the parcel was collected) answers CARRIER_CANCEL_REFUSED.
+
+### Example
+
+```ts
+import {
+  Configuration,
+  ShipmentsApi,
+} from '@zippendo/sdk';
+import type { CancelShipmentRequest } from '@zippendo/sdk';
+
+async function example() {
+  console.log("🚀 Testing @zippendo/sdk SDK...");
+  const config = new Configuration({ 
+    // Configure HTTP bearer authorization: bearerAuth
+    accessToken: "YOUR BEARER TOKEN",
+  });
+  const api = new ShipmentsApi(config);
+
+  const body = {
+    // string | Organization identifier.
+    orgId: org_1a2b3c4d,
+    // string | Shipment identifier.
+    shipmentId: shp_4d9e7a2f,
+  } satisfies CancelShipmentRequest;
+
+  try {
+    const data = await api.cancelShipment(body);
+    console.log(data);
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+// Run the test
+example().catch(console.error);
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **orgId** | `string` | Organization identifier. | [Defaults to `undefined`] |
+| **shipmentId** | `string` | Shipment identifier. | [Defaults to `undefined`] |
+
+### Return type
+
+[**CreateShipment201Response**](CreateShipment201Response.md)
+
+### Authorization
+
+[bearerAuth](../README.md#bearerAuth)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Default Response |  -  |
+| **400** | Default Response |  -  |
+| **403** | Default Response |  -  |
+| **404** | Default Response |  -  |
+| **409** | Default Response |  -  |
+| **422** | Default Response |  -  |
+| **503** | Default Response |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 

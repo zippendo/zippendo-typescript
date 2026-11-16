@@ -21,6 +21,9 @@ Name | Type
 `beta` | boolean
 `generatesCustomsDocuments` | boolean
 `generatesCommercialInvoice` | boolean
+`cancelsShipments` | boolean
+`uncancellableProductIds` | Array&lt;string&gt;
+`verifiesCredentials` | boolean
 
 ## Example
 
@@ -44,6 +47,9 @@ const example = {
   "beta": true,
   "generatesCustomsDocuments": true,
   "generatesCommercialInvoice": true,
+  "cancelsShipments": true,
+  "uncancellableProductIds": ["LOCKER_EXPRESS"],
+  "verifiesCredentials": true,
 } satisfies ListCarriers200ResponseDataInner
 
 console.log(example)

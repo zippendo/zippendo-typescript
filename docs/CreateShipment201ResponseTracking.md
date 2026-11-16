@@ -9,6 +9,8 @@ Name | Type
 `url` | string
 `number` | string
 `labelFreeCode` | string
+`expectedPickupDate` | string
+`cancellationRequestedAt` | string
 `qrCodeLink` | string
 `qrCodeDataUri` | string
 `qrCodeUrl` | string
@@ -23,6 +25,8 @@ const example = {
   "url": https://tracking.postnord.com/00370724710000012345,
   "number": 00370724710000012345,
   "labelFreeCode": AB12CD34,
+  "expectedPickupDate": 2026-11-04,
+  "cancellationRequestedAt": 2026-11-03T10:15:00.000Z,
   "qrCodeLink": data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNk+M9QDwADhgGAWjR9awAAAABJRU5ErkJggg==,
   "qrCodeDataUri": data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNk+M9QDwADhgGAWjR9awAAAABJRU5ErkJggg==,
   "qrCodeUrl": https://qr.bring.com/label-free/AB12CD34.png,

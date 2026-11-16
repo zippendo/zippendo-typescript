@@ -111,6 +111,24 @@ export interface ListAvailableCarriers200ResponseInner {
      * @memberof ListAvailableCarriers200ResponseInner
      */
     generatesCommercialInvoice?: boolean;
+    /**
+     * Whether a sent shipment of this carrier can be cancelled from Zippendo.
+     * @type {boolean}
+     * @memberof ListAvailableCarriers200ResponseInner
+     */
+    cancelsShipments?: boolean;
+    /**
+     * Products whose shipments this carrier cannot cancel, although it cancels its other products (for example locker deliveries).
+     * @type {Array<string>}
+     * @memberof ListAvailableCarriers200ResponseInner
+     */
+    uncancellableProductIds?: Array<string>;
+    /**
+     * Whether Zippendo checks the credentials with the carrier when the carrier is connected or updated.
+     * @type {boolean}
+     * @memberof ListAvailableCarriers200ResponseInner
+     */
+    verifiesCredentials?: boolean;
 }
 
 /**
@@ -146,6 +164,9 @@ export function ListAvailableCarriers200ResponseInnerFromJSONTyped(json: any, ig
         'beta': json['beta'] == null ? undefined : json['beta'],
         'generatesCustomsDocuments': json['generatesCustomsDocuments'] == null ? undefined : json['generatesCustomsDocuments'],
         'generatesCommercialInvoice': json['generatesCommercialInvoice'] == null ? undefined : json['generatesCommercialInvoice'],
+        'cancelsShipments': json['cancelsShipments'] == null ? undefined : json['cancelsShipments'],
+        'uncancellableProductIds': json['uncancellableProductIds'] == null ? undefined : json['uncancellableProductIds'],
+        'verifiesCredentials': json['verifiesCredentials'] == null ? undefined : json['verifiesCredentials'],
     };
 }
 
@@ -174,6 +195,9 @@ export function ListAvailableCarriers200ResponseInnerToJSONTyped(value?: ListAva
         'beta': value['beta'],
         'generatesCustomsDocuments': value['generatesCustomsDocuments'],
         'generatesCommercialInvoice': value['generatesCommercialInvoice'],
+        'cancelsShipments': value['cancelsShipments'],
+        'uncancellableProductIds': value['uncancellableProductIds'],
+        'verifiesCredentials': value['verifiesCredentials'],
     };
 }
 

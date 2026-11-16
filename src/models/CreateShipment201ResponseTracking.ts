@@ -38,6 +38,18 @@ export interface CreateShipment201ResponseTracking {
      */
     labelFreeCode?: string | null;
     /**
+     * The day the carrier plans to collect the parcel, for carriers that choose the pickup day at booking (WebrinQ return pickups).
+     * @type {string}
+     * @memberof CreateShipment201ResponseTracking
+     */
+    expectedPickupDate?: string | null;
+    /**
+     * When a cancellation was sent to a carrier that confirms it later. The shipment stays dispatched until the carrier reports it cancelled.
+     * @type {string}
+     * @memberof CreateShipment201ResponseTracking
+     */
+    cancellationRequestedAt?: string | null;
+    /**
      * DEPRECATED — use `qrCodeDataUri` (embeddable data URI) or `qrCodeUrl` (hosted link). Catch-all that carries whichever applies, kept populated for backwards compatibility during the migration and until it is disabled.
      * @type {string}
      * @memberof CreateShipment201ResponseTracking
@@ -77,6 +89,8 @@ export function CreateShipment201ResponseTrackingFromJSONTyped(json: any, ignore
         'url': json['url'] === undefined ? undefined : json['url'] === null ? null : json['url'],
         'number': json['number'] === undefined ? undefined : json['number'] === null ? null : json['number'],
         'labelFreeCode': json['labelFreeCode'] === undefined ? undefined : json['labelFreeCode'] === null ? null : json['labelFreeCode'],
+        'expectedPickupDate': json['expectedPickupDate'] === undefined ? undefined : json['expectedPickupDate'] === null ? null : json['expectedPickupDate'],
+        'cancellationRequestedAt': json['cancellationRequestedAt'] === undefined ? undefined : json['cancellationRequestedAt'] === null ? null : json['cancellationRequestedAt'],
         'qrCodeLink': json['qrCodeLink'] === undefined ? undefined : json['qrCodeLink'] === null ? null : json['qrCodeLink'],
         'qrCodeDataUri': json['qrCodeDataUri'] === undefined ? undefined : json['qrCodeDataUri'] === null ? null : json['qrCodeDataUri'],
         'qrCodeUrl': json['qrCodeUrl'] === undefined ? undefined : json['qrCodeUrl'] === null ? null : json['qrCodeUrl'],
@@ -97,6 +111,8 @@ export function CreateShipment201ResponseTrackingToJSONTyped(value?: CreateShipm
         'url': value['url'],
         'number': value['number'],
         'labelFreeCode': value['labelFreeCode'],
+        'expectedPickupDate': value['expectedPickupDate'],
+        'cancellationRequestedAt': value['cancellationRequestedAt'],
         'qrCodeLink': value['qrCodeLink'],
         'qrCodeDataUri': value['qrCodeDataUri'],
         'qrCodeUrl': value['qrCodeUrl'],

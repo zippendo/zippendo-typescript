@@ -105,6 +105,11 @@ export interface BatchSplitShipmentOperationRequest {
     batchSplitShipmentRequest: BatchSplitShipmentRequest;
 }
 
+export interface CancelShipmentRequest {
+    orgId: string;
+    shipmentId: string;
+}
+
 export interface CreateReturnShipmentRequest {
     orgId: string;
     shipmentId: string;
@@ -318,6 +323,69 @@ export class ShipmentsApi extends runtime.BaseAPI {
      */
     async batchSplitShipment(requestParameters: BatchSplitShipmentOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<BatchSplitShipment201Response> {
         const response = await this.batchSplitShipmentRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     * Creates request options for cancelShipment without sending the request
+     */
+    async cancelShipmentRequestOpts(requestParameters: CancelShipmentRequest): Promise<runtime.RequestOpts> {
+        if (requestParameters['orgId'] == null) {
+            throw new runtime.RequiredError(
+                'orgId',
+                'Required parameter "orgId" was null or undefined when calling cancelShipment().'
+            );
+        }
+
+        if (requestParameters['shipmentId'] == null) {
+            throw new runtime.RequiredError(
+                'shipmentId',
+                'Required parameter "shipmentId" was null or undefined when calling cancelShipment().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        if (this.configuration && this.configuration.accessToken) {
+            const token = this.configuration.accessToken;
+            const tokenString = await token("bearerAuth", []);
+
+            if (tokenString) {
+                headerParameters["Authorization"] = `Bearer ${tokenString}`;
+            }
+        }
+
+        let urlPath = `/orgs/{orgId}/shipments/{shipmentId}/cancel`;
+        urlPath = urlPath.replace('{orgId}', encodeURIComponent(String(requestParameters['orgId'])));
+        urlPath = urlPath.replace('{shipmentId}', encodeURIComponent(String(requestParameters['shipmentId'])));
+
+        return {
+            path: urlPath,
+            method: 'POST',
+            headers: headerParameters,
+            query: queryParameters,
+        };
+    }
+
+    /**
+     * Cancel a sent shipment with its carrier. The shipment becomes `cancelled` when the carrier confirms at once; a carrier that confirms later leaves it `dispatched` with the request in its activity, and its tracking shows the outcome; a carrier that withdrew only some parcels leaves it `dispatched` with each parcel\'s outcome in its activity. Only carriers whose `cancelsShipments` is true accept it, except products listed in `uncancellableProductIds`; others answer SHIPMENT_CANCEL_NOT_SUPPORTED, and a carrier that refuses (for example because the parcel was collected) answers CARRIER_CANCEL_REFUSED.
+     * Cancel sent shipment
+     */
+    async cancelShipmentRaw(requestParameters: CancelShipmentRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CreateShipment201Response>> {
+        const requestOptions = await this.cancelShipmentRequestOpts(requestParameters);
+        const response = await this.request(requestOptions, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => CreateShipment201ResponseFromJSON(jsonValue));
+    }
+
+    /**
+     * Cancel a sent shipment with its carrier. The shipment becomes `cancelled` when the carrier confirms at once; a carrier that confirms later leaves it `dispatched` with the request in its activity, and its tracking shows the outcome; a carrier that withdrew only some parcels leaves it `dispatched` with each parcel\'s outcome in its activity. Only carriers whose `cancelsShipments` is true accept it, except products listed in `uncancellableProductIds`; others answer SHIPMENT_CANCEL_NOT_SUPPORTED, and a carrier that refuses (for example because the parcel was collected) answers CARRIER_CANCEL_REFUSED.
+     * Cancel sent shipment
+     */
+    async cancelShipment(requestParameters: CancelShipmentRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CreateShipment201Response> {
+        const response = await this.cancelShipmentRaw(requestParameters, initOverrides);
         return await response.value();
     }
 

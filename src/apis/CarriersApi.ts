@@ -148,7 +148,7 @@ export class CarriersApi extends runtime.BaseAPI {
     }
 
     /**
-     * Connects a new carrier to the organization with its configuration.
+     * Connects a new carrier to the organization with its configuration. Carriers that support it check the credentials with the carrier first and refuse them with CARRIER_AUTH_FAILED or CARRIER_CONFIG_INVALID.
      * Connect carrier
      */
     async connectCarrierRaw(requestParameters: ConnectCarrierOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ListCarriers200ResponseDataInner>> {
@@ -159,7 +159,7 @@ export class CarriersApi extends runtime.BaseAPI {
     }
 
     /**
-     * Connects a new carrier to the organization with its configuration.
+     * Connects a new carrier to the organization with its configuration. Carriers that support it check the credentials with the carrier first and refuse them with CARRIER_AUTH_FAILED or CARRIER_CONFIG_INVALID.
      * Connect carrier
      */
     async connectCarrier(requestParameters: ConnectCarrierOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ListCarriers200ResponseDataInner> {
@@ -574,7 +574,7 @@ export class CarriersApi extends runtime.BaseAPI {
     }
 
     /**
-     * Updates a connected carrier\'s configuration or name.
+     * Updates a connected carrier\'s configuration or name. A new configuration is checked with the carrier first where the carrier supports it, as on connect.
      * Update carrier
      */
     async updateCarrierRaw(requestParameters: UpdateCarrierOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ListCarriers200ResponseDataInner>> {
@@ -585,7 +585,7 @@ export class CarriersApi extends runtime.BaseAPI {
     }
 
     /**
-     * Updates a connected carrier\'s configuration or name.
+     * Updates a connected carrier\'s configuration or name. A new configuration is checked with the carrier first where the carrier supports it, as on connect.
      * Update carrier
      */
     async updateCarrier(requestParameters: UpdateCarrierOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ListCarriers200ResponseDataInner> {

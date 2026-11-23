@@ -16,6 +16,7 @@ Name | Type
 `isPickupAvailable` | boolean
 `services` | [Array&lt;ListCarrierProducts200ResponseInnerServicesInner&gt;](ListCarrierProducts200ResponseInnerServicesInner.md)
 `additionalParameters` | [Array&lt;ListCarrierProducts200ResponseInnerAdditionalParametersInner&gt;](ListCarrierProducts200ResponseInnerAdditionalParametersInner.md)
+`dangerousGoods` | [Array&lt;ListCarrierProducts200ResponseInnerDangerousGoodsInner&gt;](ListCarrierProducts200ResponseInnerDangerousGoodsInner.md)
 `weightLimits` | [ListCarrierProducts200ResponseInnerWeightLimits](ListCarrierProducts200ResponseInnerWeightLimits.md)
 
 ## Example
@@ -35,6 +36,7 @@ const example = {
   "isPickupAvailable": true,
   "services": null,
   "additionalParameters": null,
+  "dangerousGoods": null,
   "weightLimits": null,
 } satisfies ListCarrierProducts200ResponseInner
 

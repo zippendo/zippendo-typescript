@@ -20,7 +20,7 @@ import { mapValues } from '../runtime';
  */
 export interface GetBillingUsage200ResponseAddOnsInner {
     /**
-     * Type of billing add-on
+     * Type of billing add-on. Only zippy can be purchased.
      * @type {GetBillingUsage200ResponseAddOnsInnerTypeEnum}
      * @memberof GetBillingUsage200ResponseAddOnsInner
      */

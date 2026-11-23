@@ -18,7 +18,7 @@ import type { GetBillingUsage200ResponseAddOnsInner } from '@zippendo/sdk'
 
 // TODO: Update the object below with actual values
 const example = {
-  "type": extra_carrier,
+  "type": zippy,
   "quantity": 2,
   "unitPrice": 9900,
   "totalPrice": 19800,

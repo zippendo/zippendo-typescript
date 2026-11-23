@@ -13,6 +13,13 @@
  */
 
 import { mapValues } from '../runtime';
+import type { ListCarrierProducts200ResponseInnerDangerousGoodsInner } from './ListCarrierProducts200ResponseInnerDangerousGoodsInner';
+import {
+    ListCarrierProducts200ResponseInnerDangerousGoodsInnerFromJSON,
+    ListCarrierProducts200ResponseInnerDangerousGoodsInnerFromJSONTyped,
+    ListCarrierProducts200ResponseInnerDangerousGoodsInnerToJSON,
+    ListCarrierProducts200ResponseInnerDangerousGoodsInnerToJSONTyped,
+} from './ListCarrierProducts200ResponseInnerDangerousGoodsInner';
 import type { ListCarrierProducts200ResponseInnerAdditionalParametersInner } from './ListCarrierProducts200ResponseInnerAdditionalParametersInner';
 import {
     ListCarrierProducts200ResponseInnerAdditionalParametersInnerFromJSON,
@@ -102,6 +109,12 @@ export interface ListCarrierProducts200ResponseInner {
      */
     additionalParameters?: Array<ListCarrierProducts200ResponseInnerAdditionalParametersInner>;
     /**
+     * How this product declares dangerous goods: the service to request and the parameters that carry the details. Absent when the product cannot carry them.
+     * @type {Array<ListCarrierProducts200ResponseInnerDangerousGoodsInner>}
+     * @memberof ListCarrierProducts200ResponseInner
+     */
+    dangerousGoods?: Array<ListCarrierProducts200ResponseInnerDangerousGoodsInner>;
+    /**
      * 
      * @type {ListCarrierProducts200ResponseInnerWeightLimits}
      * @memberof ListCarrierProducts200ResponseInner
@@ -154,6 +167,7 @@ export function ListCarrierProducts200ResponseInnerFromJSONTyped(json: any, igno
         'isPickupAvailable': json['isPickupAvailable'],
         'services': json['services'] == null ? undefined : ((json['services'] as Array<any>).map(ListCarrierProducts200ResponseInnerServicesInnerFromJSON)),
         'additionalParameters': json['additionalParameters'] == null ? undefined : ((json['additionalParameters'] as Array<any>).map(ListCarrierProducts200ResponseInnerAdditionalParametersInnerFromJSON)),
+        'dangerousGoods': json['dangerousGoods'] == null ? undefined : ((json['dangerousGoods'] as Array<any>).map(ListCarrierProducts200ResponseInnerDangerousGoodsInnerFromJSON)),
         'weightLimits': json['weightLimits'] == null ? undefined : ListCarrierProducts200ResponseInnerWeightLimitsFromJSON(json['weightLimits']),
     };
 }
@@ -179,6 +193,7 @@ export function ListCarrierProducts200ResponseInnerToJSONTyped(value?: ListCarri
         'isPickupAvailable': value['isPickupAvailable'],
         'services': value['services'] == null ? undefined : ((value['services'] as Array<any>).map(ListCarrierProducts200ResponseInnerServicesInnerToJSON)),
         'additionalParameters': value['additionalParameters'] == null ? undefined : ((value['additionalParameters'] as Array<any>).map(ListCarrierProducts200ResponseInnerAdditionalParametersInnerToJSON)),
+        'dangerousGoods': value['dangerousGoods'] == null ? undefined : ((value['dangerousGoods'] as Array<any>).map(ListCarrierProducts200ResponseInnerDangerousGoodsInnerToJSON)),
         'weightLimits': ListCarrierProducts200ResponseInnerWeightLimitsToJSON(value['weightLimits']),
     };
 }

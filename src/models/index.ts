@@ -101,6 +101,8 @@ export * from './ListCarrierProductServicePointsRequest';
 export * from './ListCarrierProducts200ResponseInner';
 export * from './ListCarrierProducts200ResponseInnerAdditionalParametersInner';
 export * from './ListCarrierProducts200ResponseInnerAdditionalParametersInnerOptionsInner';
+export * from './ListCarrierProducts200ResponseInnerDangerousGoodsInner';
+export * from './ListCarrierProducts200ResponseInnerDangerousGoodsInnerParameters';
 export * from './ListCarrierProducts200ResponseInnerServicesInner';
 export * from './ListCarrierProducts200ResponseInnerWeightLimits';
 export * from './ListCarriers200Response';

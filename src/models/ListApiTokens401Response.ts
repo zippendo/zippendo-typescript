@@ -236,6 +236,8 @@ export const ListApiTokens401ResponseCodeEnum = {
     WmsDangerousGoodsUnsupported: 'WMS_DANGEROUS_GOODS_UNSUPPORTED',
     WmsLabelInProgress: 'WMS_LABEL_IN_PROGRESS',
     WmsLabelAlreadyBooked: 'WMS_LABEL_ALREADY_BOOKED',
+    WmsProviderCredentialsInvalid: 'WMS_PROVIDER_CREDENTIALS_INVALID',
+    WmsProviderRequestFailed: 'WMS_PROVIDER_REQUEST_FAILED',
     WmsLabelCountMismatch: 'WMS_LABEL_COUNT_MISMATCH',
     DataExportNotFound: 'DATA_EXPORT_NOT_FOUND',
     DataExportInProgress: 'DATA_EXPORT_IN_PROGRESS',

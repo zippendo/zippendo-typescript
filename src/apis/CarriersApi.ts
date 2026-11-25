@@ -211,7 +211,7 @@ export class CarriersApi extends runtime.BaseAPI {
     }
 
     /**
-     * Disconnects a carrier from the organization.
+     * Disconnects a carrier from the organization. A carrier that has pickups cannot be disconnected.
      * Disconnect carrier
      */
     async disconnectCarrierRaw(requestParameters: DisconnectCarrierRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<string>> {
@@ -226,7 +226,7 @@ export class CarriersApi extends runtime.BaseAPI {
     }
 
     /**
-     * Disconnects a carrier from the organization.
+     * Disconnects a carrier from the organization. A carrier that has pickups cannot be disconnected.
      * Disconnect carrier
      */
     async disconnectCarrier(requestParameters: DisconnectCarrierRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<string> {

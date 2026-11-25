@@ -98,7 +98,7 @@ example().catch(console.error);
 
 Disconnect carrier
 
-Disconnects a carrier from the organization.
+Disconnects a carrier from the organization. A carrier that has pickups cannot be disconnected.
 
 ### Example
 
@@ -164,6 +164,7 @@ example().catch(console.error);
 | **204** | Default Response |  -  |
 | **403** | Default Response |  -  |
 | **404** | Default Response |  -  |
+| **409** | Default Response |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
